@@ -1,0 +1,20 @@
+{
+  "name": "web-interview-questions",
+  "version": "1.0.0",
+  "description": "![](https://ftp.bmp.ovh/imgs/2019/11/b9334bab49fa3323.png)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yayxs/web-interview-questions.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yayxs/web-interview-questions/issues"
+  },
+  "homepage": "https://github.com/yayxs/web-interview-questions#readme"
+}
