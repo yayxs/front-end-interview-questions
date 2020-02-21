@@ -6,4 +6,4 @@
 
 ### 1、call-apply-bind
 
-[]()
+[call && apply && bind 用法区别小结](https://github.com/yayxs/web-interview-questions/tree/master/bind-apply-call)
