@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <input type="text" id="ipt">
+    <script src="./debounce.js"></script>
+    <script src="./throttle.js"></script>
+    <script>
+
+        let ipt = document.getElementById('ipt')
+        console.log(ipt)
+        ipt.addEventListener('input', debounce(sayHi)); // 防抖
+        window.addEventListener('resize',throttle(helloWorld))
+    </script>
+</body>
+</html>
