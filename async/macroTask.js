@@ -8,11 +8,18 @@
 const macroTask = (callback, delay = 2000, type = "setTimeout") => {
   switch (type) {
     case "setTimeout":
-      let timeOutId = setTimeout(() => callback(timeOutId), delay);
-      break;
+      return new Promise(resolve => {
+        let id = setTimeout(() => {
+          callback(id, resolve);
+        }, delay);
+      });
+
     case "setInterval":
-      let intervalId = setInterval(() => callback(intervalId), delay);
-      break;
+      return new Promise(resolve => {
+        let id = setInterval(() => {
+          callback(id, resolve);
+        }, delay);
+      });
     default:
       break;
   }
