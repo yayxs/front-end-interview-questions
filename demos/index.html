@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Person() {
+        // Person() 构造函数定义 `this`作为它自己的实例.
+        this.age = 0;
+
+        setInterval(function growUp() {
+          console.log(this);
+          // 在非严格模式, growUp()函数定义 `this`作为全局对象,
+          // 与在 Person()构造函数中定义的 `this`并不相同.
+          this.age++;
+        }, 1000);
+      }
+
+      //   var p = new Person();
+
+      var Foo = () => {};
+      var foo = new Foo(); // TypeError: Foo is not a constructor
+    </script>
+  </body>
+</html>
