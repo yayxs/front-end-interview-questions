@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <input v-model="obj.message" />
+    </div>
+
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <script src="../../vuex.js"></script>
+    <script>
+      import { mapState } from "vuex";
+      const store = new Vuex.Store({
+        state: {
+          obj: {
+            message: "hello",
+          },
+        },
+        mutations: {
+          increment(state) {
+            state.count++;
+          },
+        },
+      });
+      var vm = new Vue({
+        el: "#app",
+        data() {
+          return {};
+        },
+        computed: {
+          ...mapState({
+            message: (state) => state.obj.message,
+          }),
+        },
+        methods: {
+          updateMessage(e) {
+            this.$store.commit("updateMessage", e.target.value);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
