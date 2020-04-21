@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue 生命周期进阶</title>
+  </head>
+  <body>
+    <!-- 结构 -->
+    <div id="app">
+      <h3>{{message}}</h3>
+      <keep-alive>
+        <child-com :msg="fMsg" :v-show="fShow"></child-com>
+      </keep-alive>
+    </div>
+  </body>
+  <script src="../../node_modules/vue/dist/vue.js"></script>
+
+  <script>
+    var childCom = {
+      template: "<div> {{childMsg}}</div>",
+      props: ["msg"],
+      data: function() {
+        return {
+          childMsg: "child"
+        };
+      },
+      beforeCreate: function() {
+        debugger;
+      },
+      created: function() {
+        debugger;
+      },
+      beforeMount: function() {
+        debugger;
+      },
+      mounted: function() {
+        debugger;
+      },
+      deactivated: function() {
+        alert("keepAlive停用");
+      },
+      activated: function() {
+        console.log("component activated");
+      },
+      beforeDestroy: function() {
+        console.group("beforeDestroy 销毁前状态===============》");
+        var state = {
+          el: this.$el,
+          data: this.$data,
+          message: this.message
+        };
+        console.log(this.$el);
+        console.log(state);
+      },
+      destroyed: function() {
+        console.group("destroyed 销毁完成状态===============》");
+        var state = {
+          el: this.$el,
+          data: this.$data,
+          message: this.message
+        };
+        console.log(this.$el);
+        console.log(state);
+      }
+    };
+    var app = new Vue({
+      el: "#app",
+      data: {
+        message: "Hello Vue.js!",
+        fMsg: "父组件的消息",
+        fShow: true
+      },
+      components: {
+        childCom
+      },
+      methods: {},
+      beforeCreate() {
+        console.log(`父组件beforeCreate执行`);
+        debugger;
+      },
+      created() {
+        console.log(`父组件created执行`);
+        debugger;
+      },
+      beforeMount() {
+        console.log(`父组件beforeMount执行`);
+        debugger;
+      },
+      mounted() {
+        console.log(`父组件mounted执行`);
+        debugger;
+      },
+      beforeUpdate() {
+        console.log(`父组件beforeUpdate执行`);
+        alert("页面视图更新前");
+      },
+      updated() {
+        console.log(`父组件updated执行`);
+        alert("页面视图更新后");
+      },
+      beforeDestroy() {
+        console.log(`父组件beforeDestroy执行`);
+        let state = {
+          el: this.$el,
+          data: this.$data,
+          message: this.message
+        };
+        console.log(this.$el);
+        console.log(state);
+      },
+      destroyed() {
+        console.log(`父组件destroyed执行`);
+        let state = {
+          el: this.$el,
+          data: this.$data,
+          message: this.message
+        };
+        console.log(this.$el);
+        console.log(state);
+      }
+    });
+  </script>
+</html>

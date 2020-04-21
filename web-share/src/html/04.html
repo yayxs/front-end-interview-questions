@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <div id="app">
+      <keep-alive>
+        <my-components
+          :msg="msg1"
+          v-if="show"
+          @handle-emit="(val)=>{message=val}"
+        ></my-components>
+        <p>{{message}}</p>
+      </keep-alive>
+    </div>
+  </body>
+  <script src="../../node_modules/vue/dist/vue.js"></script>
+  <script>
+    var child = {
+      template: `
+      <div>
+      <div>子组件: {{childMsg}}</div>
+      
+      <button @click = "handleClick">按钮按钮</button>
+      </div>
+      `,
+      props: ["msg"],
+      data: function() {
+        return {
+          childMsg: "child",
+        };
+      },
+      methods: {
+        handleClick() {
+          this.childMsg = 123
+          this.$emit("handleEmit", this.childMsg);
+        },
+      },
+      beforeCreate: function() {
+        debugger;
+      },
+      created: function() {
+        debugger;
+      },
+      beforeMount: function() {
+        debugger;
+      },
+      mounted: function() {
+        debugger;
+      },
+      beforeUpdate: function() {
+        alert("子组件的beforeUpdate");
+      },
+      updated: function() {
+        alert("子组件的updated");
+      },
+      deactivated: function() {
+        debugger;
+        alert("子组件keepAlive停用");
+      },
+      activated: function() {
+        debugger;
+        console.log("component activated");
+      },
+
+      beforeDestroy: function() {
+        debugger
+        console.group("beforeDestroy子 销毁前状态===============》");
+        var state = {
+          el: this.$el,
+          data: this.$data,
+          message: this.message,
+        };
+        console.log(this.$el);
+        console.log(state);
+      },
+      destroyed: function() {
+        debugger
+        console.group("destroyed子 销毁完成状态===============》");
+        var state = {
+          el: this.$el,
+          data: this.$data,
+          message: this.message,
+        };
+        console.log(this.$el);
+        console.log(state);
+      },
+    };
+    var vm = new Vue({
+      el: "#app",
+      data: {
+        message: "",
+        msg1: "hello",
+        show: true,
+      },
+      beforeCreate: function() {
+        debugger;
+      },
+      created: function() {
+        debugger;
+      },
+      beforeMount: function() {
+        debugger;
+      },
+      mounted: function() {
+        debugger;
+      },
+      beforeUpdate: function() {
+        alert("父组件的beforeUpdate");
+      },
+      updated: function() {
+        alert("父组件的updated");
+      },
+      beforeDestroy: function() {
+        debugger
+        console.group("beforeDestroy 父组件销毁前状态===============》");
+        var state = {
+          el: this.$el,
+          data: this.$data,
+          message: this.message,
+        };
+        console.log(this.$el);
+        console.log(state);
+      },
+      destroyed: function() {
+        debugger
+        console.group("destroyed 父组件销毁完成状态===============》");
+        var state = {
+          el: this.$el,
+          data: this.$data,
+          message: this.message,
+        };
+        console.log(this.$el);
+        console.log(state);
+      },
+      components: {
+        "my-components": child,
+      },
+    });
+  </script>
+</html>
