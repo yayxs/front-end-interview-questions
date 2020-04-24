@@ -67,11 +67,15 @@
 let obj = {
   name: "张三",
   sayHi() {
-    console.log(this);
-    function sayName() {
-      console.log(this);
+    console.log(this); // obj 这个对象
+    function sayName() { 
+      console.log(this); // 是一个函数  this 指向window
     }
     sayName()
+    const foo = ()=>{
+      console.log(this)
+    }
+    foo()
   },
 };
 console.log(obj.name);

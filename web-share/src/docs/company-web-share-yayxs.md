@@ -419,6 +419,32 @@ console.log(res1) // 6
 
 ### 优势
 
+- 关于函数的参数默认值
+
+  - 之前
+
+  ```js
+  function log(x, y) {
+    y = y || 'World';
+    console.log(x, y);
+  }
+  
+  if (typeof y === 'undefined') {
+    y = 'World';
+  }
+  ```
+
+  - 现在
+
+  ```js
+  function Point(x = 0, y = 0) {
+    this.x = x;
+    this.y = y;
+  }
+  ```
+
+  
+
 - 写起来更短
 - 没有单独的`this`
 - 箭头函数使得表达更加简洁。
@@ -460,6 +486,44 @@ var p = new Person();
 ```
 
 **箭头函数不会创建自己的`this,它只会从自己的作用域链的上一层继承this`**
+
+#### 普通函数与箭头函数有什么不同
+
+- 函数体内的 this 对象，就是定义时所在的对象，而不是使用时所在的对象
+
+```js
+let obj = {
+  name: "张三",
+  sayHi() {
+    console.log(this); // obj 这个对象
+    function sayName() { 
+      console.log(this); // 是一个函数  this 指向window
+    }
+    sayName()
+    const foo = ()=>{
+      console.log(this) // obj 这个对象
+    }
+    foo()
+  },
+};
+console.log(obj.name);
+obj.sayHi();
+
+```
+
+- ES6 引入 rest 参数（形式为`...变量名`），用于获取函数的多余参数，这样就不需要使用`arguments`对象了。rest 参数搭配的变量是一个数组，该变量将多余的参数放入数组中。
+
+```js
+// arguments变量的写法 类似数组的对象
+function sortNumbers() {
+  return Array.prototype.slice.call(arguments).sort();
+}
+
+// rest参数的写法 真正的数组
+const sortNumbers = (...numbers) => numbers.sort();
+```
+
+- 不可以使用`yield`命令，因此箭头函数不能用作 Generator 函数。
 
 
 
@@ -619,6 +683,8 @@ console.log(p1.name);
 ```
 
 - 不可以当作构造函数，也就是说，不可以使用`new`命令，否则会抛出一个错误
+
+**`this`指向的固定化，并不是因为箭头函数内部有绑定`this`的机制，实际原因是箭头函数根本没有自己的`this`，导致内部的`this`就是外层代码块的`this`。正是因为它没有`this`，所以也就不能用作构造函数。**
 
 
 
