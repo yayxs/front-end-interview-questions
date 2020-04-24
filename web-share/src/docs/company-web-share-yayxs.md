@@ -760,4 +760,44 @@ console.log(p1.name);
 Vue父子组件生命周期钩子的执行顺序遵循：从外到内，然后再从内到外，不管嵌套几层深，也遵循这个规律
 Vue父子组件生命周期钩子的执行顺序遵循：从外到内，然后再从内到外，不管嵌套几层深，也遵循这个规律
 
+## 05-双向绑定和 vuex 是否冲突
 
+```js
+ const store = new Vuex.Store({
+        state: {
+          obj: {
+            message: "hello",
+          },
+        },
+        mutations: {
+          increment(state) {},
+        },
+      });
+      var vm = new Vue({
+        el: "#app",
+        store,
+        data() {
+          return {};
+        },
+        computed: {
+          message() {
+            return this.$store.state.obj.message;
+          },
+
+          //   ...mapState({
+          //     message: (state) => state.obj.message,
+          //   }),
+        },
+        methods: {
+          updateMessage(e) {
+            this.$store.commit("updateMessage", e.target.value);
+          },
+        },
+      });
+```
+
+>
+>
+>vue.js:634 [Vue warn]: Computed property "message" was assigned to but it has no setter.
+>
+>(found in <Anonymous>)
