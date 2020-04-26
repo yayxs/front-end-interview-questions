@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue-prop</title>
+  </head>
+  <body>
+    <div id="app">
+      {{ message }}
+
+      <hr />
+      <ol>
+        <!-- 创建一个 todo-item 组件的实例 -->
+        <todo-item todo="学习" :todolist="todolist"></todo-item>
+      </ol>
+    </div>
+
+    <script src="../../node_modules/vue/dist/vue.js"></script>
+    <script>
+      // 组件本质上是一个拥有预定义选项的一个 Vue 实例
+      // 注册一个TODO组件
+      Vue.component("todo-item", {
+        template: `
+        <div>
+        <li>{{todo}}</li>
+        <li>{{todolist[0].todo}}</li>
+        <button @click = "changeProps">尝试改变父组件传来的prop</button>
+        
+        <button @click = "changePropsList">尝试改变父组件传来的prop(引用类型)</button>
+        </div>`,
+        props: ["todo", "todolist"],
+        methods: {
+          changeProps() {
+            console.log(`尝试改变父组件传来的prop`);
+            this.todo = "玩耍";
+          },
+          changePropsList() {
+            console.log(`尝试改变父组件传来的prop(引用类型)`);
+            this.todolist[0].todo = "喝水";
+          },
+        },
+      });
+      var vm = new Vue({
+        el: "#app",
+        data() {
+          return {
+            message: "hello",
+            todolist: [
+              {
+                id: "1",
+                todo: "吃饭",
+              },
+            ],
+          };
+        },
+      });
+    </script>
+  </body>
+</html>
