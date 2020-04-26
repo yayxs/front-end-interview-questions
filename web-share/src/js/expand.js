@@ -67,7 +67,7 @@ class Queue {
     return this.items.length;
   }
 }
-
+// 目标元素
 const arr = [
   {
     id: "1",
@@ -121,29 +121,3 @@ const arr = [
   },
 ];
 
-/**
- * bfs 广度优先搜索|利用队列数据结构
- */
-const fn = (arr, id) => {
-  // 构造队列
-  let newArr = [...arr];
-  console.log(newArr);
-
-  do {
-    const current = quene.shift();
-    if (current.children) {
-      quene.push(
-        ...current.children.map((x) => ({
-          ...x,
-          path: (current.path || current.id) + "-" + x.id,
-        }))
-      );
-    }
-    if (current.id === id) {
-      return current;
-    }
-  } while (quene.length);
-};
-const res = fn(arr, "12");
-
-console.log(res);

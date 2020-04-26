@@ -146,6 +146,51 @@ yarn add vue
 | 深度优先搜索 | 栈       | Depth-First Search   | 通过将顶点存入栈中，顶点是沿着路径被探索,存在新的相邻的顶点访问 |
 | 广度优先搜索 | 队列     | Breadth-First Search | 通过将顶点存入队列中 最先入队列的顶点先被探索                |
 
+那么整体来说分为两种方案：
+
+- 方案一就是利用栈这种数据结构
+
+**基于递归的DFS，本身就是一种调用栈，在每个调用栈中，保存当前栈元素，再根据给定的value作对比决定继续递归查找还是中断递归。注意递归的中断逻辑，和每个调用栈元素的保存**
+
+其过程简要来说是对每一个可能的分支路径深入到不能再深入为止，而且每个节点只能访问一次
+
+```js
+function dfs(target, id) {
+  let stack = [...target];
+
+  do {
+    console.table(stack)
+    const current = stack.pop();
+  //  console.log(current)  // 2 21 212 211 1 12 121 11 112 111
+    if (current.id === id) {
+      return current;
+    }
+    if (current.children) {
+      let nextNode = current.children;
+      let nextNodeAddPreId = nextNode.map((item) => ({
+        ...item,
+        containsThePreviousLevelId: `${
+          current.containsThePreviousLevelId || current.id
+        } ${item.id}`,
+      }));
+      // console.log(...nextNodeAddPreId)
+      stack.push(...nextNodeAddPreId);
+     
+    }
+  } while (stack.length);
+}
+```
+
+
+
+- 方案二就是利用队列这种数据结构
+
+
+
+
+
+
+
 ## 01-输出以下代码执行的结果并解释为什么
 
 ```js
