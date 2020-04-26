@@ -688,7 +688,7 @@ console.log(p1.name);
 
 
 
-## 04-`a.b.c.d` 和 `a['b']['c']['d']`，哪个性能更高？
+
 
 
 
@@ -801,3 +801,395 @@ Vue父子组件生命周期钩子的执行顺序遵循：从外到内，然后�
 >vue.js:634 [Vue warn]: Computed property "message" was assigned to but it has no setter.
 >
 >(found in <Anonymous>)
+
+## 06-js中的数组
+
+### 前言
+
+数组、链表、栈、队列都是线性表，它表示的结构都是一段线性的结构，与之对应的就是非线性表，例如树、图、堆等，它表示的结构都非线性。
+
+### 思考
+
+- JavaScript 中，数组为什么可以保存不同类型？
+- JavaScript 中，数组是如何存储的喃？
+
+
+
+### 什么 是数组
+
+> 数组（英语：Array），是由相同类型的元素（element）的集合所组成的数据结构，分配一块连续的内存来存储.
+
+![20200426202840](https://raw.githubusercontent.com/yayxs/Pics/master/img/20200426202840.png)
+
+**以上是js数组在内存中大致位置** ，或者
+
+> Chrome 浏览器JS引擎 V8中，数组有两种存储模式，一种是类似C语言中的线性结构存储（索引值连续，且都是正整数的情况下），一种是采用Hash结构存储（索引值为负数，数组稀疏，间隔比较大）
+
+为什么这么说，因为在`js` 中 数组的存储
+
+
+
+```js
+// The JSArray describes JavaScript Arrays
+//  Such an array can be in one of two modes:
+//    - fast, backing storage is a FixedArray and length <= elements.length();
+// 存储结构是 FixedArray ，并且数组长度 <= elements.length() ，push 或 pop 时可能会伴随着动态扩容或减容
+
+//       Please note: push and pop can be used to grow and shrink the array.
+//    - slow, backing storage is a HashTable with numbers as keys
+// 存储结构是 HashTable（哈希表），并且数组下标作为 key
+class JSArray: public JSObject {
+ public:
+  // [length]: The length property.
+  DECL_ACCESSORS(length, Object)
+    
+  // ...
+   
+  // Number of element slots to pre-allocate for an empty array.
+  static const int kPreallocatedArrayElements = 4;
+};
+```
+
+意思是说，我们可以看到 `JSArray` 是继承自 `JSObject` 的，所以在 JavaScript 中，数组可以是一个特殊的对象，内部也是以 key-value 形式存储数据，所以 JavaScript 中的数组可以存放不同类型的值
+
+#### 数组的优点
+
+- 随机访问：可以通过下标随机访问数组中的任意位置上的数据
+
+**根据下标随机访问的时间复杂度为 O(1)**
+
+### 数组特性
+
+- 数组插入
+
+我们已经知道数组是一段连续储存的内存，当我们要将新元素插入到数组k的位置时呢?这个时候需要将k索引处之后的所有元素往后挪一位,并将k索引的位置插入新元素.
+
+
+![20200426203256](https://raw.githubusercontent.com/yayxs/Pics/master/img/20200426203256.png)
+- 删除
+
+删除操作其实与插入很类似,同样我要删除数组之内的k索引位置的元素,我们就需要将其删除后,为了保持内存的连续性,需要将k之后的元素通通向前移动一位,这个情况的时间复杂度也是O(n).
+- 查找
+
+比如我们要查找一个数组中是否存在一个为2的元素,那么计算机需要如何操作呢?
+
+如果是人的话,在少量数据的情况下我们自然可以一眼找到是否有2的元素,而计算机不是,计算机需要从索引0开始往下匹配,直到匹配到2的元素为止
+- 读取
+
+我们已经强调过数组的特点是拥有**相同的数据类型**和一块**连续的线性内存**,那么正是基于以上的特点,数组的读取性能非常的卓越,时间复杂度为O(1),相比于链表、二叉树等数据结构,它的优势非常明显.
+
+那么数组是如何做到这么低的时间复杂度呢?
+
+假设我们的数组内存起始地址为`start`,而元素类型的长度为`size`,数组索引为`i`,那么我们很容易得到这个数组内存地址的寻址公式:
+
+```js
+arr[i]_address = start + size * i
+```
+
+比如我们要读取`arr[3]`的值,那么只需要把`3`代入寻址公式,计算机就可以一步查询到对应的元素,因此数组读取的时间复杂度只有O(1).
+
+#### 总结
+
+JavaScript 中， `JSArray` 继承自 `JSObject` ，或者说它就是一个特殊的对象，内部是以 key-value 形式存储数据，所以 JavaScript 中的数组可以存放不同类型的值。它有两种存储方式，快数组与慢数组，初始化空数组时，使用快数组，快数组使用连续的内存空间，当数组长度达到最大时，`JSArray` 会进行动态的扩容，以存储更多的元素，相对慢数组，性能要好得多。当数组中 `hole` 太多时，会转变成慢数组，即以哈希表的方式（ key-value 的形式）存储数据，以节省内存空间。
+
+```js
+
+let res = new Array(100000).fill(10)
+console.log(res)
+var arr=new Array(100000).fill(100);
+console.time('timer')
+arr[0];
+console.timeEnd('timer')
+
+console.time('timer')
+arr[100000-1];
+console.timeEnd('timer')
+```
+
+
+
+#### 参考
+
+性能测试
+
+[https://jsperf.com/](https://jsperf.com/getelemperformance/1)
+
+## 07-**`a.b.c.d` 和 `a['b']['c']['d']`，哪个性能更高？**
+
+- 对于常见编译型语言（例如：Java）来说，编译步骤分为：词法分析->语法分析->语义检查->代码优化和字节码生成。
+
+- 对于解释型语言（例如 JavaScript）来说，通过词法分析 -> 语法分析 -> 语法树，就可以开始解释执行了。
+  - 词法分析是将字符流(char stream)转换为记号流(token stream)
+  - 语法分析成 AST (Abstract Syntax Tree)
+  - 预编译，当JavaScript引擎解析脚本时，它会在预编译期对所有声明的变量和函数进行处理！并且是先预声明变量，再预定义函数！
+  - 解释执行，在执行过程中，JavaScript 引擎是严格按着作用域机制（scope）来执行的，并且 JavaScript 的变量和函数作用域是在定义时决定的，而不是执行时决定的。JavaScript 中的变量作用域在函数体内有效，无块作用域；
+
+#### 参考阅读
+
+- [JavaScript解释器](https://javascript.ruanyifeng.com/advanced/interpreter.html#toc1)
+- [知乎专栏关于两者性能的简单比较](https://zhuanlan.zhihu.com/p/104763489)
+
+## 08-性能优化
+
+[TOC]
+
+## 一、引言
+
+> 当打开浏览器，然后在地址栏输入一个网址之后，然后enter,发生了什么？
+> ![20200407214919](https://raw.githubusercontent.com/yayxs/Pics/master/img/20200407214919.png)
+
+### 1. 关键词
+
+- DNS解析（没有）
+- 304缓存 (没有)
+- TCP协议的三次挥手四次握手（没有）
+- HTTP报文（没有）
+- 重绘、回流
+- 同异步编程（没有）
+- event loop（没有）
+- 宏任务、微任务（没有）
+- 进程、线程
+- 栈内存（没有）
+- 堆内存（没有）
+- 图片懒加载（没有）
+- 压缩（没有）
+- 性能优化
+- 浏览器存储（没有）
+- 缓存机制（没有）
+
+### 2. 说明
+
+[**洋小洋同学web 前端高频面试题 不断完善更新**](https://github.com/yayxs/web-interview-questions)
+
+- 有些资料是参考网上资源，文末有链接
+- 一个浏览器渲染引发的一系列问题
+- 有不正确的欢迎指正
+
+## 二、进程与线程
+
+### 1. 进程
+
+**程序的一次执行, 它占有一片独有的内存空间.是操作系统执行的基本单元。**
+
+- 一个进程中至少有一个运行的线程: 主线程,  进程启动后自动创建
+- 一个进程中也可以同时运行多个线程, 我们会说程序是多线程运行的
+- 一个进程内的数据可以供其中的多个线程直接共享，多个进程之间的数据是不能直接共享的
+
+#### (1). 浏览器进程
+
+- Browser进程:
+  浏览器的主进程,负责浏览器界面的显示,和各个页面的管理,
+    		浏览器中所有其他类型进程的祖先,负责其他进程的的创建和销毁
+    		它有且只有一个!!!!!
+- Renderer进程:
+  网页渲染进程,负责页面的渲染,可以有多个
+    		当然渲染进程的数量不一定等于你开打网页的个数
+- 各种插件进程
+- GPU进程	
+      移动设备的浏览器可能不太一样:
+    	    Android不支持插件,所以就没有插件进程
+    		GPU演化成了Browser进程的一个线程
+    		Renderer进程演化成了操作系统的一个服务进程,它仍然是独立的
+
+### 2 .线程
+
+**是进程内的一个独立执行单元,是CPU调度的最小单元。程序运行的基本单元
+	线程池(thread pool): 保存多个线程对象的容器, 实现线程对象的反复利用**
+
+> 由于jS是单线程的，就牵扯到事件循环、事件轮询、event loop （省略先）
+
+## 三、HTTP 请求
+
+### 1. DNS解析
+
+### 2 .TCP协议的三次握手四次挥手
+
+### 3 .HTTPS和HTTP
+
+## 四、HTTP 响应
+
+## 五、浏览器渲染原理
+
+![20200407221502](https://raw.githubusercontent.com/yayxs/Pics/master/img/20200407221502.png)
+
+### 1. 浏览器功能
+
+- 网络
+  - 浏览器通过网络模块来下载各式各样的资源，例如html文本；javascript代码；样式表；图片；音视频文件等。
+  - 网络部分本质上十分重要，因为它耗时长，而且需要安全访问互联网上的资源。
+- 资源管理
+  - 从网络下载，或者本地获取到的资源需要有高效的机制来管理它们。
+  - 例如如何避免重复下载，资源如何缓存等
+
+- 网页浏览
+  - 资源转为可视化
+
+- 等等……
+
+### 2. 浏览器内核
+
+[参考阅读百度百科]([https://baike.baidu.com/item/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8](https://baike.baidu.com/item/浏览器内核))
+
+>浏览器最重要或者说核心的部分是“Rendering Engine”，可大概译为“渲染引擎”，不过我们一般习惯将之称为“浏览器内核”。
+
+**不同的浏览器内核对网页编写语法的解释也有不同，因此同一网页在不同的内核的浏览器里的渲染（显示）效果也可能不同，这也是网页编写者需要在不同内核的浏览器中测试网页显示效果的原因。**
+
+| 内核分类           | 采用该内核的浏览器                                           |
+| ------------------ | ------------------------------------------------------------ |
+| Trident（**IE**）  | IE、傲游、世界之窗浏览器、Avant、腾讯TT、Sleipnir、GOSURF、GreenBrowser和KKman等。 |
+| Gecko(**火狐**)    | [Mozilla Firefox](https://baike.baidu.com/item/Mozilla Firefox)、Mozilla SeaMonkey、waterfox（Firefox的64位开源版）、Iceweasel、Epiphany（早期版本）、Flock（早期版本）、K-Meleon。 |
+| Webkit（**谷歌**） | Google Chrome、[360极速浏览器](https://baike.baidu.com/item/360极速浏览器)以及[搜狗高速浏览器](https://baike.baidu.com/item/搜狗高速浏览器)高速模式也使用Webkit作为内核 |
+| Blink              |                                                              |
+| Presto             |                                                              |
+
+
+
+### 3. 浏览器渲染机制
+
+- 浏览器采用流式布局模型（`Flow Based Layout`）
+- 浏览器会把`HTML`解析成`DOM`，把`CSS`解析成`CSSOM`，`DOM`和`CSSOM`合并就产生了渲染树（`Render Tree`）。
+- 有了`RenderTree`，我们就知道了所有节点的样式，然后计算他们在页面上的大小和位置，最后把节点绘制到页面上。
+- 由于浏览器使用流式布局，对`Render Tree`的计算通常只需要遍历一次就可以完成，**但`table`及其内部元素除外，他们可能需要多次计算，通常要花3倍于同等元素的时间，这也是为什么要避免使用`table`布局的原因之一**
+
+
+
+### 4. 浏览器渲染引擎
+
+#### (1). 主要模块
+
+- HTML解析器
+  - 解释HTML文档的解析器
+  - 作用：将HTML文本解释成DOM树
+- CSS解析器
+  - 它的作用是为DOM中的各个元素对象计算出样式信息
+  - 为布局提供基础设施
+
+- JavaScript引擎
+  - 使用Javascript代码可以修改网页的内容，也能修改css的信息
+  - javascript引擎能够解释javascript代码，并通过DOM接口和CSS树接口来修改网页内容和样式信息，从而改变渲染的结果
+- 布局（layout）回流
+  - 在DOM创建之后，Webkit需要将其中的元素对象同样式信息结合起来
+  - 计算他们的大小位置等布局信息
+  - 形成一个能表达这所有信息的内部表示模型
+- 绘图模块
+  - 使用图形库将布局计算后的各个网页的节点绘制成图像结果
+
+#### (2). 渲染过程
+
+[渲染树的构建、布局、及绘制中文](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction?hl=zh-cn)
+
+![20200407223600](https://raw.githubusercontent.com/yayxs/Pics/master/img/20200407223600.png)
+
+
+1.  遇见 HTML 标记，调用HTML解析器解析为对应的 token （一个token就是一个标签文本的序列化）并构建 DOM 树（就是一块内存，保存着tokens，建立它们之间的关系）
+2.  遇见 style/link 标记 调用解析器 处理 CSS 标记并构建 CSS样式树，即CSSOM
+3.  遇见 script 标记 调用 javascript解析器 处理script标记，绑定事件、修改DOM树/CSS树 等
+4.  将 DOM树 与 CSS树 合并成一个渲染树
+5.  根据渲染树来渲染，以计算每个节点的几何信息（这一过程需要依赖图形库）
+6.  将各个节点绘制到屏幕上。
+
+### 5 .浏览器渲染阻塞
+
+#### (1). CSS样式渲染阻塞
+
+link引入的外部css**才能够产生阻塞**
+
+#### (2). JS阻塞
+
+## 六、性能优化
+
+### 1. 减少HTTP的请求
+
+### 2. 减少DOM的重绘与回流
+
+#### (1). 重绘
+
+由于节点的几何属性发生改变或者由于样式发生改变而不会影响布局的，称为重绘，例如`outline`, `visibility`, `color`、`background-color`等，重绘的代价是高昂的，因为浏览器必须验证DOM树上其他节点元素的可见性。
+
+#### (2). 回流
+
+回流是布局或者几何属性需要改变就称为回流。回流是影响浏览器性能的关键因素，因为其变化涉及到部分页面（或是整个页面）的布局更新。一个元素的回流可能会导致了其所有子元素以及DOM中紧随其后的节点、祖先节点元素的随后的回流。**有的大佬也习惯称之为重排**
+
+##### 什么情况下浏览器会发生回流
+
+- 添加或删除可见的DOM元素
+- 元素的位置发生变化
+- 元素的尺寸发生变化（包括外边距、内边框、边框大小、高度和宽度等）
+- 内容发生变化，比如文本变化或图片被另一个不同尺寸的图片所替代。
+- 页面一开始渲染的时候（这肯定避免不了）
+- 浏览器的窗口尺寸变化（因为回流是根据视口的大小来计算元素的位置和大小的）
+
+#### (3). 浏览器优化
+
+现代浏览器大多都是通过队列机制来批量更新布局，浏览器会把修改操作放在队列中，至少一个浏览器刷新（即16.6ms）才会清空队列，但当你**获取布局信息的时候，队列中可能有会影响这些属性或方法返回值的操作，即使没有，浏览器也会强制清空队列，触发回流与重绘来确保返回正确的值**。
+
+主要包括以下属性或方法：
+
+- `offsetTop`、`offsetLeft`、`offsetWidth`、`offsetHeight`
+- `scrollTop`、`scrollLeft`、`scrollWidth`、`scrollHeight`
+- `clientTop`、`clientLeft`、`clientWidth`、`clientHeight`
+- `width`、`height`
+- `getComputedStyle()`
+- `getBoundingClientRect()`
+
+#### (4). 小结
+
+**回流必定会发生重绘，重绘不一定会引发回流**    怎么最小化重绘重排？
+
+1. ##### CSS
+
+   - **使用 `transform` 替代 `top`**
+
+   - **使用 `visibility` 替换 `display: none`** ，因为前者只会引起重绘，后者会引发回流（改变了布局
+
+   - **避免使用`table`布局**，可能很小的一个小改动会造成整个 `table` 的重新布局。
+
+   - **尽可能在`DOM`树的最末端改变`class`**，回流是不可避免的，但可以减少其影响。尽可能在DOM树的最末端改变class，可以限制了回流的范围，使其影响尽可能少的节点。
+
+   - **避免设置多层内联样式**，CSS 选择符**从右往左**匹配查找，避免节点层级过多。
+
+     ```
+     <div>
+       <a> <span></span> </a>
+     </div>
+     <style>
+       span {
+         color: red;
+       }
+       div > a > span {
+         color: red;
+       }
+     </style>
+     ```
+
+     对于第一种设置样式的方式来说，浏览器只需要找到页面中所有的 `span` 标签然后设置颜色，但是对于第二种设置样式的方式来说，浏览器首先需要找到所有的 `span` 标签，然后找到 `span` 标签上的 `a` 标签，最后再去找到 `div` 标签，然后给符合这种条件的 `span` 标签设置颜色，这样的递归过程就很复杂。所以我们应该尽可能的避免写**过于具体**的 CSS 选择器，然后对于 HTML 来说也尽量少的添加无意义标签，保证**层级扁平**。
+
+   - **将动画效果应用到`position`属性为`absolute`或`fixed`的元素上**，避免影响其他元素的布局，这样只是一个重绘，而不是回流，同时，控制动画速度可以选择 `requestAnimationFrame`，详见[探讨 requestAnimationFrame](https://github.com/LuNaHaiJiao/blog/issues/30)。
+
+   - **避免使用`CSS`表达式**，可能会引发回流。
+
+   - **将频繁重绘或者回流的节点设置为图层**，图层能够阻止该节点的渲染行为影响别的节点，例如`will-change`、`video`、`iframe`等标签，浏览器会自动将该节点变为图层。
+
+   - **CSS3 硬件加速（GPU加速）**，使用css3硬件加速，可以让`transform`、`opacity`、`filters`这些动画不会引起回流重绘 。但是对于动画的其它属性，比如`background-color`这些，还是会引起回流重绘的，不过它还是可以提升这些动画的性能。
+
+2. ##### JavaScript
+
+   - **避免频繁操作样式**，最好一次性重写`style`属性，或者将样式列表定义为`class`并一次性更改`class`属性。
+   - **避免频繁操作`DOM`**，创建一个`documentFragment`，在它上面应用所有`DOM操作`，最后再把它添加到文档中。
+   - **避免频繁读取会引发回流/重绘的属性**，如果确实需要多次使用，就用一个变量缓存起来。
+   - **对具有复杂动画的元素使用绝对定位**，使它脱离文档流，否则会引起父元素及后续元素频繁回流。
+
+## 七、思考
+
+> 问题一：为什么在请求的阶段需要三次握手，断开连接的时候要四次挥手？
+
+> 问题二：当下的前端框架如此流行的原因，单单是因为好用开发效率高嘛？jQuery时代是怎么样的一个时代？当下为啥很少用
+
+> 问题三：HTTP与HTTPS有什么不同，HTTPS底层的原理是什么？
+
+
+
+## 八、参考阅读
+
+- [你真的了解回流和重绘吗](https://github.com/chenjigeng/blog/issues/4)
+- [性能优化相关参考](https://github.com/tianyucoder/0318_performance)

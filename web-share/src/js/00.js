@@ -27,14 +27,25 @@ let arr2 = [
   },
 ];
 
+const fn = (data, value) => {
+  let res = [];
+  const dfs = (arr, temp = []) => {
+    for (const node of arr) {
+      if (node.children) {
+        dfs(node.children, temp.concat(node.id));
+      } else {
+        if (node.id === value) {
+          res = temp;
+        }
+        return;
+      }
+    }
+  };
+  dfs(data);
+  return res;
+};
 
-
-function dfs(target, id) {
-  if (!target.length) return [];
-  // 结束条件
-  if(target.length){
-    console.log(1)
-  }
-}
-const res = dfs(arr1, "1");
-console.log(res);
+// 1 11 111 112
+// 2 21 211 212
+const res = fn(arr2,'112')
+console.log(res)
