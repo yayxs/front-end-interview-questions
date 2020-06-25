@@ -29,42 +29,41 @@
 <summary>查看目录</summary>
 
 - `Link` 与 `@import` 导入`css`的区别
-
-- ### 伪类和伪元素的区别
-
-- 是否了解盒模型
-
-- 你知道什么是 `BFC` 吗
-
-- 居中布局
-
+- 伪类和伪元素的区别 css3新增的伪类有哪些
+- 是否了解盒模型 介绍一下标准的CSS盒子模型 与低版本的IE盒子模型有什么不同
+- 你知道什么是 `BFC` 吗 BFC的布局规则是什么？如何创建BFC？
+- 居中布局：居中浮动元素 居中绝对定位的DIV
+- 浮动元素和绝对定位元素的区别和应用?
 - 请说说`css`的选择器以及选择器优先级
-
-- 如何清除浮动
-
+- 什么时候清除浮动 如何清除浮动 原理是什么
 - CSS 动画
-
-- opacity: 0、visibility: hidden、display: none
-
+- css单位有哪些
+-  如果需要手动写动画，你认为最小时间间隔是多久，为什么
+- 上下 margin重合的问题
+- opacity: 0、visibility: hidden、display: none （隐藏页面中 的元素有哪些 方式）
+- display有哪些值，以及作用
+- position的值
+- **png、jpg、gif 这些图片格式解释一下，分别什么时候用。有没有了解过webp？
 - 如何实现左侧宽度固定，右侧宽度自适应的布局
-
 - 介绍一下 flex
-
 - z-index 有什么需要注意的地方
-
-- css3 的新特性
-
+- position跟display、overflow、float这些特性相互叠加后会怎么样？
+- css3 的新特性有哪些
 - calc 函数
-
+- CSS 中的 `vertical-align` 有哪些值？它在什么情况下才能生效？
 - ::after 和:after 的区别
-
 - CSS 有哪些样式可以给子元素继承!
-
 - 行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？
-
 - `box-sizing`常用的属性有哪些? 分别有啥作用?
-
 - CSS 中`transition`和`animate`有何区别? `animate` 如何停留在最后一帧!
+- css创建一个三角形的原理
+- “品”字布局如何设计
+- 使用过 css预处理器吗
+- 在网页中的应该使用奇数还是偶数的字体？为什么呢
+- 什么是响应式 什么是自适应
+- 你对line-height是如何理解的？
+- 如何设计一个 4 列等宽布局，各列之间的边距是 10px（考虑浏览器的兼容性）？
+- CSS 如何实现三列布局，左侧和右侧固定宽度，中间自适应宽度？
 
 </details>
 
@@ -74,10 +73,11 @@
 <summary>查看目录</summary>
 
 - 事件类型
-
 - 说说`DOM` 中的事件流
-
-- ### Node 节点获取及增删查改
+- Node 节点获取及增删查改
+- 讲讲事件冒泡和事件捕获
+- 什么是事件代理
+- 知道什么是事件委托吗
 
 </details>
 
@@ -87,74 +87,45 @@
 <summary>查看目录</summary>
 
 - var、let 和 const 区别的实现原理是什么
-
 - `JavaScript` 的数据类型,存储有什么区别
-
 - 为什么 0.1 + 0.2 != 0.3 ?
-
+-  如何让 (a == 1 && a == 2 && a == 3) 的值为true？
 - es6 的新特性都有哪些？
-
 - ==和===区别是什么？
-
 - typeof 和 instance of 检测数据类型有什么区别？
-
 - prototype 和 `__proto__` 区别是什么？
-
 - `null`和`undefined`有什么区别么
-
 - for of , for in 和 forEach,map 的区别
-
 - 如何判断两个变量相等
-
 - 谈谈你对原型的理解？
-
 - 什么是原型链？【原型链解决的是什么问题？】
-
-- 执行上下文
-
+- 说说你对执行上下文的理解
 - 什么是变量提升
-
 - 立即执行函数
-
 - 谈谈作用域与作用域链的理解  [↓ 解析直达](#谈谈作用域与作用域链的理解如何理解)
-
 - 闭包及作用闭包有哪些使用场景？优缺点是很什么
-
-- 对象的拷贝
-
+- 对象的拷贝：深拷贝与浅拷贝
 - new 运算符 new 的原理是什么？通过 new 的方式创建对象和通过字面量创建有什么区别
-
 - 箭头函数
-
-- instanceof 实现的原理是什么
-
-- ES5/ES6 的继承
-
+- instanceof 实现的原理是什么 内部机制是怎样的
+- ES5/ES6 的继承 分别有哪些优缺点？
 - 类型的转化
-
-- 防抖与节流
-
-- this 如何正确的判断 this? 箭头函数的 this 是什么？
-
+- 防抖与节流，它们的作用是什么
+- this 如何正确的判断 this的指向? 箭头函数的 this 是什么？
 - `sort` 函数
-
 - 函数科里化
-
+- 如何提升 JavaScript 变量的存储性能？
 - ['1', '2', '3'].map(parseInt)
-
 - [[3,2,1].reduce(Math.pow), [].reduce(Math.pow)]
-
 - Set、Map、WeakSet 和 WeakMap 的区别
-
 - 判断数组的方法
-
+- JavaScript中的数组是如何存储的
 - 类数组和数组的区别是什么？
-
 - call 与 applycall,aplly 和 bind 的内部是如何实现的？
-
 - 数组的哪些 API 会改变原数组？
-
 - 在 JS 中什么是变量提升？什么是暂时性死区？
+- 可迭代对象有哪些特点
+- 垃圾回收与内存泄漏
 
 </details>
 
@@ -172,69 +143,42 @@
 <details>
 <summary>查看目录</summary>
 
-- 说说 Vue 中`$nextTick`的实现原理
-
+- 说说 Vue 中`$nextTick`的实现原理 它的执行时机是什么时候 和DOM的渲染有什么关系
 - vue 修饰符
-
 - 什么是 MVVM？
-
 - Vue 中的 key 有什么作用？
-
 - 组件中 data 为什么是一个函数？
-
 - 数据双向绑定
-
 - v-show 与 v-if 有什么区别？
-
 - v-model 的原理？
-
 - Class 与 Style 如何动态绑定？
-
 - vue 的`单向数据流`
-
 - 谈谈你对`vue`生命周期的理解
-
 - `vue` 中组件通信有几种方式
-
 - 数据响应原理
-
 - 虚拟 DOM 原理以及优缺点
-
 - computed watch methods 三者的应用场景与区别以及实现原理
-
 - Object.defineProperty 有什么缺陷
-
 - 直接给一个数组项赋值，Vue 能检测到变化吗？
-
 - 使用 JavaScript Proxy 实现简单的数据绑定
-
 - Vue 是如何实现数据双向绑定的？
-
 - Vue 框架怎么实现对象和数组的监听？
-
 - vue-router 的路由模式有几种
-
 - 能说下 vue-router 中常用的 hash 和 history 路由模式实现原理吗？
-
 - vuex 的设计思想
-
 - 单页面（SPA）应用的优缺点
-
-- 谈谈你对 keep-alive 的了解？
-
+- 谈谈你对 keep-alive 的了解？vue里的keep-alive是怎么实现的
 - 谈谈 Vue SSR 吗？说说 SSR？
-
 - Vue 怎么用 vm.\$set() 解决对象新增属性不能响应的问题 ？
-
-- 你有对 Vue 项目进行哪些优化？
-
+- 你有对 Vue 项目进行哪些优化？可以从几方面入手
 - 谈谈`vue 3.0`
-
 - `$route`和`$router`的区别
-
 - scoped 属性作用
-
 - `Vue-Router`的两种模式主要依赖什么实现的
+- Vue CLI  有哪些特性？
+- vue的数据劫持在不同的版本里是如何处理的？
+- 了解 Element UI 组件的框架设计吗？
+- 如何自动屏蔽 Input 的自动密码填充？
 
 </details>
 
@@ -243,17 +187,30 @@
 <details>
 <summary>查看目录</summary>
 
-- [列表组件中的](#列表组件中的`key`)
-
+- [列表组件中的key](#列表组件中的`key`)
+- setState到底是异步还是同步?
+- 为什么使用框架而不是原生
+- 虚拟DOM的优劣如何
+- 虚拟DOM的实现原理
+- React最新的生命周期是怎样的?
+- React的请求应该放在哪个生命周期中? 
+- Ajax 请求放在 `componentDidMount` 里进行处理还是放在`componentWillMount` 里进行处理比较合适？
 - React 中 setState 什么时候是同步的，什么时候是异步的
-
 - react-router 里的 `<Link>` 标签和 `<a>` 标签有什么区别
-
 - react 与`vue` 的区别
-
 - React 高阶组件的作用有哪些
-
 - 简述下 flux 的思想
+- redux的工作流程?
+- react-redux是如何工作的?
+- redux与mobx的区别?
+- redux中如何进行异步操作?
+- React组件通信如何实现?
+- React有哪些优化性能是手段? 语法层面呢？
+- React如何进行组件/逻辑复用?
+- mixin、hoc、render props、react-hooks的优劣如何？
+- 你是如何理解fiber的?
+- 有没有使用过 React Hooks？使用 React Hooks 的同时为什么需要使用高阶组件？
+- 受控组件以及非受控组件的区别
 
 </details>
 
@@ -274,6 +231,9 @@
 
 <details>
 <summary>查看目录</summary>
+- 谈你对 TypeScript 的理解？
+
+- 比较一下 TypeScript 和 JavaScript，在什么情况下你觉得需要 TypeScript ?
 
 </details>
 
@@ -282,7 +242,7 @@
 <details>
 <summary>查看目录</summary>
 
-- 谈谈 node 中的事件循环
+- 谈谈 node 中的事件循环 浏览器和 Node.js 的事件循环机制有什么区别？
 
 </details>
 
@@ -295,16 +255,26 @@
 
 </details>
 
+### 框架
+
+- React 和 Vue 的区别？
+- 能对比一下 Create React App 和 Vue CLI  吗？
+- 了解 MVC / MVP / MVVM 的区别吗？
+
+### 测试
+
+- 平常开发的过程中有写过单元测试或者 e2e 测试么？
+- 自动化测试主要是做什么？
+
 ### Webpack
 
 <details>
 <summary>查看目录</summary>
 
 - 介绍下 webpack 热更新原理，是如何做到在不刷新浏览器的前提下更新页面的
-
 - 介绍`webpack` 的实现原理
-
 - Webpack 的 loader 和 plugins 的区别
+- Webpack 构建速度优化有哪些方案？
 
 </details>
 
@@ -314,14 +284,13 @@
 <summary>查看目录</summary>
 
 - 输入`URL` 发生了什么
-
+- 常见的浏览器内核
+- 常见的兼容性问题
 - 重绘与回流
-
 - 本地存储 cookie 与 token
-
-- session、cookie、localStorage 的区别
-
+- session、cookie、localStorage 的区别 了解SameSite属性吗
 - 如何实现浏览器内多个标签页之间的通信?
+- JSONP 的原理是什么？
 
 </details>
 
@@ -341,6 +310,10 @@
 - 移动端 1px
 
 </details>
+
+### 
+
+### 服务端
 
 ### 模块化
 
@@ -378,8 +351,13 @@
 <summary>查看目录</summary>
 
 - 能说说首屏加载优化有哪些方案么
-
+- 首屏和白屏的时间如何计算
 - 什么是 GPU 加速，如何使用 GPU 加速，GPU 加速的缺点
+- 异步加载JS脚本的方式有哪些？
+- css有哪些提高性能的方法
+- 在 HTML 中如何做 SEO 优化？
+- 了解 CSS 3 动画的硬件加速么？在重绘和重流方面有什么需要注意的点？
+- 了解 SPA 的懒加载么？
 
 </details>
 
@@ -389,10 +367,9 @@
 <summary>查看目录</summary>
 
 - CSRF 攻击
-
 - XSS 漏洞
-
 - CORS（跨域资款共享）
+- 
 
 </details>
 
@@ -402,28 +379,19 @@
 <summary>查看目录</summary>
 
 - http 与 https 协议
-
+- 讲讲http的基本结构？
 - HTTP2 和 HTTP1 有什么区别
-
-- 常见的状态码
-
+- http常见的状态码
 - `GET` 与`Post` 的区别
-
 - TCP 三次握手四次挥手
-
 - 谈谈你对 TCP 的理解;
-
 - HTTP 的请求报文由哪几部分组成
-
 - HTTP 常见请求/响应头及其含义
-
-- HTTPS 是如何进行加密的
-
+- HTTPS 是如何进行加密的 谈谈https的原理？为什么https能保证安全？
 - CDN 原理
-
 - DNS 解析
-
 - websocket 和 ajax 的区别是什么，websocket 的应用场景有哪些
+- 讲讲http的缓存机制吧，强缓存，协商缓存？
 
 </details>
 
@@ -452,6 +420,7 @@
 <summary>查看目录</summary>
 
 - 常见的设计模式有哪些？
+- 计模式中观察者模式和发布 / 订阅模式有哪些区别？
 
 </details>
 
@@ -480,7 +449,7 @@
 
 - 手写`instanceof`
 
-- 数组扁平化
+- 数组扁平化 :请实现一个 flattenDeep 函数，把嵌套的数组扁平化
 
 </details>
 
@@ -515,10 +484,15 @@
   ```
 
 * 计算两个数组的交集
-
 * JS 实现`String.trim()`方法;
+* 数组去重
+* 简单实现一个发布者订阅机制
 
 </details>
+
+### 软技能
+
+
 
 ## JavaScript
 
