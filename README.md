@@ -257,14 +257,23 @@
 
 ### 框架
 
+<details>
+<summary>查看目录</summary>
+
 - React 和 Vue 的区别？
 - 能对比一下 Create React App 和 Vue CLI  吗？
 - 了解 MVC / MVP / MVVM 的区别吗？
+</details>
 
 ### 测试
 
+<details>
+<summary>查看目录</summary>
+
 - 平常开发的过程中有写过单元测试或者 e2e 测试么？
 - 自动化测试主要是做什么？
+
+</details>
 
 ### Webpack
 
@@ -429,7 +438,7 @@
 <details>
 <summary>查看目录</summary>
 
-- 手写数组去重方法
+- [手写数组去重方法](#1-手写数组去重的方法)
 
 - 手写`new`操作符
 
@@ -790,6 +799,8 @@ const unique11 = (target) => {
 };
 
 ```
+
+**[:top:  返回顶部](#blue_book-目录)**   **[ :point_right:  你怎么看 ](https://github.com/yayxs/top-fe-iqa/issues/3)**
 
 
 
