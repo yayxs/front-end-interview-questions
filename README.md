@@ -102,7 +102,7 @@
 - 说说你对执行上下文的理解
 - 什么是变量提升
 - 立即执行函数
-- 谈谈作用域与作用域链的理解  [↓ 解析直达](#谈谈作用域与作用域链的理解如何理解)
+- [↓ 谈谈作用域与作用域链的理解](#谈谈作用域与作用域链的理解如何理解)
 - 闭包及作用闭包有哪些使用场景？优缺点是很什么
 - 对象的拷贝：深拷贝与浅拷贝
 - new 运算符 new 的原理是什么？通过 new 的方式创建对象和通过字面量创建有什么区别
@@ -438,7 +438,7 @@
 <details>
 <summary>查看目录</summary>
 
-- [手写数组去重方法](#1-手写数组去重的方法)
+- [↓ 手写数组去重方法](#1-手写数组去重的方法)
 
 - 手写`new`操作符
 
@@ -610,7 +610,7 @@ foo(456)
 
     const同样可以创建一个块级作用域
 
-**[:top:  返回顶部](#blue_book-目录)**   **[ :point_right:  你怎么看 ](https://github.com/yayxs/top-fe-iqa/issues/1)**
+**[:top:  返回顶部](#blue_book-目录)**    **[:top:  返回JavaScript](#javascript)**   **[ :point_right:  你怎么看 ](https://github.com/yayxs/top-fe-iqa/issues/1)**
 
 
 
@@ -800,7 +800,7 @@ const unique11 = (target) => {
 
 ```
 
-**[:top:  返回顶部](#blue_book-目录)**   **[ :point_right:  你怎么看 ](https://github.com/yayxs/top-fe-iqa/issues/3)**
+**[:top:  返回手写代码](#手写代码)**   **[ :point_right:  你怎么看 ](https://github.com/yayxs/top-fe-iqa/issues/3)**
 
 
 
