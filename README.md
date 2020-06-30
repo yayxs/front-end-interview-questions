@@ -143,23 +143,29 @@
 <details>
 <summary>查看目录</summary>
 
+- 什么是 MVVM？谈谈你的理解
+- 谈谈你对`vue`生命周期的理解
+ - 什么是
+ - 生命周期钩子的作用
+ - 第一次页面加载触发哪几个生命周期钩子
+ - 异步请求适合在哪个生命周期调用
+- vue组件中的参数如何传递？如何进行通信
 - 说说 Vue 中`$nextTick`的实现原理 它的执行时机是什么时候 和DOM的渲染有什么关系
 - vue 修饰符
-- 什么是 MVVM？
 - Vue 中的 key 有什么作用？
 - 组件中 data 为什么是一个函数？
-- 数据双向绑定
+- vue是如何实现数据的双向绑定
 - v-show 与 v-if 有什么区别？
 - v-model 的原理？
 - Class 与 Style 如何动态绑定？
 - vue 的`单向数据流`
-- 谈谈你对`vue`生命周期的理解
+
 - `vue` 中组件通信有几种方式
 - 数据响应原理
 - 虚拟 DOM 原理以及优缺点
 - computed watch methods 三者的应用场景与区别以及实现原理
-- Object.defineProperty 有什么缺陷
-- 直接给一个数组项赋值，Vue 能检测到变化吗？
+- 对比一下 `Object.defineProperty` 与`proxy` 
+- 直接给一个数组项赋值，Vue 能检测到变化吗？在Vue中怎么检测数组的变化
 - 使用 JavaScript Proxy 实现简单的数据绑定
 - Vue 是如何实现数据双向绑定的？
 - Vue 框架怎么实现对象和数组的监听？
@@ -176,6 +182,7 @@
 - scoped 属性作用
 - `Vue-Router`的两种模式主要依赖什么实现的
 - Vue CLI  有哪些特性？
+ - 如何新增自定义指令
 - vue的数据劫持在不同的版本里是如何处理的？
 - 了解 Element UI 组件的框架设计吗？
 - 如何自动屏蔽 Input 的自动密码填充？
@@ -618,9 +625,69 @@ foo(456)
 
 ## Vue
 
-1. ### 什么是 Vue?
+### 1. computed watch methods 三者的应用场景与区别以及实现原理?
 
-**[⬆ 返回顶部](#blue_book-目录)**
+#### 首先说`watch监听`
+
+- 使用场景：在某个数据变化的时候做事情
+- 使用方法如下
+
+```js
+ baseData:'', // 一种是基本的数据类型
+ params:{
+        arr:[1],
+
+  },
+```
+
+```
+watch:{
+   baseData(val){
+     console.log(val)
+   },
+   params:{
+     handler(newVal,oldVal){
+       console.log(newVal)
+       console.log(oldVal)
+     },
+    //  deep:true, 深度监听数组对象等数据类型
+     immediate: true // 一上来就执行
+   }
+  },
+```
+
+其中注意两个词
+
+- immediate: true 一上来就会执行
+- deep 其中deep 是深度监听 给对象的所有属性都增加监听器 ，但是性能开销大
+  - 当用户指定了 watch 中的deep属性为 true 时，如果当前监控的值是数组类型。会对对象中的每 一项进行求值，此时会将当前 watcher 存入到对应属性的依赖中，这样数组中对象发生变化时也 会通知数据更新
+
+可以通过
+
+```
+  "obj.a": {
+      handler(newName, oldName) {
+        console.log(newName);
+        console.log(oldName);
+      },
+      immediate: true,
+    },
+```
+
+#### `其次是计算属性`
+
+**根据依赖的数据进行动态计算，有缓存**
+
+-  应用场景就是 计算一个值比较费劲
+- 使用方法简单
+
+**[:top:  返回顶部](#blue_book-目录)**    **[:top:  返回Vue](#vue)**   **[ :point_right:  你怎么看 ](https://github.com/yayxs/top-fe-iqa/issues/1)**
+
+#### `最后是方法`
+
+
+
+## 2.  
 
 ## 异步编程
 

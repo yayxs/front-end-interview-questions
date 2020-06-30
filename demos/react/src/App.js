@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export default function App() {
-  return (
-    <div>
-      123
-    </div>
-  )
+export default class App extends Component {
+  componentWillMount(){
+    
+  }
+  render() {
+    return (
+      <div>
+        123
+      </div>
+    )
+  }
 }
