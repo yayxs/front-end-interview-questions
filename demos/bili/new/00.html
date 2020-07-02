@@ -1,0 +1,46 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-02 22:42:39
+ * @LastEditTime: 2020-07-02 23:58:40
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \new\00.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New 操作符</title>
+  </head>
+  <body>
+    <script>
+      function myNew() {
+        console.log(arguments); // 其中 arguments 是个对象 什么是伪数组呢
+
+        const [constructor, ...args] = [...arguments];
+        // console.log([...arguments]);
+        console.log(constructor);
+        // 1 . 搞了一个 空的对象
+        let obj = {};
+        // 2 . __proto__ === fn.prototype
+        obj.__proto__ = constructor.prototype;
+        // 3. 绑定 this  绑定  this
+        let res = constructor.apply(obj, args);
+        // 4. 原始值（忽略） 对象呢（正常 normal）
+        return res instanceof Object ? res : obj;
+      }
+
+      // myNew(() => {
+      //   console.log(1);
+      // }, "demo");
+
+      function User(name) {
+        this.name = name;
+      }
+
+      let ww = myNew(User, "hah");
+      console.log(ww.name);
+    </script>
+  </body>
+</html>

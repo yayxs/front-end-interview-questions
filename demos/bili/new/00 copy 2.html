@@ -1,0 +1,40 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-07-02 22:42:39
+ * @LastEditTime: 2020-07-02 23:27:52
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \new\00.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New 操作符</title>
+  </head>
+  <body>
+    <script>
+      // 声明函数  有几种方式   分别是什么
+      function User(name, age) {
+        // let firstObj = {}
+        // this = firstObj
+        this.name = name;
+        this.age = age;
+        // let str = "123";
+        // let bo = true;
+        let tempObj = {
+          name: "ceshi",
+        };
+        let arr = [1];
+        // return this // 隐式的返回
+        // return bo;
+        // return arr;
+        return tempObj;
+      }
+      let zs = new User("zs", 18);
+      // let ls = new User("ls", 68);
+      console.log(zs.name); // undefi
+    </script>
+  </body>
+</html>
