@@ -1088,5 +1088,5 @@ var foo = new Foo(); // TypeError: Foo is not a constructor
 ## :love_letter: 爱你
 
 <div align="center">
-    <img width="360px" height="160px" src="https://github.com/yayxs/top-fe-iqa/blob/master/assets/images/%E5%85%AC%E4%BC%97%E5%8F%B7.png"></img>
+    <img width="360px" height="160px" src="https://github.com/yayxs/top-fe-iqa/blob/master/assets/images/contact.jpg"></img>
 </div>
