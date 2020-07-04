@@ -512,7 +512,7 @@
 
 ## JavaScript
 
-1. ### 谈谈作用域与作用域链的理解，如何理解?
+### 谈谈作用域与作用域链的理解，如何理解?
 
 面试的时候，面试官会问`JS中的作用域是什么` 要知道`作用域是什么` 我们需要先了解几个简单的概念
 
@@ -613,6 +613,78 @@ foo(456);
     const 同样可以创建一个块级作用域
 
 **[:top: 返回顶部](#blue_book-目录)** **[:top: 返回 JavaScript](#javascript)** **[ :point_right: 你怎么看 ](https://github.com/yayxs/top-fe-iqa/issues/1)**
+
+### Set、Map、WeakSet 和 WeakMap 的区别
+
+首先我们知道一点，什么是 Set 什么是 Map 等这几个又是什么玩意，我们知道和对象差不多，但是对象的 key 只能是**字符串** 或者 **Symbl**
+
+```javascript
+let id = Symbol("id");
+console.log(typeof id);
+let obj = {
+  0: "0",
+  "0": "123",
+  [id]: "12",
+};
+
+console.log(obj);
+```
+
+拿这时候就可以搞一个`Map` 了 摆脱这种束缚，也就是说 Map 的 key 可以是对象类型。好的那我们还是先写一个简单的`Map`
+
+```javascript
+let doms = document.getElementsByTagName("h1");
+console.log(doms);
+
+let map = new Map();
+[...doms].forEach((h1) => {
+  map.set(h1, "测试");
+});
+console.log(map);
+
+console.log(map.get(doms[0])); // 测试
+console.log(map.size);
+```
+
+```javascript
+let key = {
+  name: "yayxs",
+};
+let key1 = {
+  age: "18",
+};
+let map = new Map();
+
+map.set(key, "name").set(key1, "age");
+console.log(map.keys());
+console.log(map.values());
+```
+
+```javascript
+let map = new Map([
+  ["pingguo", 19],
+  ["xiangjiao", 20],
+]);
+
+for (let k of map.keys()) {
+  console.log(k);
+}
+for (let v of map.values()) {
+  console.log(v);
+}
+for (let e of map) {
+  console.log(e);
+}
+```
+
+```javascript
+let obj = {
+  name: "yayxs",
+  age: "20",
+};
+let map = new Map(Object.entries(obj));
+console.log(map);
+```
 
 ## Vue
 
@@ -1013,7 +1085,7 @@ var foo = new Foo(); // TypeError: Foo is not a constructor
 
 **`this`指向的固定化，并不是因为箭头函数内部有绑定`this`的机制，实际原因是箭头函数根本没有自己的`this`，导致内部的`this`就是外层代码块的`this`。正是因为它没有`this`，所以也就不能用作构造函数。**
 
-## :love_letter: 公众号
+## :love_letter: 爱你
 
 <div align="center">
     <img width="360px" height="160px" src="https://github.com/yayxs/top-fe-iqa/blob/master/assets/images/%E5%85%AC%E4%BC%97%E5%8F%B7.png"></img>
