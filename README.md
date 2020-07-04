@@ -630,6 +630,8 @@ let obj = {
 console.log(obj);
 ```
 
+#### Map
+
 拿这时候就可以搞一个`Map` 了 摆脱这种束缚，也就是说 Map 的 key 可以是对象类型。好的那我们还是先写一个简单的`Map`
 
 ```javascript
@@ -685,6 +687,82 @@ let obj = {
 let map = new Map(Object.entries(obj));
 console.log(map);
 ```
+
+```
+let obj  = {
+  '1':'yayxs',
+  1:'yayxs'
+}
+console.log(obj)
+```
+
+```
+let id = Symbol('id')
+
+let obj = {
+  [id]:'yayxs'
+}
+console.log(obj)
+```
+
+
+
+#### WeakMap
+
+```javascript
+
+let map = new Map()
+map.set('1','yayxs')
+console.log(map)
+let map = new WeakMap()
+map.set('1','yayxs')
+console.log(map) // Identifier 'map' has already been declared
+
+```
+
+```javascript
+let obj = {
+  name:'yayxs'
+}
+
+let arr = [obj]
+obj = null
+
+console.log(arr[0])
+```
+
+#### Set
+
+```javascript
+
+let set = new Set()
+
+let zhangsan = {
+  name:'zhansan'
+}
+let lisi = {
+  name:'lisi'
+}
+
+let wangermazi  ={
+  name:'wangermazi'
+}
+
+set.add(zhangsan)
+set.add(lisi)
+set.add(wangermazi)
+set.add(zhangsan)
+
+console.log(set)
+
+for(let val of set){
+  console.log(val)
+
+}
+console.log(set.keys())
+```
+
+
 
 ## Vue
 
