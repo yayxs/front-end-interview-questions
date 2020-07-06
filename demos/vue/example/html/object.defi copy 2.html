@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>自己实现简单的数据劫持</title>
+  </head>
+  <body>
+    name: <input id="name" />
+
+    <hr />
+    val: <input id="val" />
+
+    <hr />
+    list: <input id="list" />
+
+    <script>
+      //   定义数据模型
+      let model = {
+        name: 'demo',
+        data: {
+          val: 1,
+        },
+        list: [1],
+      };
+      // 创建监听器传入一个需要监听的对象
+      function observe(obj) {
+        Object.keys(obj).map((key) => {
+          // 将object属性特殊处理
+          if (typeof obj[key] === "object") {
+            // 是对象属性的再次监听
+            observe(obj[key]);
+          } else {
+            // 非对象属性的做监听
+            defineReactive(obj, key, obj[key]);
+          }
+        });
+      }
+
+      function compile(newVal, domId, isArr) {
+        // console.log(newVal);
+        // console.log(document.querySelector('#name'))
+        document.querySelector("#name").value = newVal;
+      }
+      // 利用Object.defineProperty做对象属性的做监听
+      function defineReactive(obj, key, val) {
+        Object.defineProperty(obj, key, {
+          get() {
+            return val;
+          },
+          set(newVal) {
+            // 当有新值设置时，执行setter
+            console.log(`${key}变化：从${val}到${newVal}`);
+            // 目前现在的数组是 [1] 是只有一个元素
+            if (Array.isArray(obj)) {
+              document.querySelector(`#list`).value = newVal;
+            } else {
+              document.querySelector(`#${key}`).value = newVal;
+            }
+            val = newVal;
+            // 新增的属性再次进行监听
+            observe(newVal);
+          },
+        });
+      }
+
+      observe(model);
+      
+    </script>
+  </body>
+</html>

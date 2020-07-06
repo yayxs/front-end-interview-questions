@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>自己实现简单的数据劫持</title>
+  </head>
+  <body>
+    name: <input id="name" />
+   
+    <hr />
+    val: <input id="val" />
+
+    <hr />
+    list: <input id="list" />
+
+    <script>
+      // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
+      //   (function () {
+      //     const obj1 = {};
+      //     /**
+      //      * 直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回此对象。
+      //      * 参数一 对象本身
+      //      * 参数二 对象的一个属性 prop 定义或者修改的属性
+      //      * 参数三 一个对象 descriptor 属性描述符
+      //      *
+      //      *  */
+      //     console.log(obj1);
+      //     Object.defineProperty(obj1, "prop", {
+      //       value: 22,
+      //       writable: false,
+      //     });
+
+      //     console.log(obj1.prop);
+      //   })();
+      //   定义数据模型
+      let model = {
+        name: vue,
+        data: {
+            val:1
+        },
+        list:[1]
+      };
+      // 创建监听器传入一个需要监听的对象
+      function observe(obj) {
+        const keys = Object.keys(obj); //  ["num", "list", "obj"] 取到所有的key 然后遍历进行监听
+
+        keys.map((key) => {
+          if (typeof obj[key] === "object") {
+            observe(obj[key]); // 递归监听
+          } else {
+            baseObserve(obj, key, obj[key]);
+          }
+        });
+        // for (let i = 0; i < keys.length; i++) {
+        //   if (typeof obj[keys[i]] === "object") {
+        //     // 如果是对象
+        //     observe(obj[keys[i]]); // 递归监听
+        //   } else {
+        //     // 如果不是对象那就按照基本的操作
+        //     baseObserve(obj, keys[i], obj[keys[i]]);
+        //   }
+        // }
+        // let val = obj.name;
+        // Object.defineProperty(obj, "name", {
+        //   get() {
+        //     return val;
+        //   },
+
+        //   set(newVal) {
+        //     console.log(`${val}--->${newVal}`);
+        //     compile(newVal);
+        //     val = newVal;
+        //   },
+        // });
+      }
+
+      function compile(newVal, domId, isArr) {
+        // console.log(newVal);
+        // console.log(document.querySelector('#name'))
+        document.querySelector("#name").value = newVal;
+      }
+      function baseObserve(obj, key, val) {
+        //   console.log(obj,key,val)
+        // 开始监听
+
+        Object.defineProperty(obj, key, {
+          get() {
+            return val;
+          },
+          set(newVal) {
+            console.log(`调用setter 方法`); // d
+            // 首先取到DOM节点
+            let arrDom = document.querySelector("#list").value;
+            // 然后取普通节点
+            console.log(key);
+            let baseDom = document.querySelector(`#${key}`);
+            console.log(baseDom);
+            // 然后判断当前对象是不是数组
+            if (Array.isArray(obj)) {
+              arrDom.value = newVal; // 改变页面的值
+            } else {
+              baseDom.value = newVal; // 同样改变页面的值
+              //   baseDomVal = newVal;
+            }
+            val = newVal;
+            observe(newVal); // 监听新增的属性
+          },
+        });
+      }
+      observe(model);
+    </script>
+  </body>
+</html>
