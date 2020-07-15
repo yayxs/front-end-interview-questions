@@ -1,64 +1,113 @@
-> call && apply && bind 用法区别小结
+# 【那你能帮帮我吗】call bind apply
 
-## 摘要
+## 前言
 
-故事开头，恰逢其时，就行系统的总结下 `call` `apply` `bind` ，这也是面试官经常问的
+> 函数可以被传递、用作对象等
 
-```
-你知道this指向的问题吗，简单说说你的理解？
---------------------------------------------------
-我……
-```
-
-简洁的贴上一段小程序的代码
+让我们先看一段代码
 
 ```js
- /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function(options) {
-      console.log("接收url中的参数",options)
-      AuthApis.voteItemListRouter(
-          options
-      ).then((res) =>{
-          console.log(res.data.voteContent)
-          let voteItemListvote = res.data
-          let voteItemListdetail = res.data.voteContent
-          console.log("data",voteItemListvote)
-          this.setData({
-              voteItemvote:voteItemListvote,
-              voteItemList: voteItemListdetail
-          })
-          console.log('test1',voteItemListdetail,voteItemListvote)
-          console.log('test2',voteItemvote,voteItemList)
-      })
+// 函数终将展示姓名
+function showName(x) {
+  return x;
+}
+
+// 既然每次返回的是同一结果 考虑缓存
+// 其中cacheName 便是`装饰着`
+function cacheName(func) {
+  let cache = new Map();
+  return function (x) {
+    if (cache.has(x)) {
+      console.log(`had`);
+      // 已经包含姓名
+      return cache.get(x); // 从缓存中读取
+    }
+    // 然后调用函数func
+    let res = func(x);
+    // 进行缓存
+    cache.set(x, res);
+    return res;
+  };
+}
+
+let fn = cacheName(showName);
+
+console.log(fn(1));
+console.log(fn(1)); // 当这个调用的时候才会执行 console.log(`had`)
+```
+
+作为对象的方法,
+
+```js
+let obj = {
+  oneNum() {
+    return 1;
   },
+  addOne(x) {
+    return x + this.oneNum(); // 这显然是没问题的
+  },
+};
+console.log(obj.addOne(12));
 ```
 
-如上的代码看起来也没有什么问题，控制台输出便有点问题，也趁此机会总结一下三者的区别
-
-## 实现效果
-
-### call 改变 this 指向；自动执行函数；参数列表形式传入
+但是当我们把对象的方法按照上述进行缓存的时候
 
 ```js
-// 定义上下文
-let ctx = {
-  name: `yayxs`
-};
-// 定义函数
-const fn = function(age, sex) {
-  console.log(`${this.name}-${age}-${sex}`);
+let obj = {
+  oneNum() {
+    return 1;
+  },
+  addOne(x) {
+    return x + this.oneNum();
+  },
 };
 
-// 调用函数
-fn(18, `男`);
+obj.addOne = cacheName(obj.addOne);
+console.log(obj.addOne(2)); // index.js:107 Uncaught TypeError: this.oneNum is not a function
+```
+
+函数虽然将调用传递给原始的方法，但是上下文`this` 却不见了，这也就引出我们的`call`
+
+## call
+
+`call` 是什么黑魔法，**内置函数方法**
+
+```js
+func.call(context, arg1, arg2, ...)
+```
+
+```js
+function add(a, b) {
+  console.log(a + b);
+  console.log(this);
+}
+add(1, 2); // console.log(this) 执行结果是 window
+add.call({ name: "yayxs" }, 1, 2); // console.log(this) 执行结果是 {name:'yayxs'}
+```
+
+并且函数自动执行
+
+```js
+function sayHi() {
+  console.log(this.name);
+}
+let user = { name: "pop" };
+let admin = { name: "root" };
+sayHi.call(user);
+sayHi.call(admin);
+```
+
+这时候我们再来看之前提到的问题，也就是缓存的问题
+
+```js
+console.log(this); // 其中 this 就是指的obj 这样在addOne在调用的时候就能够访问 this.oneNum()
+let res = func.call(this, x);
 ```
 
 ### apply 改变 this 指向；自动执行函数；参数数组形式传入
 
 ```js
-const fnCall = function(age, sex) {
+const fnCall = function (age, sex) {
   console.log(`call-${this.name}-${age}-${sex}`);
 };
 
@@ -72,7 +121,7 @@ fnCall.call(ctx, 18, `男`); // call-yayxs-18-男
 ### bind 返回一个改变了的 this 指向的函数；参数列表形式传入
 
 ```js
-const fnBind = function(age, sex) {
+const fnBind = function (age, sex) {
   console.log(`bind-${this.name}-${age}-${sex}`);
 };
 
@@ -85,6 +134,8 @@ console.log(res); // [Function: bound fnBind]
 res(18, "男"); // bind-yayxs-18-男
 ```
 
+## apply
+
 ## 手写代码
 
 倘若自己手写代码实现`call` 与 `apply`
@@ -96,7 +147,7 @@ res(18, "男"); // bind-yayxs-18-男
 ### 手写 `call`
 
 ```js
-Function.prototype.myCall = function(ctx, ...params) {
+Function.prototype.myCall = function (ctx, ...params) {
   // console.log(ctx); { name: 'yayxs' }
   // console.log(...params); 18 男
   if (typeof ctx === "object") {
@@ -117,7 +168,7 @@ Function.prototype.myCall = function(ctx, ...params) {
 };
 ```
 
-## 最后总结
+## 总结
 
 总体来说,`call` `apply` `bind` 三个函数的作用都是用来改变`this`的指向。目前的 js 还存在回调函数这一现象，尤其在框架中一些`异步回调`也是十分的常见，难免`this`会迷失方向。三者既有不同也有相似
 

@@ -1,67 +1,43 @@
-// 定义上下文
-let ctx = {
-  name: `yayxs`
+// ----------------------------------2.0
+
+// 既然每次返回的是同一结果 考虑缓存
+// 其中cacheName 便是`装饰着`
+function cacheName(func,hash) {
+  let cache = new Map();
+  return function (x) {
+    let key = hash(arguments)
+    if (cache.has(key)) {
+      // 已经包含姓名
+      return cache.get(key); // 从缓存中读取
+    }
+    // 然后调用函数func
+    console.log(this) // 其中 this 就是指的obj 这样在addOne在调用的时候就能够访问 this.oneNum()
+    let res = func.call(this, ...args);
+    // 进行缓存
+    cache.set(x, res);
+    return res;
+  };
+}
+
+let obj = {
+  oneNum() {
+    return 1;
+  },
+  addOne(x) {
+    return x + this.oneNum();
+  },
 };
 
-// ------------call
-const fnCall = function(age, sex) {
-  console.log(`call-${this.name}-${age}-${sex}`);
-};
 
-// fnCall(18, `男`); // call-undefined-18-男
+// console.log( typeof obj.addOne === 'function') // true
 
-fnCall.call(ctx, 18, `男`); // call-yayxs-18-男
+obj.addOne = cacheName(obj.addOne);
 
-// 总结：改变this指向，执行函数，参数列表传入
+// 在这里cacheName传入了一个函数,返回了一个新的函数
+/**
+ * function(x){
+ * }
+ */
 
-// ------------apply
 
-const fnApply = function(age, sex) {
-  console.log(`apply-${this.name}--${age}-${sex}`);
-};
-
-// fnApply(18, `男`); apply-undefined--18-男
-fnApply.apply(ctx, [18, `男`]); // apply-yayxs--18-男
-
-// ---------bind
-
-const fnBind = function(age, sex) {
-  console.log(`bind-${this.name}-${age}-${sex}`);
-};
-
-fnBind.bind(ctx); // 没有输出
-
-const res = fnBind.bind(ctx);
-
-console.log(res); // [Function: bound fnBind]
-
-res(18, "男"); // bind-yayxs-18-男
-
-// -----------------------
-Function.prototype.myCall = function(ctx, ...params) {
-  // console.log(ctx); { name: 'yayxs' }
-  // console.log(...params); 18 男
-  if (typeof ctx === "object") {
-    ctx = ctx || window;
-  } else {
-    ctx = null;
-  }
-
-  // 临时方法名
-  let funcName = Symbol();
-
-  // console.log(funcName);
-  ctx[funcName] = this;
-  // console.log(this); [Function: testFn]
-
-  ctx[funcName](...params);
-  delete ctx[funcName];
-};
-
-// 实际调用
-
-const testFn = function(age, sex) {
-  console.log(`test-call-${this.name} - ${age} - ${sex}`);
-};
-
-testFn.myCall(ctx, 18, `男`);
+console.log(obj.addOne(1))
