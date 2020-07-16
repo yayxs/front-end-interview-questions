@@ -1,7 +1,7 @@
 /* @flow */
 
 import { toArray } from '../util/index'
-
+// 在构造函数上添加 use方法 Vue.use
 export function initUse (Vue: GlobalAPI) {
   Vue.use = function (plugin: Function | Object) {
     const installedPlugins = (this._installedPlugins || (this._installedPlugins = []))

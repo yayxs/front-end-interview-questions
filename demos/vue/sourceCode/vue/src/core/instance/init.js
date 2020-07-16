@@ -14,12 +14,14 @@ let uid = 0
 
 export function initMixin (Vue: Class<Component>) {
   Vue.prototype._init = function (options?: Object) {
-    const vm: Component = this
+
+    const vm: Component = this // 生命常量vm
     // a uid
     vm._uid = uid++
 
     let startTag, endTag
     /* istanbul ignore if */
+    // 非生产环境
     if (process.env.NODE_ENV !== 'production' && config.performance && mark) {
       startTag = `vue-perf-start:${vm._uid}`
       endTag = `vue-perf-end:${vm._uid}`
@@ -35,6 +37,11 @@ export function initMixin (Vue: Class<Component>) {
       // internal component options needs special treatment.
       initInternalComponent(vm, options)
     } else {
+      /**
+       * 参数1 函数的调用结果
+       * 参数2 调用时传的对象
+       * 参数2 vue 当前实例
+       */
       vm.$options = mergeOptions(
         resolveConstructorOptions(vm.constructor),
         options || {},

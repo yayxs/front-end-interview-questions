@@ -145,28 +145,31 @@
 
 - 什么是 MVVM？谈谈你的理解
 - 谈谈你对`vue`生命周期的理解
-- 什么是
-- 生命周期钩子的作用
-- 第一次页面加载触发哪几个生命周期钩子
+  （1）什么是 Vue 的声明周期
+  （2）生命周期钩子的作用
+  （3）第一次页面加载触发哪几个生命周期钩子
 - 异步请求适合在哪个生命周期调用
+- 组件中 data 为什么是一个函数？
+- 为什么初始化阶段才进行`data` 数据的合并？
+- 谈谈Vue中的Transition
+- 你了解Vue中的`选项合并策略`嘛，请谈谈
 - vue 组件中的参数如何传递？如何进行通信
 - 说说 Vue 中`$nextTick`的实现原理 它的执行时机是什么时候 和 DOM 的渲染有什么关系
 - vue 修饰符
 - Vue 中的 key 有什么作用？
-- 组件中 data 为什么是一个函数？
+
 - vue 是如何实现数据的双向绑定
 - v-show 与 v-if 有什么区别？
 - v-model 的原理？
 - Class 与 Style 如何动态绑定？
 - vue 的`单向数据流`
-
 - `vue` 中组件通信有几种方式
 - 数据响应原理
 - 虚拟 DOM 原理以及优缺点
 - computed watch methods 三者的应用场景与区别以及实现原理
 - 对比一下 `Object.defineProperty` 与`proxy`
-- 直接给一个数组项赋值，Vue 能检测到变化吗？在 Vue 中怎么检测数组的变化
 - 使用 JavaScript Proxy 实现简单的数据绑定
+- 直接给一个数组项赋值，Vue 能检测到变化吗？在 Vue 中怎么检测数组的变化
 - Vue 是如何实现数据双向绑定的？
 - Vue 框架怎么实现对象和数组的监听？
 - vue-router 的路由模式有几种
@@ -705,68 +708,142 @@ let obj = {
 console.log(obj)
 ```
 
-
-
 #### WeakMap
 
 ```javascript
-
-let map = new Map()
-map.set('1','yayxs')
-console.log(map)
-let map = new WeakMap()
-map.set('1','yayxs')
-console.log(map) // Identifier 'map' has already been declared
-
+let map = new Map();
+map.set("1", "yayxs");
+console.log(map);
+let map = new WeakMap();
+map.set("1", "yayxs");
+console.log(map); // Identifier 'map' has already been declared
 ```
 
 ```javascript
 let obj = {
-  name:'yayxs'
-}
+  name: "yayxs",
+};
 
-let arr = [obj]
-obj = null
+let arr = [obj];
+obj = null;
 
-console.log(arr[0])
+console.log(arr[0]);
 ```
 
 #### Set
 
 ```javascript
-
-let set = new Set()
+let set = new Set();
 
 let zhangsan = {
-  name:'zhansan'
-}
+  name: "zhansan",
+};
 let lisi = {
-  name:'lisi'
+  name: "lisi",
+};
+
+let wangermazi = {
+  name: "wangermazi",
+};
+
+set.add(zhangsan);
+set.add(lisi);
+set.add(wangermazi);
+set.add(zhangsan);
+
+console.log(set);
+
+for (let val of set) {
+  console.log(val);
 }
-
-let wangermazi  ={
-  name:'wangermazi'
-}
-
-set.add(zhangsan)
-set.add(lisi)
-set.add(wangermazi)
-set.add(zhangsan)
-
-console.log(set)
-
-for(let val of set){
-  console.log(val)
-
-}
-console.log(set.keys())
+console.log(set.keys());
 ```
-
-
 
 ## Vue
 
-### 1. computed watch methods 三者的应用场景与区别以及实现原理?
+### 谈谈你对`vue`生命周期的理解
+首先要了解声明周期的合并策略,
+
+```
+let res = (是否有childVal,判断组件的选项中是否有对应名字声明周期钩子)?如果有判断是否有parentVal?如果有将二者合并一个数据：如果没有判断childVal 是不是一个数组?如果childVal是一个数组直接返回:如果不是作为数组的元素然后返回：如果没有childVal直接返回parentVal
+```
+
+```js
+function mergeHook (
+  parentVal: ?Array<Function>,
+  childVal: ?Function | ?Array<Function>
+): ?Array<Function> {
+  const res = childVal
+    ? parentVal
+      ? parentVal.concat(childVal)
+      : Array.isArray(childVal)
+        ? childVal
+        : [childVal]
+    : parentVal
+  return res
+    ? dedupeHooks(res)
+    : res
+}
+
+```
+
+```js
+export const LIFECYCLE_HOOKS = [
+  'beforeCreate',
+  'created',
+  'beforeMount',
+  'mounted',
+  'beforeUpdate',
+  'updated',
+  'beforeDestroy',
+  'destroyed',
+  'activated',
+  'deactivated',
+  'errorCaptured',
+  'serverPrefetch'
+]
+```
+
+### 组件中 data 为什么是一个函数？
+
+在 Vue 底层最终被处理为一个函数，这些函数的执行结果就是最终的数据，请问为什么 strats.data 会被处理为一个函数，通过函数返回的数据对象，保证每一个组件的实例都有唯一的数据副本，作用是为了避免组件之间互相影响,在初始化数据状态的时候就是通过如下的方法进行获取数据然后处理
+
+```js
+// 策略函数 要求data是一个函数 否则会给出一个警告
+strats.data = function (
+  parentVal: any,
+  childVal: any,
+  vm?: Component
+): ?Function {
+  if (!vm) {
+    // 传递 vm 参数 必须要求是一个函数
+    if (childVal && typeof childVal !== "function") {
+      process.env.NODE_ENV !== "production" &&
+        warn(
+          'The "data" option should be a function ' +
+            "that returns a per-instance value in component " +
+            "definitions.",
+          vm
+        );
+
+      return parentVal;
+    }
+    return mergeDataOrFn(parentVal, childVal);
+  }
+
+  return mergeDataOrFn(parentVal, childVal, vm);
+};
+```
+
+
+### 为什么不在合并阶段就把数据合并好，而是要等到初始化的时候再合并数据？
+
+因为inject 和 props 这两个选项的初始化是先于 data 选项的，这就保证了我们能够使用 props 初始化 data 中的数据
+
+这样就保证了我们在 data 中使用`props` 中的值
+
+
+### computed watch methods 三者的应用场景与区别以及实现原理?
 
 #### 首先说`watch监听`
 
@@ -825,8 +902,6 @@ watch:{
 **[:top: 返回顶部](#blue_book-目录)** **[:top: 返回 Vue](#vue)** **[ :point_right: 你怎么看 ](https://github.com/yayxs/top-fe-iqa/issues/1)**
 
 #### `最后是方法`
-
-## 2.
 
 ## 异步编程
 

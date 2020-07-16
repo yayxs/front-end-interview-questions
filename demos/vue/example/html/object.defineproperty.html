@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>object.defineproperty</title>
+  </head>
+  <body>
+    <script>
+      // 属性标志和属性描述符
+      let user = {
+        name: "zs",
+        age: 19,
+      };
+      let descriptor = Object.getOwnPropertyDescriptor(user, "name"); // 其中desc 是属性描述符
+      /* 属性描述符：
+        {
+        "value": "zs",
+        "writable": true,
+        "enumerable": true,
+        "configurable": true
+        }
+        */
+      // 除了 value 外 其他的叫标志 存在 age就进行更新
+      Object.defineProperty(user, 'age', {
+          value:'20'
+      })
+      let admin = {}
+      Object.defineProperty(admin,'name',{
+          value:'admin'
+      })
+      console.log( Object.getOwnPropertyDescriptor(admin, "name") )
+    </script>
+  </body>
+</html>

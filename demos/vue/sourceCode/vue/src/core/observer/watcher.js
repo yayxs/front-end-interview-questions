@@ -166,8 +166,10 @@ export default class Watcher {
     if (this.lazy) {
       this.dirty = true
     } else if (this.sync) {
+      // 如果是同步直接执行  run 方法  渲染视图
       this.run()
     } else {
+      // 异步推送到 观察者队列 下一个 tick 调用
       queueWatcher(this)
     }
   }

@@ -118,12 +118,14 @@ export function mergeDataOrFn (
   }
 }
 
+// 策略函数 要求data是一个函数 否则会给出一个警告
 strats.data = function (
   parentVal: any,
   childVal: any,
   vm?: Component
 ): ?Function {
   if (!vm) {
+    // 传递 vm 参数 必须要求是一个函数
     if (childVal && typeof childVal !== 'function') {
       process.env.NODE_ENV !== 'production' && warn(
         'The "data" option should be a function ' +
@@ -143,6 +145,7 @@ strats.data = function (
 /**
  * Hooks and props are merged as arrays.
  */
+
 function mergeHook (
   parentVal: ?Array<Function>,
   childVal: ?Function | ?Array<Function>
@@ -397,7 +400,8 @@ export function mergeOptions (
   if (typeof child === 'function') {
     child = child.options
   }
-
+  // props 规范化 props 一种是 字符串数组 ['12' ]
+  // 一种数据的传值 然后指令
   normalizeProps(child, vm)
   normalizeInject(child, vm)
   normalizeDirectives(child)

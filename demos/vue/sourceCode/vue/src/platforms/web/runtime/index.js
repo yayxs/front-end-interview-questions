@@ -27,10 +27,29 @@ Vue.config.getTagNamespace = getTagNamespace
 Vue.config.isUnknownElement = isUnknownElement
 
 // install platform runtime directives & components
+// 添加 web 平台特定的指令和组件
 extend(Vue.options.directives, platformDirectives)
 extend(Vue.options.components, platformComponents)
 
+/**
+ * Vue.options = {
+	components: {
+    KeepAlive,
+    Transition,
+		TransitionGroup
+	},
+	directives: {
+		model,
+		show
+	},
+	filters: Object.create(null),
+	_base: Vue
+}
+ */
+
+
 // install platform patch function
+// 如果是浏览器就是一个patch函数 否则是个空函数
 Vue.prototype.__patch__ = inBrowser ? patch : noop
 
 // public mount method
@@ -46,6 +65,7 @@ Vue.prototype.$mount = function (
 /* istanbul ignore next */
 if (inBrowser) {
   setTimeout(() => {
+    //
     if (config.devtools) {
       if (devtools) {
         devtools.emit('init', Vue)
@@ -72,5 +92,5 @@ if (inBrowser) {
     }
   }, 0)
 }
-
+// 导出新的Vue
 export default Vue

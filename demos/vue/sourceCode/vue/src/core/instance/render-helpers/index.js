@@ -11,7 +11,7 @@ import { renderStatic, markOnce } from './render-static'
 import { bindObjectListeners } from './bind-object-listeners'
 import { resolveScopedSlots } from './resolve-scoped-slots'
 import { bindDynamicKeys, prependModifier } from './bind-dynamic-keys'
-
+// 在vue 的原型上添加一系列的方法
 export function installRenderHelpers (target: any) {
   target._o = markOnce
   target._n = toNumber

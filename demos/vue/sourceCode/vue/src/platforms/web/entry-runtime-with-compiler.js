@@ -4,17 +4,19 @@ import config from 'core/config'
 import { warn, cached } from 'core/util/index'
 import { mark, measure } from 'core/util/perf'
 
-import Vue from './runtime/index'
+import Vue from './runtime/index' // 运行时的Vue
 import { query } from './util/index'
 import { compileToFunctions } from './compiler/index'
 import { shouldDecodeNewlines, shouldDecodeNewlinesForHref } from './util/compat'
 
+// 根据ID 获取元素的innerHTML
 const idToTemplate = cached(id => {
   const el = query(id)
   return el && el.innerHTML
 })
-
+// 使用 mount 缓存方法$mount
 const mount = Vue.prototype.$mount
+// 重写方法
 Vue.prototype.$mount = function (
   el?: string | Element,
   hydrating?: boolean

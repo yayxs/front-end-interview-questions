@@ -3,9 +3,13 @@
 import { ASSET_TYPES } from 'shared/constants'
 import { isPlainObject, validateComponentName } from '../util/index'
 
+
 export function initAssetRegisters (Vue: GlobalAPI) {
   /**
    * Create asset registration methods.
+   *  'component', // 全局组件
+  'directive', // 全局指令
+  'filter' // 全局过滤器
    */
   ASSET_TYPES.forEach(type => {
     Vue[type] = function (

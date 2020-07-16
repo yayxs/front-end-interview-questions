@@ -332,13 +332,17 @@ export function stateMixin (Vue: Class<Component>) {
         this
       )
     }
+    // 不能够进行修改
     propsDef.set = function () {
       warn(`$props is readonly.`, this)
     }
   }
+  // 在Vue 的原型上 定义了$data 和 $props
   Object.defineProperty(Vue.prototype, '$data', dataDef)
   Object.defineProperty(Vue.prototype, '$props', propsDef)
-
+  // $set
+  // $del
+  // $watch
   Vue.prototype.$set = set
   Vue.prototype.$delete = del
 

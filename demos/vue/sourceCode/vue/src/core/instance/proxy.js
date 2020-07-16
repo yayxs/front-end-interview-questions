@@ -3,8 +3,11 @@
 import config from 'core/config'
 import { warn, makeMap, isNative } from '../util/index'
 
+// 声明 initProxy 变量
+
 let initProxy
 
+// 不是生产环境才会赋值
 if (process.env.NODE_ENV !== 'production') {
   const allowedGlobals = makeMap(
     'Infinity,undefined,NaN,isFinite,isNaN,' +

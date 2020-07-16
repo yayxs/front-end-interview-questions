@@ -36,6 +36,12 @@ const resolve = p => {
 }
 
 const builds = {
+  /**
+   * 运行时版本+Complier = 完整版
+   * 运行版：提高性能
+   * 完整版：在现场编译模板
+   * 输出不同形式的包主要是为了扩展使用方式
+   */
   // Runtime only (CommonJS). Used by bundlers e.g. Webpack & Browserify
   'web-runtime-cjs-dev': {
     entry: resolve('web/entry-runtime.js'),

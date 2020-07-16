@@ -22,6 +22,7 @@ export function initGlobalAPI (Vue: GlobalAPI) {
   // config
   const configDef = {}
   configDef.get = () => config
+  // 添加只读的属性 如果不是 生产环境 会进行warn提醒
   if (process.env.NODE_ENV !== 'production') {
     configDef.set = () => {
       warn(
@@ -29,6 +30,7 @@ export function initGlobalAPI (Vue: GlobalAPI) {
       )
     }
   }
+  // 添加 config 属性
   Object.defineProperty(Vue, 'config', configDef)
 
   // exposed util methods.
