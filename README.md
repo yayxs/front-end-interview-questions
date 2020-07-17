@@ -145,14 +145,21 @@
 
 - 什么是 MVVM？谈谈你的理解
 - 谈谈你对`vue`生命周期的理解
-  （1）什么是 Vue 的声明周期
-  （2）生命周期钩子的作用
-  （3）第一次页面加载触发哪几个生命周期钩子
-- 异步请求适合在哪个生命周期调用
-- 组件中 data 为什么是一个函数？
-- 为什么初始化阶段才进行`data` 数据的合并？
-- 谈谈Vue中的Transition
-- 你了解Vue中的`选项合并策略`嘛，请谈谈
+  (1)什么是 Vue 的声明周期
+  (2)生命周期钩子的作用
+  (3)第一次页面加载触发哪几个生命周期钩子
+  (4)异步请求适合在哪个生命周期调用
+- 请你谈谈`Vue` 组件中的`Data`
+  (1)组件中 data 为什么是一个函数？
+  (2)函数为什么返回一个对象，如果返回的不是个纯对象 Vue 是怎么做的？你有没有试过直接返回一个字符串或者其他类型
+  (3)data 中的 key 与 props 或者 methods 中冲突 vue 是怎么做的
+  (4)为什么初始化阶段才进行`data` 数据的合并？(这里指合并策略)
+- 请你谈谈 Vue 数据响应原理
+  (1) Vue 框架怎么实现对象和数组的监听？
+  (2)直接给一个数组项赋值，Vue 能检测到变化吗？在 Vue 中怎么检测数组的变化
+- Vue 内部是如何构建一个渲染函数的 `render` `template` `el` 的优先级如何
+- 谈谈 Vue 中的 Transition 动画
+- 你了解 Vue 中的`选项合并策略`嘛，请谈谈
 - vue 组件中的参数如何传递？如何进行通信
 - 说说 Vue 中`$nextTick`的实现原理 它的执行时机是什么时候 和 DOM 的渲染有什么关系
 - vue 修饰符
@@ -164,14 +171,13 @@
 - Class 与 Style 如何动态绑定？
 - vue 的`单向数据流`
 - `vue` 中组件通信有几种方式
-- 数据响应原理
+
 - 虚拟 DOM 原理以及优缺点
 - computed watch methods 三者的应用场景与区别以及实现原理
 - 对比一下 `Object.defineProperty` 与`proxy`
 - 使用 JavaScript Proxy 实现简单的数据绑定
-- 直接给一个数组项赋值，Vue 能检测到变化吗？在 Vue 中怎么检测数组的变化
 - Vue 是如何实现数据双向绑定的？
-- Vue 框架怎么实现对象和数组的监听？
+
 - vue-router 的路由模式有几种
 - 能说下 vue-router 中常用的 hash 和 history 路由模式实现原理吗？
 - vuex 的设计思想
@@ -762,6 +768,7 @@ console.log(set.keys());
 ## Vue
 
 ### 谈谈你对`vue`生命周期的理解
+
 首先要了解声明周期的合并策略,
 
 ```
@@ -769,7 +776,7 @@ let res = (是否有childVal,判断组件的选项中是否有对应名字声明
 ```
 
 ```js
-function mergeHook (
+function mergeHook(
   parentVal: ?Array<Function>,
   childVal: ?Function | ?Array<Function>
 ): ?Array<Function> {
@@ -777,34 +784,33 @@ function mergeHook (
     ? parentVal
       ? parentVal.concat(childVal)
       : Array.isArray(childVal)
-        ? childVal
-        : [childVal]
-    : parentVal
-  return res
-    ? dedupeHooks(res)
-    : res
+      ? childVal
+      : [childVal]
+    : parentVal;
+  return res ? dedupeHooks(res) : res;
 }
-
 ```
 
 ```js
 export const LIFECYCLE_HOOKS = [
-  'beforeCreate',
-  'created',
-  'beforeMount',
-  'mounted',
-  'beforeUpdate',
-  'updated',
-  'beforeDestroy',
-  'destroyed',
-  'activated',
-  'deactivated',
-  'errorCaptured',
-  'serverPrefetch'
-]
+  "beforeCreate",
+  "created",
+  "beforeMount",
+  "mounted",
+  "beforeUpdate",
+  "updated",
+  "beforeDestroy",
+  "destroyed",
+  "activated",
+  "deactivated",
+  "errorCaptured",
+  "serverPrefetch",
+];
 ```
 
-### 组件中 data 为什么是一个函数？
+### 请你谈谈 Vue 组件中的 Data
+
+#### Data 为什么是一个函数
 
 在 Vue 底层最终被处理为一个函数，这些函数的执行结果就是最终的数据，请问为什么 strats.data 会被处理为一个函数，通过函数返回的数据对象，保证每一个组件的实例都有唯一的数据副本，作用是为了避免组件之间互相影响,在初始化数据状态的时候就是通过如下的方法进行获取数据然后处理
 
@@ -835,12 +841,146 @@ strats.data = function (
 };
 ```
 
+#### 返回的不是纯对象 Vue 是怎么做的
 
-### 为什么不在合并阶段就把数据合并好，而是要等到初始化的时候再合并数据？
+```js
+if (!isPlainObject(data)) {
+  data = {};
+  process.env.NODE_ENV !== "production" &&
+    warn(
+      "data functions should return an object:\n" +
+        "https://vuejs.org/v2/guide/components.html#data-Must-Be-a-Function",
+      vm
+    );
+}
+```
 
-因为inject 和 props 这两个选项的初始化是先于 data 选项的，这就保证了我们能够使用 props 初始化 data 中的数据
+#### data 数据对象中的 key 与 methods 对象中的 key 冲突时 Vue 是怎么做的
+
+```js
+if (props && hasOwn(props, key)) {
+  process.env.NODE_ENV !== "production" &&
+    warn(
+      `The data property "${key}" is already declared as a prop. ` +
+        `Use prop default value instead.`,
+      vm
+    );
+} else if (!isReserved(key)) {
+  proxy(vm, `_data`, key);
+}
+```
+
+#### 为什么可以直接通过 `this.xxx` 访问`data` 里的值
+
+proxy 函数的原理是通过 Object.defineProperty 函数在实例对象 vm 上定义与 data 数据字段同名的访问器属性，并且这些属性代理的值是 vm.\_data 上对应属性的值。
+
+```js
+export function proxy(target: Object, sourceKey: string, key: string) {
+  sharedPropertyDefinition.get = function proxyGetter() {
+    return this[sourceKey][key];
+  };
+  sharedPropertyDefinition.set = function proxySetter(val) {
+    this[sourceKey][key] = val;
+  };
+  Object.defineProperty(target, key, sharedPropertyDefinition);
+}
+```
+
+#### 为什么不在合并阶段就把数据合并好，而是要等到初始化的时候再合并数据？
+
+因为 inject 和 props 这两个选项的初始化是先于 data 选项的，这就保证了我们能够使用 props 初始化 data 中的数据
 
 这样就保证了我们在 data 中使用`props` 中的值
+
+### 请你谈谈 Vue 的数据响应原理
+
+首先看一个例子,当我们修改a 的时候 `vm.$watch` 的第二个参数就会执行输出
+
+```js
+let vm = new Vue({
+  el: "#app",
+  data: {
+    a: 1,
+  },
+});
+/**
+ * 参数一 观测的字段
+ * 参数二 参数发生变化的时候，执行的函数
+ */
+vm.$watch("a", () => {
+  console.log("修改了 a");
+});
+```
+我们自己简单的实现
+
+```js
+ // 定义一个变量
+      const data = {
+        a: 1,
+      };
+
+      // 定义全局的变量
+      let target = null; // 全局变量
+      function $watch(prop, fn) {
+        target = fn;
+        data[prop]; // 读取字段
+      }
+      // 首先定义一个框
+      let dep = [];
+      Object.defineProperty(data, "a", {
+        set() {
+          for (let i = 0; i < dep.length; i++) {
+            dep[i](); // 属性被设置时候 将篮子里的所有 依赖执行
+          }
+        },
+        get() {
+          // 当属性被读取的时候
+          dep.push(target);
+        },
+      });
+      $watch("a", () => {
+        console.log("第一个依赖");
+      });
+      $watch("a", () => {
+        console.log("第二个依赖");
+      });
+```
+假使有个数据对象，在被观测之后，便是
+
+```js
+const data = {
+  a:{
+    b:1
+  }
+
+}
+
+
+const data = {
+  // 属性 a 通过 setter/getter 通过闭包引用着 dep 和 childOb
+  a: {
+    // 属性 b 通过 setter/getter 通过闭包引用着 dep 和 childOb
+    b: 1
+    __ob__: {a, dep, vmCount}
+  }
+  __ob__: {data, dep, vmCount}
+}
+```
+
+#### Vue 中依赖收集的触发时机是一定的吗
+
+vue中依赖收集大体分两个时机，一个是属性值被改变的时候 还有就是 $set 或者 Vue.set 给数据添加新属性的时候，由于`js` 语言的限制  在没有`Proxy` 之前 Vue 没办法拦截到给对象添加的新属性。所以vue 暴露出 $set 以及 Vue.set 等方法让我们有能力在 给对象添加新属性的时候触发依赖
+
+#### 对于纯对象与数组的影响式 有什么不同
+
+ (2)响应式数据之数组的处理
+  处理数组的方式与纯对象不同 数组是一个特殊的数据结构 有很多实例方法 这些方法会改变数组的值（变异方法）像 push pop shift unshift splice reverse 重点关注**增加元素的操作** 因为新增的元素不是响应式的 所以需要获取到新增的元素 并把他们变成响应式的才行。核心思路就是
+
+总结：对于纯对象只需要逐个将对象的属性重新定义访问器属性，当某一属性的值也是个对象的时候就对其进行递归定义，对于数组的处理通过拦截数组的变异方法（push shift reverse等）直接通过 arr[0] = xxx 这种方式是触发不了响应 因为数组的索引不是“访问器” 属性。正是因为数组的索引不是访问器属性 所以当有观察者依赖数组的某一个元素的时候 触发不了元素的 get 函数 ，那自然而然收集不到依赖
+
+#### 在Vue2中是怎么拦截对象或数组添加的元素或属性
+
+通过官方 api 的讲解 我们可以通过 Vue.set 以及 Vue.delete 来解决这个问题
 
 
 ### computed watch methods 三者的应用场景与区别以及实现原理?

@@ -137,13 +137,18 @@ export function lifecycleMixin (Vue: Class<Component>) {
     }
   }
 }
-
+/**
+ *
+ * @param {*} vm 组件的实例vm
+ * @param {*} el 挂载元素 el
+ * @param {*} hydrating
+ */
 export function mountComponent (
   vm: Component,
   el: ?Element,
   hydrating?: boolean
 ): Component {
-  vm.$el = el
+  vm.$el = el // 组件实例对象上 添加 $el 属性
   if (!vm.$options.render) {
     vm.$options.render = createEmptyVNode
     if (process.env.NODE_ENV !== 'production') {
@@ -164,6 +169,7 @@ export function mountComponent (
       }
     }
   }
+  // 接着触发 beforeMount 这个钩子函数
   callHook(vm, 'beforeMount')
 
   let updateComponent
@@ -187,13 +193,19 @@ export function mountComponent (
     }
   } else {
     updateComponent = () => {
-      vm._update(vm._render(), hydrating)
+      /**
+       * vm._render() 函数的作用是调用 vm.$options.render 函数并返回生成的虚拟节点
+       */
+      vm._update(vm._render(), hydrating)  // 把生成的虚拟节点渲染为真正的DOM
     }
   }
 
   // we set this to vm._watcher inside the watcher's constructor
   // since the watcher's initial patch may call $forceUpdate (e.g. inside child
   // component's mounted hook), which relies on vm._watcher being already defined
+  /**
+   * 正是因为 watcher 对表达式的求值，触发数据属性的 get 拦截器 从而收集依赖
+   */
   new Watcher(vm, updateComponent, noop, {
     before () {
       if (vm._isMounted && !vm._isDestroyed) {

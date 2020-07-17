@@ -21,9 +21,13 @@ Vue.prototype.$mount = function (
   el?: string | Element,
   hydrating?: boolean
 ): Component {
+  // 如果指定el 就使用 query 函数获取指定dom 元素重新赋值给 el 变量
+  // 这个元素称之为挂载点
   el = el && query(el)
 
   /* istanbul ignore if */
+  // 检测挂载点是否是body 或者是 html 如果是 依旧是警告 是要被替换掉的显然 body 和html 是不能被替换的不是吗
+
   if (el === document.body || el === document.documentElement) {
     process.env.NODE_ENV !== 'production' && warn(
       `Do not mount Vue to <html> or <body> - mount to normal elements instead.`
@@ -33,7 +37,9 @@ Vue.prototype.$mount = function (
 
   const options = this.$options
   // resolve template/el and convert to render function
+  // 检查是否有 render （渲染函数） 如果渲染函数存在的话什么都不做 直接调用mount
   if (!options.render) {
+    // 如果不存在呢使用template 或者 el 来构建渲染函数
     let template = options.template
     if (template) {
       if (typeof template === 'string') {

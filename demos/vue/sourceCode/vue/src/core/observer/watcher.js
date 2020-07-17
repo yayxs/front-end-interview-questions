@@ -22,6 +22,7 @@ let uid = 0
  * A watcher parses an expression, collects dependencies,
  * and fires callback when the expression value changes.
  * This is used for both the $watch() api and directives.
+ *
  */
 export default class Watcher {
   vm: Component;
@@ -41,7 +42,14 @@ export default class Watcher {
   before: ?Function;
   getter: Function;
   value: any;
-
+  /**
+   *
+   * @param {*} vm 组件实例对象 vm
+   * @param {*} expOrFn 要观察的表达式
+   * @param {*} cb 当被观察的表达式的值变化时的回调
+   * @param {*} options 传递给当前观察者对象的选项options
+   * @param {*} isRenderWatcher
+   */
   constructor (
     vm: Component,
     expOrFn: string | Function,
@@ -56,8 +64,8 @@ export default class Watcher {
     vm._watchers.push(this)
     // options
     if (options) {
-      this.deep = !!options.deep
-      this.user = !!options.user
+      this.deep = !!options.deep // 是否是深度观测
+      this.user = !!options.user // 标识当前观察者实例对象是开发者定义的还是内部定义 的
       this.lazy = !!options.lazy
       this.sync = !!options.sync
       this.before = options.before

@@ -6,15 +6,53 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="app">{{test}}</div>
-    <script src="../js/vue.js"></script>
+    <!-- <div id="app">{{a}}</div> -->
+    <!-- <script src="../js/vue.js"></script> -->
     <script>
-      let vm = new Vue({
-        el: "#app",
-        data:{
-          test:1
-        }
+      // let vm = new Vue({
+      //   el: "#app",
+      //   data: {
+      //     a: 1,
+      //   },
+      // });
+      // /**
+      //  * 参数一 观测的字段
+      //  * 参数二 参数发生变化的时候，执行的函数
+      //  */
+      // vm.$watch("a", () => {
+      //   console.log("修改了 a");
+      // });
+      // 定义一个变量
+      const data = {
+        a: 1,
+      };
+
+      // 定义全局的变量
+      let target = null; // 全局变量
+      function $watch(prop, fn) {
+        target = fn;
+        data[prop]; // 读取字段
+      }
+      // 首先定义一个框
+      let dep = [];
+      Object.defineProperty(data, "a", {
+        set() {
+          for (let i = 0; i < dep.length; i++) {
+            dep[i](); // 属性被设置时候 将篮子里的所有 依赖执行
+          }
+        },
+        get() {
+          // 当属性被读取的时候
+          dep.push(target);
+        },
       });
+      $watch("a", () => {
+        console.log("第一个依赖");
+      });
+      $watch("a", () => {
+        console.log("第二个依赖");
+      });
+      
     </script>
   </body>
 </html>

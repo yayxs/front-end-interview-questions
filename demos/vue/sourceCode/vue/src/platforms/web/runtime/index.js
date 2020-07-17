@@ -57,7 +57,9 @@ Vue.prototype.$mount = function (
   el?: string | Element,
   hydrating?: boolean
 ): Component {
+  // 是否传递了 el
   el = el && inBrowser ? query(el) : undefined
+  // 调用 mountComponent 函数完成真正的挂载
   return mountComponent(this, el, hydrating)
 }
 

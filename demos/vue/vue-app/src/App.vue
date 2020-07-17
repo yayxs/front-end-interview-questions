@@ -11,32 +11,40 @@
     <p ref="test1">p标签</p>
 
     <button @click="handleClick">点击</button>
+    <child-com-one></child-com-one>
+    <hr />
+    {{arr}}
   </div>
 </template>
 
 <script>
-// import ChildComOne from "./components/ChildComOne.vue";
+import ChildComOne from "./components/ChildComOne.vue";
 
 export default {
   data() {
     return {
-      // vue 是如何监听数组的变化
-      list: ["1", "2"],
+      arr:[
+        { a : 1}
+      ],
       user: {
         name: "zs",
       },
       show:true,
-      test:'begin'
+      test:'begin',
+      getData:''
     };
   },
   methods: {
     handleClick(){
       this.test = 'end'
       console.log(this.$refs.test.innerText)
+    },
+    getData(){
+      console.log(12)
     }
   },
   components: {
-    // ChildComOne,
+    ChildComOne,
   },
   provide: {
     payload: {

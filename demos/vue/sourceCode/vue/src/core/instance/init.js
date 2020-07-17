@@ -15,7 +15,7 @@ let uid = 0
 export function initMixin (Vue: Class<Component>) {
   Vue.prototype._init = function (options?: Object) {
 
-    const vm: Component = this // 生命常量vm
+    const vm: Component = this // 声明常量vm
     // a uid
     vm._uid = uid++
 
@@ -73,6 +73,7 @@ export function initMixin (Vue: Class<Component>) {
     }
 
     if (vm.$options.el) {
+      // 在这之前完成所有的初始化操作
       vm.$mount(vm.$options.el)
     }
   }

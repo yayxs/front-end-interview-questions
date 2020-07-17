@@ -50,9 +50,10 @@ export function initState (vm: Component) {
   const opts = vm.$options
   if (opts.props) initProps(vm, opts.props)
   if (opts.methods) initMethods(vm, opts.methods)
-  if (opts.data) {
+  if (opts.data) { // 判断data 选项是否存在 存在的话 调用 initData() 函数初始化data 选项
     initData(vm)
   } else {
+    // 否则通过observe 观测一个空对象
     observe(vm._data = {}, true /* asRootData */)
   }
   if (opts.computed) initComputed(vm, opts.computed)
@@ -110,12 +111,14 @@ function initProps (vm: Component, propsOptions: Object) {
 }
 
 function initData (vm: Component) {
-  let data = vm.$options.data
-  data = vm._data = typeof data === 'function'
-    ? getData(data, vm)
+  let data = vm.$options.data // 定义data 变量 引用vm.$options.data
+  data = vm._data = typeof data === 'function' // 判断data 是一个函数
+    ? getData(data, vm) // 通过getData 来获取真正的数据
     : data || {}
+  // isPlainObject判断是不是纯对象
   if (!isPlainObject(data)) {
     data = {}
+    // 在非生产环境下打印警告信息
     process.env.NODE_ENV !== 'production' && warn(
       'data functions should return an object:\n' +
       'https://vuejs.org/v2/guide/components.html#data-Must-Be-a-Function',
@@ -150,15 +153,20 @@ function initData (vm: Component) {
   // observe data
   observe(data, true /* asRootData */)
 }
-
+/**
+ * 参数一data的选项 是一个函数
+ * 参数二 Vue 实例对象
+ * 作用 调用data 函数获取真正的数据进行返回
+ */
 export function getData (data: Function, vm: Component): any {
   // #7573 disable dep collection when invoking data getters
   pushTarget()
+  // 捕获data 函数中可能出现的错误
   try {
     return data.call(vm, vm)
   } catch (e) {
     handleError(e, vm, `data()`)
-    return {}
+    return {} // 如果出错直接返回空对象
   } finally {
     popTarget()
   }
