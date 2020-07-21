@@ -206,6 +206,7 @@ export function mountComponent (
   /**
    * 正是因为 watcher 对表达式的求值，触发数据属性的 get 拦截器 从而收集依赖
    */
+   // 测试啊
   new Watcher(vm, updateComponent, noop, {
     before () {
       if (vm._isMounted && !vm._isDestroyed) {
