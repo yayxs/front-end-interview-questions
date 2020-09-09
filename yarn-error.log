@@ -1,0 +1,36 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\1\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js init
+
+PATH: 
+  C:\Users\1\bin;D:\chromeDownload\cmder\bin;D:\chromeDownload\cmder\vendor\bin;D:\chromeDownload\cmder\vendor\git-for-windows\mingw64\bin;D:\chromeDownload\cmder\vendor\git-for-windows\usr\local\bin;D:\chromeDownload\cmder\vendor\git-for-windows\usr\bin;D:\chromeDownload\cmder\vendor\git-for-windows\usr\bin;D:\chromeDownload\cmder\vendor\git-for-windows\mingw64\bin;D:\chromeDownload\cmder\vendor\git-for-windows\usr\bin;C:\Users\1\bin;D:\chromeDownload\cmder\vendor\conemu-maximus5\ConEmu\Scripts;D:\chromeDownload\cmder\vendor\conemu-maximus5;D:\chromeDownload\cmder\vendor\conemu-maximus5\ConEmu;C:\Program Files (x86)\NetSarang\Xshell 6;D:\Program Files;C:\Program Files (x86)\Common Files\NetSarang;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;,;C:\Program Files\Git\usr\bin;C:\Program Files\Git\bin;D:\Server\apache-maven-3.5.2\bin;C:\Program Files (x86)\Java\jdk1.8.0_144\bin;C:\Program Files (x86)\Java\jdk1.8.0_144\jre\bin;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;D:\Program Files\中庆集控\cmsApp\node_modules\edge\lib\native\win32\ia32\7.10.0;C:\;Program Files\Git\cmd;C:\Program Files (x86)\ZoneKey\中庆集控\cmsApp\node_modules\edge\lib\native\win32\ia32\7.10.0;C;C:\Program Files\Git\cmd;C:\Program Files\Git\cmd;D:\chromeDownload\cmder;D:\chromeDownload\flutter_windows_v1.12.13+hotfix.5-stable\flutter\bin;C:\Python27;C:\Program Files\TortoiseGit\bin;C:\Program Files\PuTTY;C:\Users\1\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\nodejs;C:\Users\1\AppData\Local\Microsoft\WindowsApps;D:\Program Files\xshell;C:\Users\1\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\1\AppData\Local\Android\Sdk\platform-tools;C:\Users\1\AppData\Local\Android\Sdk\emulator;C:\Users\1\AppData\Local\Android\Sdk\tools;C:\Users\1\AppData\Local\Android\Sdk\tools\bin;C:\Users\1\AppData\Roaming\nvm;C:\Users\1\AppData\Roaming\npm;D:\chromeDownload\cmder;D:\chromeDownload\cmder\vendor\git-for-windows\usr\bin\vendor_perl;D:\chromeDownload\cmder\vendor\git-for-windows\usr\bin\core_perl
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  10.22.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: canceled
+      at Interface.<anonymous> (C:\Users\1\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:137008:13)
+      at Interface.emit (events.js:198:13)
+      at Interface._ttyWrite (readline.js:801:16)
+      at ReadStream.onkeypress (readline.js:184:10)
+      at ReadStream.emit (events.js:198:13)
+      at emitKeys (internal/readline.js:424:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (readline.js:1073:36)
+      at ReadStream.emit (events.js:198:13)
+      at addChunk (_stream_readable.js:288:12)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
