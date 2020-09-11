@@ -22,7 +22,18 @@ module.exports = {
           "/guides/css/position",
           "/guides/css/bfc",
           "/guides/css/hide",
+          "/guides/css/flex",
         ],
+      },
+      {
+        title: "VUE",
+        collapsable: true,
+        children: ["/guides/vue/style", "/guides/vue/communication"],
+      },
+      {
+        title: "杂项",
+        collapsable: true,
+        children: ["/guides/other/npm"],
       },
     ],
   },

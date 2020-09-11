@@ -1,3 +1,7 @@
+---
+title: class style 动态绑定
+---
+
 `vue` 中如何动态的绑定 样式 也就是所谓的 `class` 与 `style` 最直观的就是 文档中的描述
 [Class 与 Style 绑定](https://cn.vuejs.org/v2/guide/class-and-style.html)
 
@@ -99,6 +103,7 @@ return {
 ```html
 <section :style="styleObj">style绑定</section>
 ```
+
 ### 数组形式
 
 ```html
