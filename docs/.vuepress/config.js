@@ -31,6 +31,11 @@ module.exports = {
         children: ["/guides/vue/style", "/guides/vue/communication"],
       },
       {
+        title: "WebPack",
+        collapsable: true,
+        children: ["/guides/webpack/outline"],
+      },
+      {
         title: "杂项",
         collapsable: true,
         children: ["/guides/other/npm"],
