@@ -1,0 +1,42 @@
+---
+title: 算法：判断字符串是否为合法的IP地址
+---
+
+## 需求
+
+编写一个函数来验证输入的字符串是否是合法的 IP
+
+```js
+/**
+ * @param {string} IP
+ * @return {string}
+ */
+const validIPAddress = function(ip) {
+  let strArr = ip.split(".");
+  const len = strArr.length;
+  // 判断长度是否是4
+  if (len != 4) return false;
+  // 测试['192','168','12','12']数组内的所有元素是否都能通过某个函数的测试
+  const validPer = (currentValue, index) => {
+    // 当前的值是否是数字
+    const perArr = currentValue.split(""); // 单个字符
+    const isNumber = perArr.every((item, i) => {
+      const code = item.charCodeAt(0);
+      // 当前的code在48-59之间的,代表是个数字
+      return code >= 48 && code <= 59;
+    });
+    // 判断数组的每个元素,例如['192']
+    const flag =
+      // 当前值是在 0 和 255 之间 并且是数字
+      currentValue.length > 0 &&
+      currentValue >= 0 &&
+      currentValue <= 255 &&
+      isNumber &&
+      (currentValue === "0" || currentValue.charAt(0) != 0);
+    return flag;
+  };
+  let res = strArr.every(validPer);
+  console.log(res);
+};
+validIPAddress("192.168.12.23");
+```

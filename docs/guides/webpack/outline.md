@@ -2,8 +2,7 @@
 title: webpack面试题大纲
 ---
 
-::: Interview
-
+::: tip
 1. 你有使用过`webpack` 吗?简单说说你的看法
 2. 你有没有脱离脚手架，从基本搭建一个工程化的项目？
 3. `webpack` 的`loader` 与 `plugin` 有什么区别？谁先执行

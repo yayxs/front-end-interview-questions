@@ -36,6 +36,11 @@ module.exports = {
         children: ["/guides/webpack/outline"],
       },
       {
+        title: "算法",
+        collapsable: true,
+        children: ["/guides/algorithm/outline", "/guides/algorithm/judgeIp"],
+      },
+      {
         title: "杂项",
         collapsable: true,
         children: ["/guides/other/npm"],
