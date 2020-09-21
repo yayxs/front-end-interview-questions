@@ -26,6 +26,13 @@ module.exports = {
         ],
       },
       {
+        title: "JavaScript",
+        collapsable: true,
+        children: [
+          "/guides/js/outline",
+        ],
+      },
+      {
         title: "VUE",
         collapsable: true,
         children: ["/guides/vue/style", "/guides/vue/communication"],
@@ -34,6 +41,11 @@ module.exports = {
         title: "WebPack",
         collapsable: true,
         children: ["/guides/webpack/outline"],
+      },
+      {
+        title: "网红经典面试题",
+        collapsable: true,
+        children: ["/guides/netRed/outline"],
       },
       {
         title: "算法",
