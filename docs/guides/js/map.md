@@ -1,4 +1,6 @@
-### Set、Map、WeakSet 和 WeakMap 的区别
+---
+title: Set、Map、WeakSet 和 WeakMap 的区别
+---
 
 首先我们知道一点，什么是 Set 什么是 Map 等这几个又是什么玩意，我们知道和对象差不多，但是对象的 key 只能是**字符串** 或者 **Symbl**
 
