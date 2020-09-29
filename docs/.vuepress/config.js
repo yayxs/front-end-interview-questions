@@ -35,7 +35,7 @@ module.exports = {
       {
         title: "VUE",
         collapsable: true,
-        children: ["/guides/vue/style", "/guides/vue/communication"],
+        children: ["/guides/vue/outline"],
       },
       {
         title: "WebPack",

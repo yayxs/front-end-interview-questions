@@ -1,9 +1,10 @@
 <template>
-  <div></div>
+  <div class="container"></div>
 </template>
 
 <script>
 export default {
+  name: "WatchComputed",
   data() {
     return {};
   },
@@ -11,4 +12,4 @@ export default {
   mounted() {},
 };
 </script>
-<style scoped></style>
+<style scoped lang="scss"></style>

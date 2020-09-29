@@ -1,3 +1,45 @@
+---
+title: Vue实例的生命周期
+---
+
+```js
+new Vue({
+  el: "#app",
+  data: data,
+  beforeCreate() {
+    console.log(`beforeCreate`);
+  },
+  created() {
+    console.log(`created`);
+  },
+  beforeMount() {
+    console.log(`beforeMount`);
+  },
+  mounted() {
+    console.log(`mounted`);
+  },
+  beforeUpdate() {
+    console.log(`beforeUpdate`);
+  },
+  updated() {
+    console.log(`updated`);
+  },
+  beforeDestroy() {
+    console.log(`beforeDestroy`);
+  },
+  destroyed() {
+    console.log(`destroyed`);
+  },
+});
+```
+
+## 第一次页面加载的时候触发哪几个生命周期钩子
+
+```
+beforeCreate created beforeMount mounted
+
+```
+
 ### 谈谈你对`vue`生命周期的理解
 
 首先要了解声明周期的合并策略,
