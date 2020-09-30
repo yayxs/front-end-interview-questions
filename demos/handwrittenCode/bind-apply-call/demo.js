@@ -1,5 +1,4 @@
 function old() {
-    // 定义上下文
     let ctx = {
       name: `yayxs`,
     };

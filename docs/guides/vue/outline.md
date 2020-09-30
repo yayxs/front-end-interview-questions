@@ -1,5 +1,5 @@
 ---
-title: Vue 面试题大纲
+title: Vue 高频面试题
 ---
 
 ::: tip

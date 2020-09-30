@@ -2,4 +2,32 @@
 title: var、let 和 const 区别的实现原理是什么
 ---
 
-var 操作符（关键字）
+## var 操作符（关键字）
+在使用var声明变量时，变量会被自动添加到最接近的上下文。在函数中，最接近的上下文就是函数的局部上下文。在with语句中，最接近的上下文也是函数上下文。如果变量未经声明就被初始化了，那么它就会自动被添加到全局上下文
+
+## 使用let的块级作用域声明
+
+但它的作用域是块级的，这也是JavaScript中的新概念。块级作用域由最近的一对包含花括号{}界定。换句话说，if块、while块、function块，甚至连单独的块也是let声明变量的作用域。
+
+let与var的另一个不同之处是在同一作用域内不能声明两次。重复的var声明会被忽略，而重复的let声明会抛出SyntaxError。
+
+## 使用const的常量声明
+除了let，ES6同时还增加了const关键字。使用const声明的变量必须同时初始化为某个值。一经声明，在其生命周期的任何时候都不能再重新赋予新值。
+
+**const声明只应用到顶级原语或者对象。换句话说，赋值为对象的const变量不能再被重新赋值为其他引用值，但对象的键则不受限制。**
+
+如果想让整个对象都不能修改，可以使用Object.freeze()
+
+```js
+ const o = {
+      name:'yayxs',
+      age:18
+    }
+    Object.freeze(o)
+    o.name = 'subs'
+    const o3 = Object.freeze({});
+    o3.name= 'yyx'
+    console.log(o3.name) // undefined
+    console.log(o.name) // yayxs
+```
+该尽可能地多使用const声明，除非确实需要一个将来会重新赋值的变量。这样可以从根本上保证提前发现重新赋值导致的bug。

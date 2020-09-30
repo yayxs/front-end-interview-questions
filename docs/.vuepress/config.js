@@ -1,10 +1,10 @@
 module.exports = {
   title: "TOP-FE-IQA",
-  description: "top-fe-iqa",
+  description: "Top X Front-End  Interview Questions and Answers",
   themeConfig: {
     nav: [
       { text: "指南", link: "/guides/" },
-      { text: "GitHub", link: "https://github.com/yayxs", target: "_blank" },
+      { text: "GitHub", link: "https://github.com/yayxs/top-fe-iqa", target: "_blank" },
     ],
 
     sidebar: [
@@ -18,11 +18,8 @@ module.exports = {
         title: "CSS",
         collapsable: true,
         children: [
-          "/guides/css/center",
-          "/guides/css/position",
-          "/guides/css/bfc",
-          "/guides/css/hide",
-          "/guides/css/flex",
+          "/guides/css/outline",
+
         ],
       },
       {
@@ -42,11 +39,7 @@ module.exports = {
         collapsable: true,
         children: ["/guides/webpack/outline"],
       },
-      {
-        title: "网红经典面试题",
-        collapsable: true,
-        children: ["/guides/netRed/outline"],
-      },
+
       {
         title: "算法",
         collapsable: true,
