@@ -158,7 +158,6 @@
 - Class 与 Style 如何动态绑定？
 - vue 的`单向数据流`
 
-
 - 虚拟 DOM 原理以及优缺点
 - computed watch methods 三者的应用场景与区别以及实现原理
 - 对比一下 `Object.defineProperty` 与`proxy`
@@ -407,8 +406,6 @@
 
 </details>
 
-
-
 ### 设计模式
 
 <details>
@@ -479,22 +476,10 @@
   ```
 
 * 计算两个数组的交集
-* JS 实现`String.trim()`方法;
 * 数组去重
 * 简单实现一个发布者订阅机制
 
 </details>
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- <div align="center">
     <img width="360px" height="160px" src="https://github.com/yayxs/top-fe-iqa/blob/master/assets/images/contact.jpg"></img>

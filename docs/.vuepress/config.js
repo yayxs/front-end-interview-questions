@@ -4,7 +4,11 @@ module.exports = {
   themeConfig: {
     nav: [
       { text: "指南", link: "/guides/" },
-      { text: "GitHub", link: "https://github.com/yayxs/top-fe-iqa", target: "_blank" },
+      {
+        text: "GitHub",
+        link: "https://github.com/yayxs/top-fe-iqa",
+        target: "_blank",
+      },
     ],
 
     sidebar: [
@@ -17,17 +21,17 @@ module.exports = {
       {
         title: "CSS",
         collapsable: true,
-        children: [
-          "/guides/css/outline",
-
-        ],
+        children: ["/guides/css/outline"],
       },
       {
         title: "JavaScript",
         collapsable: true,
-        children: [
-          "/guides/js/outline",
-        ],
+        children: ["/guides/js/outline"],
+      },
+      {
+        title: "手动实现",
+        collapsable: true,
+        children: ["/guides/handwritten/outline"],
       },
       {
         title: "VUE",
