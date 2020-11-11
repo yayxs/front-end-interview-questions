@@ -106,8 +106,6 @@
 - ['1', '2', '3'].map(parseInt)
 - [[3,2,1].reduce(Math.pow), [].reduce(Math.pow)]
 - Set、Map、WeakSet 和 WeakMap 的区别
-- 判断数组的方法
-- JavaScript 中的数组是如何存储的
 - 类数组和数组的区别是什么？
 - call 与 applycall,aplly 和 bind 的内部是如何实现的？
 - 数组的哪些 API 会改变原数组？
@@ -265,7 +263,7 @@
 - React 和 Vue 的区别？
 - 能对比一下 Create React App 和 Vue CLI 吗？
 - 了解 MVC / MVP / MVVM 的区别吗？
-</details>
+  </details>
 
 ### 测试
 
@@ -425,23 +423,21 @@
 
 - [↓ 手写`new`操作符](#2-手写-javascript-new)
 
-- 手写`JSON.stringify`
+* 手写`JSON.parse`
 
-- 手写`JSON.parse`
+* 手写`call`或 `apply`
 
-- 手写`call`或 `apply`
+* 手写继承
 
-- 手写继承
+* 手写函数柯里化
 
-- 手写函数柯里化
+* 手写`Promise`
 
-- 手写`Promise`
+* 手写防抖与节流
 
-- 手写防抖与节流
+* 手写深拷贝
 
-- 手写深拷贝
-
-- 数组扁平化 :请实现一个 flattenDeep 函数，把嵌套的数组扁平化
+* 数组扁平化 :请实现一个 flattenDeep 函数，把嵌套的数组扁平化
 
 </details>
 
@@ -462,14 +458,14 @@
     console.log("async2");
   }
   console.log("script start");
-  setTimeout(function () {
+  setTimeout(function() {
     console.log("setTimeout");
   }, 0);
   async1();
-  new Promise(function (resolve) {
+  new Promise(function(resolve) {
     console.log("promise1");
     resolve();
-  }).then(function () {
+  }).then(function() {
     console.log("promise2");
   });
   console.log("script end");

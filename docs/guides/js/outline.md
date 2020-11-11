@@ -3,11 +3,12 @@ title: JavaScript高频面试题
 ---
 
 ::: tip
+
 1. [var、let 和 const 区别的实现原理是什么](./var_let_const.md)
 2. [为什么 0.1 + 0.2 != 0.3 ?](./0.3.md)
 3. [JavaScript 的数据类型,存储有什么区别](./type_of_data.md)
-4. [null和undefined有什么区别么](./null_undefined.md)
-5. [typeof 和 instance of 检测数据类型有什么区别？手写instanceof ](./typeof_instanceof.md)
+4. [null 和 undefined 有什么区别么](./null_undefined.md)
+5. [typeof 和 instance of 检测数据类型有什么区别？手写 instanceof ](./typeof_instanceof.md)
 6. [Set、Map、WeakSet 和 WeakMap 的区别](./map.md)
 7. [谈谈你对作用域与作用域链的理解](./scope.md)
 8. [es6 的新特性都有哪些？](./es6.md)
@@ -18,9 +19,12 @@ title: JavaScript高频面试题
 13. [函数的参数是按什么方式传递的？](./fun.md)
 14. [说说你对执行上下文的理解?](./context.md)
 15. [在 JS 中什么是变量提升？](./hoisting.md)
-16. [网红经典面试题：for循环中的var声明](./for_var.md)
+16. [网红经典面试题：for 循环中的 var 声明](./for_var.md)
 17. [什么是暂时性死区？](./emporal_dead_zone.md)
-18. [谈一谈JS中的垃圾回收机制](./garbage_collection.md)
+18. [谈一谈 JS 中的垃圾回收机制](./garbage_collection.md)
 19. [ 如何提升 JavaScript 变量的存储性能？](./performance.md)
-20. [JS中的内存管理，如何看待内存泄漏](./ram.md)
+20. [JS 中的内存管理，如何看待内存泄漏](./ram.md)
+21. [判断数组的方法?如何检测数组](./is_arr.md)
+22. [JavaScript 中的数组是如何存储的](./arr.md)
+
 :::

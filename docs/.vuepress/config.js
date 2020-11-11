@@ -29,7 +29,7 @@ module.exports = {
         children: ["/guides/js/outline"],
       },
       {
-        title: "手动实现",
+        title: "手写",
         collapsable: true,
         children: ["/guides/handwritten/outline"],
       },
