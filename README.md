@@ -145,7 +145,6 @@
 - Vue 内部是如何构建一个渲染函数的 `render` `template` `el` 的优先级如何
 - 谈谈 Vue 中的 Transition 动画
 - 你了解 Vue 中的`选项合并策略`嘛，请谈谈
-- vue 组件中的参数如何传递？如何进行通信
 - 说说 Vue 中`$nextTick`的实现原理 它的执行时机是什么时候 和 DOM 的渲染有什么关系
 - vue 修饰符
 - Vue 中的 key 有什么作用？

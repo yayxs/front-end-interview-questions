@@ -10,33 +10,31 @@ module.exports = {
         target: "_blank",
       },
     ],
-
     sidebar: [
       {
         title: "前言",
         collapsable: false,
         children: ["/guides/"],
       },
-
       {
-        title: "CSS",
+        title: "HTML/HTML5",
+        collapsable: false,
+        children: ["/guides/css/outline"],
+      },
+      {
+        title: "CSS/CSS3",
         collapsable: true,
         children: ["/guides/css/outline"],
       },
       {
-        title: "JavaScript",
+        title: "JavaScript/Es6",
         collapsable: true,
         children: ["/guides/js/outline"],
       },
       {
-        title: "手写",
-        collapsable: true,
-        children: ["/guides/handwritten/outline"],
-      },
-      {
         title: "VUE",
-        collapsable: true,
-        children: ["/guides/vue/outline"],
+        collapsable: false,
+        children: ["/guides/vue/communication"],
       },
       {
         title: "WebPack",
@@ -48,6 +46,11 @@ module.exports = {
         title: "算法",
         collapsable: true,
         children: ["/guides/algorithm/outline", "/guides/algorithm/judgeIp"],
+      },
+      {
+        title: "手动实现",
+        collapsable: true,
+        children: ["/guides/handwritten/outline"],
       },
       {
         title: "杂项",
