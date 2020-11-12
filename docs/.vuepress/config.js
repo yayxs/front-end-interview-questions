@@ -14,7 +14,7 @@ module.exports = {
       {
         title: "前言",
         collapsable: false,
-        children: ["/guides/"],
+        children: ["/guides/", "/guides/other/outline"],
       },
       {
         title: "HTML/HTML5",
@@ -53,9 +53,9 @@ module.exports = {
         children: ["/guides/handwritten/outline"],
       },
       {
-        title: "杂项",
-        collapsable: true,
-        children: ["/guides/other/npm"],
+        title: "场景题目",
+        collapsable: false,
+        children: ["/guides/scene/00", "/guides/scene/01"],
       },
     ],
   },
