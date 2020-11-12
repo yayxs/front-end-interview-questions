@@ -28,8 +28,8 @@ module.exports = {
       },
       {
         title: "JavaScript/Es6",
-        collapsable: true,
-        children: ["/guides/js/outline"],
+        collapsable: false,
+        children: ["/guides/js/call_bind_apply"],
       },
       {
         title: "VUE",

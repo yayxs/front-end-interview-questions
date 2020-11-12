@@ -107,7 +107,6 @@
 - [[3,2,1].reduce(Math.pow), [].reduce(Math.pow)]
 - Set、Map、WeakSet 和 WeakMap 的区别
 - 类数组和数组的区别是什么？
-- call 与 applycall,aplly 和 bind 的内部是如何实现的？
 - 数组的哪些 API 会改变原数组？
 - 可迭代对象有哪些特点
 - 垃圾回收与内存泄漏
@@ -424,7 +423,6 @@
 
 * 手写`JSON.parse`
 
-* 手写`call`或 `apply`
 
 * 手写继承
 
