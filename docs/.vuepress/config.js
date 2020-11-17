@@ -19,12 +19,26 @@ module.exports = {
       {
         title: "HTML/HTML5",
         collapsable: false,
-        children: ["/guides/css/outline"],
+        children: [],
       },
       {
         title: "CSS/CSS3",
-        collapsable: true,
-        children: ["/guides/css/outline"],
+        collapsable: false,
+        children: [
+          "/guides/css/box_model",
+          "/guides/css/dom_w_h",
+          "/guides/css/bfc",
+          "/guides/css/center",
+          "/guides/css/selector",
+          "/guides/css/clearfix",
+          "/guides/css/hide",
+          "/guides/css/position",
+          "/guides/css/display",
+          "/guides/css/normalize",
+          "/guides/css/link_import",
+          "/guides/css/triangle",
+
+        ],
       },
       {
         title: "JavaScript/Es6",
@@ -45,7 +59,7 @@ module.exports = {
       {
         title: "算法",
         collapsable: true,
-        children: ["/guides/algorithm/outline", "/guides/algorithm/judgeIp"],
+        children: ["/guides/algorithm/outline",],
       },
       {
         title: "手动实现",

@@ -1,7 +1,8 @@
 ---
-title: 使元素隐藏的几种方式，有什么不同
+title:  opacity:0visibility:hidden、display:none 隐藏页面中的元素有哪些方式
 ---
 
+# opacity: 0、visibility: hidden、display: none 隐藏页面中的元素有哪些方式
 ::: tip
 
 1. opacity: 0、visibility: hidden、display: none

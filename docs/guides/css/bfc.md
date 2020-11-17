@@ -1,6 +1,8 @@
 ---
-title: BFC
+title: 你知道什么是 `BFC` 吗 BFC 的布局规则是什么？如何创建 BFC？
 ---
+
+# 你知道什么是 `BFC` 吗 BFC 的布局规则是什么？如何创建 BFC？
 
 ::: tip
 
