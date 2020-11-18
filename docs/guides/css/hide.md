@@ -1,5 +1,5 @@
 ---
-title:  opacity:0visibility:hidden、display:none 隐藏页面中的元素有哪些方式
+title: 隐藏页面中的元素有哪些方式 opacity:0,visibility:hidden,display:none 的区别
 ---
 
 # opacity: 0、visibility: hidden、display: none 隐藏页面中的元素有哪些方式
@@ -10,9 +10,11 @@ title:  opacity:0visibility:hidden、display:none 隐藏页面中的元素有哪
 
 :::
 
+在正常文档流排版过程中，经常会使用display:none和visibility:hidden控制节点的隐藏，
 
-| 方式        | 是否占用空间          | 是否可交互  |
-| :-------------: |:-------------:| :-----:|
-| opacity: 0;      | 占据 | 可交互 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+```
+visibility:hidden 节点不可见 但是占据空间
+display:none      节点不可见 不占据空间
+opacity:0         节点不可见 占据空间
+position:relative; z-index:-1 节点不可见但占据空间，不可点击
+```

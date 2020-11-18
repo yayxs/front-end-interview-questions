@@ -37,6 +37,8 @@ module.exports = {
           "/guides/css/normalize",
           "/guides/css/link_import",
           "/guides/css/triangle",
+          "/guides/css/z_index",
+          "/guides/css/unit",
 
         ],
       },
