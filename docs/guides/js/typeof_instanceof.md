@@ -2,6 +2,10 @@
 title: typeof 和 instance of 检测数据类型有什么区别？
 ---
 
+::: tip
+typeof 是否能正确判断类型？instanceof 能正确判断对象的原理是什么？
+:::
+
 ## typeof
 
  - typeof 操作符适合用来判断一个变量是否是原始类型，确切的说是判断一个变量是不是 `数值` `字符串` `布尔值` `undefined` 的最好方式

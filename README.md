@@ -68,7 +68,6 @@
 <summary>查看目录</summary>
 
 - 如何让 (a == 1 && a == 2 && a == 3) 的值为 true？
-- typeof 和 instance of 检测数据类型有什么区别？
 - prototype 和 `__proto__` 区别是什么？
 - 谈谈你对原型的理解？
 - 什么是原型链？【原型链解决的是什么问题？】

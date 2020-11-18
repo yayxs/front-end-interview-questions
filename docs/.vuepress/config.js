@@ -14,7 +14,7 @@ module.exports = {
       {
         title: "前言",
         collapsable: false,
-        children: ["/guides/", "/guides/other/outline"],
+        children: ["/guides/"],
       },
       {
         title: "HTML/HTML5",
@@ -39,13 +39,34 @@ module.exports = {
           "/guides/css/triangle",
           "/guides/css/z_index",
           "/guides/css/unit",
-
         ],
       },
       {
-        title: "JavaScript/Es6",
+        title: "JavaScript/ES6",
         collapsable: false,
-        children: ["/guides/js/call_bind_apply"],
+        children: [
+          "/guides/js/type_of_data",
+          "/guides/js/0.3",
+          "/guides/js/var_let_const",
+          "/guides/js/null_undefined",
+          "/guides/js/typeof_instanceof",
+          "/guides/js/map",
+          "/guides/js/scope",
+          "/guides/js/es6",
+          "/guides/js/for_in_of",
+          "/guides/js/create_obj",
+          "/guides/js/equalityOperator",
+          "/guides/js/use_strict",
+          "/guides/js/func_args",
+          "/guides/js/context",
+          "/guides/js/hoisting",
+          "/guides/js/for_var",
+          "/guides/js/garbage_collection",
+          "/guides/js/performance",
+          "/guides/js/ram",
+          "/guides/js/is_arr",
+          "/guides/js/arr",
+        ],
       },
       {
         title: "VUE",
@@ -61,7 +82,7 @@ module.exports = {
       {
         title: "算法",
         collapsable: true,
-        children: ["/guides/algorithm/outline",],
+        children: ["/guides/algorithm/outline"],
       },
       {
         title: "手动实现",
