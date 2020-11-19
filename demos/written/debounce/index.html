@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>防抖debounce函数</title>
+    <style>
+      .container{
+        width: 500px;
+        height: 200px;
+        margin: 0 auto;
+        line-height: 200px;
+        text-align: center;
+        color: #fff;
+        background-color: #444;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container"></div>
+    <script>
+      let num =1
+      const container = document.querySelector('.container')
+      // 基本函数内容
+      function commonFnCon(){
+        container.innerHTML = num++
+      }
+      function baseShowNumber(e){
+        commonFnCon()
+        console.log(e) // MouseEvent 
+        console.log(this)  // <div>num</div>
+      }
+      function thirdShowNumber(e){
+        commonFnCon()
+      }
+      
+      function thirdDebounce(fn,wait){
+        let timerId = null;
+        return function (){
+          let ctx = this
+          let args =  arguments
+          console.log('ctx',ctx) // 此时的ctx 就是baseShowNumber中的<div>num</div>
+          console.log('args',arguments) // 此时的arguments 刚好是个伪数组，其中包含事件对象
+          if(timerId) clearTimeout(timerId)
+          // 一句话：一件事情触发了，1s内不再触发此事件
+          timerId = setTimeout(()=>{
+            // 接下来就是把当前环境的this绑定到事件函数（这里指的是baseShowNumber）上
+            // 并执行该事件函数
+            fn.apply(ctx,args)
+          },wait)
+        }
+      }
+      // container.onmousemove = baseShowNumber
+      container.onmousemove = thirdDebounce(thirdShowNumber,1000)
+    </script>
+  </body>
+</html>

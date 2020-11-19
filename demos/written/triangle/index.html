@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>手写实现输出由*号组成的不同形状</title>
+  </head>
+  <body>
+    <script>
+      /**
+       *      *       1----1
+       *      **      2----2
+       *      ***     3----3
+       *      ****    4----4
+       */
+      for (let row = 0; row < 4; row++) { // 行数
+        for (let num = 0; num < row; num++) {
+          document.write("*");
+        }
+        document.write("<br />");
+      }
+
+      for(let row = 4;row>0;row--){
+          for(let num=0;num<row;num++){
+            document.write("*");
+          }
+          document.write("<br />");
+      }
+    </script>
+  </body>
+</html>

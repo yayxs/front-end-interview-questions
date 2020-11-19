@@ -79,15 +79,13 @@
 - 箭头函数
 - ES5/ES6 的继承 分别有哪些优缺点？
 - 类型的转化
-- 防抖与节流，它们的作用是什么
 - this 如何正确的判断 this 的指向? 箭头函数的 this 是什么？
 - `sort` 函数
 - 函数科里化
 - ['1', '2', '3'].map(parseInt)
 - [[3,2,1].reduce(Math.pow), [].reduce(Math.pow)]
 - Set、Map、WeakSet 和 WeakMap 的区别
-- 类数组和数组的区别是什么？
-- 数组的哪些 API 会改变原数组？
+
 - 可迭代对象有哪些特点
 - 垃圾回收与内存泄漏
 
@@ -397,7 +395,7 @@
 <details>
 <summary>查看目录</summary>
 
-- [↓ 手写数组去重方法](#1-手写数组去重的方法)
+
 
 - [↓ 手写`new`操作符](#2-手写-javascript-new)
 
@@ -409,11 +407,8 @@
 
 - 手写`Promise`
 
-- 手写防抖与节流
 
 - 手写深拷贝
-
-- 数组扁平化 :请实现一个 flattenDeep 函数，把嵌套的数组扁平化
 
 </details>
 
@@ -447,8 +442,7 @@
   console.log("script end");
   ```
 
-* 计算两个数组的交集
-* 数组去重
+
 * 简单实现一个发布者订阅机制
 
 </details>

@@ -69,7 +69,22 @@ module.exports = {
         ],
       },
       {
-        title: "VUE",
+        title: "专题系列",
+        collapsable: false,
+        children: ["/guides/js/array/"],
+      },
+      {
+        title: "笔试手写",
+        collapsable: false,
+        children: [
+          "/guides/written/debounce",
+          "/guides/written/throttle",
+          "/guides/written/unique",
+          "/guides/written/triangle",
+        ],
+      },
+      {
+        title: "框架VUE",
         collapsable: false,
         children: ["/guides/vue/communication"],
       },
@@ -83,11 +98,6 @@ module.exports = {
         title: "算法",
         collapsable: true,
         children: ["/guides/algorithm/outline"],
-      },
-      {
-        title: "手动实现",
-        collapsable: true,
-        children: ["/guides/handwritten/outline"],
       },
       {
         title: "场景题目",
