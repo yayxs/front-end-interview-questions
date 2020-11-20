@@ -79,6 +79,7 @@ module.exports = {
         children: [
           "/guides/written/debounce",
           "/guides/written/throttle",
+          "/guides/written/clone",
           "/guides/written/unique",
           "/guides/written/triangle",
         ],
