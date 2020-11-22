@@ -40,6 +40,23 @@ title: HTML 常考面试题汇总
 - name viewport 视口 (适配移动端的第一步)
 - content
 
+
+```html
+<meta charset="utf-8">
+<!--主要I是强制让文档的宽度与设备宽度保持1:1，最大宽度1.0，禁止屏幕缩放。-->
+<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+<!--这个也是iphone私有标签，允许全屏浏览。-->
+<meta content="yes" name="apple-mobile-web-app-capable">
+<!--iphone的私有标签，iphone顶端状态条的样式。-->
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<!--禁止数字自动识别为电话号码，这个比较有用，因为一串数字在iphone上会显示成蓝色，样式加成别的颜色也是不生效的。-->
+<meta content="telephone=no" name="format-detection">
+<!--禁止email识别-->
+<meta content="email=no" name="format-detection">
+
+```
+
+
 ## `viewport`有哪些参数，作用是什么
 
 ## `HTML4/4.01` 与 `XHTML(XML)`和 `HTML5` 有什么区别，如何区分 HTML 和 HTML5？
@@ -110,7 +127,6 @@ title: HTML 常考面试题汇总
  - 让浏览器以标准模式渲染
  - 让浏览器知道元素的合法性
 
-## 在`HTML`中如何做`SEO`优化？
 
 ## 如何处理 HTML5 新标签的浏览器兼容问题？
 

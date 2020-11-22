@@ -39,6 +39,9 @@ module.exports = {
           "/guides/css/triangle",
           "/guides/css/z_index",
           "/guides/css/unit",
+          "/guides/css/font",
+          "/guides/css/vertical_align",
+          "/guides/css/img",
         ],
       },
       {
@@ -71,7 +74,7 @@ module.exports = {
       {
         title: "专题系列",
         collapsable: false,
-        children: ["/guides/js/array/"],
+        children: ["/guides/js/array/", "/guides/optimization/"],
       },
       {
         title: "笔试手写",

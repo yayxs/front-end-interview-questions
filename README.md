@@ -10,19 +10,14 @@
 - 上下 margin 重合的问题
 - \*\*png、jpg、gif 这些图片格式解释一下，分别什么时候用。有没有了解过 webp？
 - 如何实现左侧宽度固定，右侧宽度自适应的布局
-- position 跟 display、overflow、float 这些特性相互叠加后会怎么样？
 - css3 的新特性有哪些
-- CSS 中的 `vertical-align` 有哪些值？它在什么情况下才能生效？
-- ::after 和:after 的区别
 - CSS 有哪些样式可以给子元素继承!
 - “品”字布局如何设计
 - 使用过 css 预处理器吗
-- 在网页中的应该使用奇数还是偶数的字体？为什么呢
 - 什么是响应式 什么是自适应
-- 你对 line-height 是如何理解的？
 - 如何设计一个 4 列等宽布局，各列之间的边距是 10px（考虑浏览器的兼容性）？
 - CSS 如何实现三列布局，左侧和右侧固定宽度，中间自适应宽度？
-
+- 谈谈你对base64 的理解
 </details>
 
 ### DOM
@@ -121,7 +116,6 @@
 - 谈谈你对 keep-alive 的了解？vue 里的 keep-alive 是怎么实现的
 - 谈谈 Vue SSR 吗？说说 SSR？
 - Vue 怎么用 vm.\$set() 解决对象新增属性不能响应的问题 ？
-- 你有对 Vue 项目进行哪些优化？可以从几方面入手
 - 谈谈`vue 3.0`
 - `$route`和`$router`的区别
 - scoped 属性作用
@@ -157,7 +151,6 @@
 - redux 与 mobx 的区别?
 - redux 中如何进行异步操作?
 - React 组件通信如何实现?
-- React 有哪些优化性能是手段? 语法层面呢？
 - React 如何进行组件/逻辑复用?
 - mixin、hoc、render props、react-hooks 的优劣如何？
 - 你是如何理解 fiber 的?
@@ -235,7 +228,7 @@
 - 介绍下 webpack 热更新原理，是如何做到在不刷新浏览器的前提下更新页面的
 - 介绍`webpack` 的实现原理
 - Webpack 的 loader 和 plugins 的区别
-- Webpack 构建速度优化有哪些方案？
+
 
 </details>
 
@@ -303,21 +296,6 @@
 - EventLoop
 
 - async await 函数
-
-</details>
-
-### 性能优化
-
-<details>
-<summary>查看目录</summary>
-
-- 能说说首屏加载优化有哪些方案么
-- 首屏和白屏的时间如何计算
-- 什么是 GPU 加速，如何使用 GPU 加速，GPU 加速的缺点
-- 异步加载 JS 脚本的方式有哪些？
-- css 有哪些提高性能的方法
-- 了解 CSS 3 动画的硬件加速么？在重绘和重流方面有什么需要注意的点？
-- 了解 SPA 的懒加载么？
 
 </details>
 

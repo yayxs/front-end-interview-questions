@@ -1,5 +1,5 @@
 ---
-title: 隐藏页面中的元素有哪些方式 opacity:0,visibility:hidden,display:none 的区别
+title: 隐藏页面中的元素有哪些方式?
 ---
 
 # opacity: 0、visibility: hidden、display: none 隐藏页面中的元素有哪些方式
