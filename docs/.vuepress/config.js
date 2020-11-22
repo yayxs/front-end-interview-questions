@@ -42,6 +42,7 @@ module.exports = {
           "/guides/css/font",
           "/guides/css/vertical_align",
           "/guides/css/img",
+          "/guides/css/base64",
         ],
       },
       {

@@ -11,7 +11,9 @@ title: 伪类和伪元素的区别是什么呢 ？css3 新增的伪类有哪些
  - 伪类：指的是一种状态选择器 比如鼠标划过DOM的状态 :hover :focus和:checked，状态下的演示
 
 
-## after 和:after 的区别
+## ::after 和:after 的区别
+
+两个冒号的形式（兼容低版本的建议使用单个冒号历史遗留的问题）
 
 ```html
 <p class="p-box">
