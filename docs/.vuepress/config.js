@@ -19,7 +19,7 @@ module.exports = {
       {
         title: "HTML/HTML5",
         collapsable: false,
-        children: [],
+        children: ["/guides/html/"],
       },
       {
         title: "CSS/CSS3",
