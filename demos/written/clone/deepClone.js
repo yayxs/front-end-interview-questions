@@ -11,14 +11,17 @@ let obj = {
     name: "wanghuahua"
   }
 };
-// console.log(typeof (typeof {})) // string
-function deepClone(obj){
-  let res = {} // 结果对象
+
+
+function firstDeepClone(target){
+  if(typeof target !== 'target') return
+
+  let res = target instanceof Array ? [] : {};
   for(let key in res){
     if(obj.hasOwnProperty(key)){
       // 首先判断当前key 所对应的属性值是否是个引用类型
       if(typeof obj[key] === 'object'){
-        res[key] = deepClone(obj[key])
+        res[key] = firstDeepClone(obj[key])
       }else{
         res[key] = obj[key]
       }

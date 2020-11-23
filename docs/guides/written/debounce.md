@@ -1,5 +1,5 @@
 ---
-title: 手写实现防抖函数（debounce/防抖动）
+title: 手写实现防抖函数（debounce）
 ---
 
 # 手写实现防抖函数（debounce/防抖动）

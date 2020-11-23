@@ -1,16 +1,33 @@
-// var self;
-// function Person(name) {
+function Person(name, age) {
+  console.log("this", this);
+  this.name = name;
+  this.age = age;
+}
+Person.prototype.height = 180;
+Person.prototype.sayName = function() {
+  console.log(this.name);
+};
+let p = new Person("yayxs", 20);
+console.log(p.name); // yayxs
+console.log(p.age);
+20;
+p.sayName(); // yayxs
+console.log(p.__proto__ === Person.prototype); // 对象p（实例）的原型属性指向构造函数的原型，
+// 这样也就保证了实例能够访问在构造函数原型中定义的属性和方法。
 
-//   self = this;
-//   this.name = name;
-//   console.log(this)
-// }
+function myNew() {
+  let obj = new Object(),
+    [constructor, ...args] = [...arguments];
+  obj.__proto__ = constructor.prototype;
 
-// let p = new Person("张三");
-// console.log(p);
-// console.log(self === p); // true 构造函数中的this 绑定在了p这个对象上
-// console.log(p.__proto__ === Person.prototype); // 对象p的原型属性指向构造函数的原型，这样也就保证了实例能够访问在构造函数原型中定义的属性和方法。
-// ----------------------------------------------------------------
+  constructor.apply(obj, args);
+  return obj;
+}
+
+function Person(name) {
+  this.name = name;
+  //   return {};
+}
 
 // function Persion(name){
 //     this.name = name
@@ -40,20 +57,6 @@
 // console.log(p);
 // ------------------------------------------------
 
-// function myNew() {
-//   let [constructor, ...args] = [...arguments];
-//   let obj = {};
-//   obj.__proto__ = constructor.prototype;
-
-//   let res = constructor.apply(obj, args);
-//   return res instanceof Object ? res : obj;
-// }
-
-// function Person(name) {
-//   this.name = name;
-// //   return {};
-// }
-
 // Person.prototype.sayHi = function () {
 //   console.log(`原型方法中的函数--${this.name}`);
 // };
@@ -64,19 +67,19 @@
 
 // ------------------------------------
 
-let obj = {
-  name: "张三",
-  sayHi() {
-    console.log(this); // obj 这个对象
-    function sayName() { 
-      console.log(this); // 是一个函数  this 指向window
-    }
-    sayName()
-    const foo = ()=>{
-      console.log(this)
-    }
-    foo()
-  },
-};
-console.log(obj.name);
-obj.sayHi();
+// let obj = {
+//     name: "张三",
+//     sayHi() {
+//       console.log(this); // obj 这个对象
+//       function sayName() {
+//         console.log(this); // 是一个函数  this 指向window
+//       }
+//       sayName()
+//       const foo = ()=>{
+//         console.log(this)
+//       }
+//       foo()
+//     },
+//   };
+//   console.log(obj.name);
+//   obj.sayHi();

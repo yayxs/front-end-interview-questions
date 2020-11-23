@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(name,age){
+            this.name = name
+            this.age = age
+        }
+        const p = new Person('yayxs','20')
+        console.log(p instanceof Person); // true
+        console.log(p instanceof Object); // true
+
+        // -------------------
+
+        class PersonClass{}
+        let pClass = new PersonClass()
+
+        console.log(pClass instanceof PersonClass) // true
+    </script>
+</body>
+</html>

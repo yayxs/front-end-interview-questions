@@ -6,6 +6,21 @@
   <title>节流函数throttle</title>
 </head>
 <body>
-  
+  <script>
+    function throttle(func, wait) {
+      let timerId = null
+      let now = 0
+      return function(){
+       let context = this;
+        let  args = arguments;
+        if(!timerId){
+          timerId = setTimeout(()=>{
+            timerId = null
+            func.apply(context,args)
+          },wait)
+        }
+      }
+    }
+  </script>
 </body>
 </html>

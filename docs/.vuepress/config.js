@@ -84,6 +84,12 @@ module.exports = {
           "/guides/written/debounce",
           "/guides/written/throttle",
           "/guides/written/clone",
+          "/guides/written/new",
+          "/guides/written/call",
+          "/guides/written/bind",
+          "/guides/written/instanceof",
+          "/guides/written/trim",
+          "/guides/written/event",
           "/guides/written/unique",
           "/guides/written/triangle",
         ],
@@ -100,7 +106,7 @@ module.exports = {
       },
 
       {
-        title: "算法",
+        title: "数据结构与算法",
         collapsable: true,
         children: ["/guides/algorithm/outline"],
       },

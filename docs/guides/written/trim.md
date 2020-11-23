@@ -1,6 +1,8 @@
 ---
-title: 实现 String.prototpye.trim 方法
+title: 手写实现 String.prototpye.trim() 方法
 ---
+
+# 手写实现 String.prototpye.trim() 方法
 
 ECMAScript 在所有字符串上都提供了 trim()方法。这个方法会创建字符串的一个副本，删除前、后所有空格符，再返回结果。
 由于 trim()返回的是字符串的副本，因此原始字符串不受影响，即原本的前、后空格符都会保留。

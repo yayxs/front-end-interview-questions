@@ -18,19 +18,16 @@ title:  手写实现深浅拷贝（深浅克隆）
 
 ## 浅拷贝
 
-先来说说浅拷贝
-
-- 浅拷贝:创建一个新对象，有旧对象原始属性值（基本类型，拷贝的是基本类型；引用类型，便是内存地址）一份精确拷贝
-
-  - 其中一个对象地址改变，相互影响
+先来说说浅拷贝，浅拷贝:创建一个新对象，有旧对象原始属性值（基本类型，拷贝的是基本类型；引用类型，便是内存地址）一份精确拷贝
+其中一个对象地址改变，相互影响（也就是说虽然拷贝过了，但是还是会相互影响的）
 
 ```js
 let obj1 = {
-  name: "zhangsan",
+  name: "张三",
   age: 18,
 };
 let obj2 = obj1;
-obj2.name = "lisi";
+obj2.name = "李四";
 
 console.log(obj1.name); // 此时第一个对象的name属性就被改掉了
 ```
@@ -45,96 +42,77 @@ const shallow = (target) => {
   }
 };
 ```
+从数组来看的话
+
+```js
+let targetArr = [{name:'oldName'},"1", "1", 1, 1, true, true, undefined, undefined, null, null,]
+
+let resultArr = targetArr.concat()
+resultArr[0]['name'] = 'newName'
+
+console.log('old',targetArr) // 此时 targetArr 的第一个元素的 name 也被修改了
+console.log('new',resultArr)
+```
+
+### 具体实现
+
+```js
+
+function firstShallowClone(target){
+    if(typeof target !== 'object') return
+    let result = Array.isArray(target) ? [] :{}
+    for(let k in target){
+        if(target.hasOwnProperty(k)){
+            result[k] = target[k]
+        }
+    }
+    return result
+}
+```
 
 ## 深拷贝
 
-深拷贝的核心思路便是 拷贝加递归 也就是说当对象的某一个属性还是个对象的时候，我们需要对之进一步拷贝
+深拷贝的核心思路便是 拷贝加递归 也就是说当对象的某一个属性还是个对象的时候，我们需要对之进一步拷贝,从内存完整拷贝，在堆中重新开启区间，对象地址改变不会影响
 
-- 深拷贝：从内存完整拷贝，在堆中重新开启区间，对象地址改变不会影响
-
+### 第一个深拷贝：通过`JSON`的两个API
 - JSON.parse() 方法用来解析 JSON 字符串，构造由字符串描述的 JavaScript 值或对象
-
-  - String - obj
-
 - JSON.stringify() 方法将一个 JavaScript 值（对象或者数组）转换为一个 JSON 字符串
 
-```js
-let obj = {
-  name: `yaxs`,
-};
-console.log(obj);
-
-let obj1 = JSON.parse(JSON.stringify(obj));
-
-console.log(obj1);
-```
+但是如果单个元素是函数的话，我们来试一下
 
 ```js
-function clone(target) {
-  let temp = {};
-  for (const key in target) {
-    temp[key] = target[key];
-  }
 
-  return temp;
-}
+let fnArr = [
 
-let obj = {
-  name: `yayxs`,
-};
-console.log(clone(obj));
-```
-
-## 递归拷贝
-
-```js
-function clone(target) {
-  //   首先判断传入的是不是对象
-  if (typeof target === "object") {
-    let temp = {};
-
-    for (const key in target) {
-      temp[key] = clone(target[key]);
-    }
-    return temp;
-  } else {
-    return target;
-  }
-}
-
-let obj = {
-  name: `yayxs`,
-  firends: {
-    name: `zs`,
-    firends: {
-      name: `li`,
+    ()=>{
+        console.log(1)
     },
-  },
-};
+    ()=>{
+        console.log(2)
+    }
+]
 
-console.log(clone(obj));
+console.log(JSON.parse(JSON.stringify(fnArr))); // [null, null]
 ```
 
--Array.isArray() 用于确定传递的值是否是一个 Array。
+### 第二个深拷贝：递归拷贝
 
+判断一下属性值的类型，
 ```js
-function deepClone(target) {
-  if (typeof target === "object") {
-    let temp = Array.isArray(target) ? [] : {};
-    for (const key in target) {
-      temp[key] = deepClone(target[key]);
+function firstDeepClone(target){
+  if(typeof target !== 'target') return
+
+  let res = target instanceof Array ? [] : {};
+  for(let key in res){
+    if(obj.hasOwnProperty(key)){
+      // 首先判断当前key 所对应的属性值是否是个引用类型
+      if(typeof obj[key] === 'object'){
+        res[key] = firstDeepClone(obj[key])
+      }else{
+        res[key] = obj[key]
+      }
     }
-    return temp;
-  } else {
-    return target;
   }
 }
-
-let obj = {
-  name: `yayxs`,
-  arr: [1, 2, 3],
-};
-console.log(deepClone(obj));
 ```
 
-## 循环引用的问题
