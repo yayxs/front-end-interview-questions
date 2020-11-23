@@ -26,7 +26,6 @@ module.exports = {
         collapsable: false,
         children: [
           "/guides/css/box_model",
-          "/guides/css/dom_w_h",
           "/guides/css/bfc",
           "/guides/css/center",
           "/guides/css/selector",
@@ -43,6 +42,7 @@ module.exports = {
           "/guides/css/vertical_align",
           "/guides/css/img",
           "/guides/css/base64",
+          "/guides/css/pseudo_classes_elements",
         ],
       },
       {
