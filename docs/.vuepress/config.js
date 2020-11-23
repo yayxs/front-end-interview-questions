@@ -33,6 +33,7 @@ module.exports = {
           "/guides/css/hide",
           "/guides/css/position",
           "/guides/css/display",
+          "/guides/css/float",
           "/guides/css/normalize",
           "/guides/css/link_import",
           "/guides/css/triangle",
@@ -43,6 +44,8 @@ module.exports = {
           "/guides/css/img",
           "/guides/css/base64",
           "/guides/css/pseudo_classes_elements",
+          "/guides/css/flex",
+          "/guides/css/responsive",
         ],
       },
       {

@@ -1,27 +1,11 @@
 ---
-title: 请你谈谈Flex布局
+title: 请你谈谈Flexbox布局
 ---
 
-::: tip
+# 请你谈谈Flexbox布局
 
-1. flex 的值
+- 弹性盒子
 
-:::
-
-```html
-<div class="box">
-  <div class="box1">1</div>
-  <div class="box2">2</div>
-  <div class="box3">3</div>
-</div>
-```
-
-
-```css
- /* flex-direction:row;
-        flex-wrap: wrap; */
-        flex-flow: row wrap;
-```
 
 外层的盒子有那么几个值
 
