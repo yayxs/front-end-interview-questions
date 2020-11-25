@@ -60,7 +60,7 @@ module.exports = {
           "/guides/js/map",
           "/guides/js/scope",
           "/guides/js/es6",
-          "/guides/js/for_in_of",
+          "/guides/js/cycle",
           "/guides/js/create_obj",
           "/guides/js/equalityOperator",
           "/guides/js/use_strict",
