@@ -46,6 +46,7 @@ module.exports = {
           "/guides/css/pseudo_classes_elements",
           "/guides/css/flex",
           "/guides/css/responsive",
+          "/guides/css/animation",
         ],
       },
       {
@@ -71,8 +72,6 @@ module.exports = {
           "/guides/js/garbage_collection",
           "/guides/js/performance",
           "/guides/js/ram",
-          "/guides/js/is_arr",
-          "/guides/js/arr",
         ],
       },
       {
