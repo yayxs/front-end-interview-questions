@@ -14,7 +14,7 @@ module.exports = {
       {
         title: "前言",
         collapsable: false,
-        children: ["/guides/"],
+        children: ["/guides/", "/guides/contact"],
       },
       {
         title: "HTML/HTML5",
