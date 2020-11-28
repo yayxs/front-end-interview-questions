@@ -170,44 +170,6 @@ title: HTML常考面试题汇总
 | 混乱松散              | 属性不用带引号   | 标签必须结束                     | 不属于之前的规范         |
 | 属于SGML              | 标签属性可以大写 | 属性带引号 标签属性小写          |                          |
 
-## 说说`HTML5`在标签、属性、存储、API 上的新特性，移除了那些元素？
-
-> HTML5 现在已经不是 SGML 的子集，主要是关于图像，位置，存储，地理定位等功能的增加。
-
-### 标签方面
-
-- 新增区块标签 `section` `article` `nav` `aside` ，语意化更好的内容元素
-  - header footer 头尾
-  - section（零碎的块） article（较为完整的块） 区域
-  - nav 主要用于导航
-  - aside 侧边栏（不很重要的内容）
-  - em strong 强调
-  - i icon 
-- 表单增强日期 时间 搜索 表单验证 自动聚焦 表单控件，calendar、date、time、email、url、search
-- 绘画 canvas 元素
-- 用于媒介回放的 video 和 audio 元素
-
-### 存储方面
-
-- 本地离线存储 localStorage 长期存储数据，浏览器关闭后数据不丢失；
-- sessionStorage 的数据在浏览器关闭后自动删除
-
-**关于存储的这部分建议参考** [……/storage.html](https://fett.netlify.app/guides/javascript/storage.html)  
-
->或者直接掘金 站内查看 [「前端厚说」Js中的客户端存储方案](https://juejin.cn/post/6889059860818870285)
-
-### 新的api
- - 离线
- - 音视频
- - 图形 svg canvans
- - 实时通信
- - 设备的能力 获取陀螺仪的状态等等
-
-### 移除的元素
-
-- 纯表现的元素：basefont，big，center，font, s，strike，tt，u；
-- 对可用性产生负面影响的元素：frame，frameset，noframes；
-
 ## `form`表单的属性有哪些？作用是什么
 
 ```html
@@ -326,4 +288,71 @@ title: HTML常考面试题汇总
  ```
 ## 知道的网页制作会用到的图片格式有哪些？没有了解过 webp？
 
+### 常见的图片类型
 
+- 位图：其中包括`png` `jpg`
+- 矢量图: 常见的就是`svg`
+
+### 常见的图片格式
+
+- GIF
+  - 体积小
+  - 支持动画
+  - 但是只能处理256种颜色
+- JPEG JPG
+  - 支持渐进式加载
+  - 不支持透明
+- PNG PNG24
+- Apng
+  - 支持所有`png`的所有优点
+  - 支持动画
+- WEBP
+  - 它几乎集成了以上所有图片的优点，并且能够拥有更高的压缩率
+  - 但是存在兼容性问题
+- SVG
+  - SVG 可被非常多的工具读取和修改（比如记事本）
+  - SVG 与 JPEG 和 GIF 图像比起来，尺寸更小，且可压缩性更强。
+  - SVG 是可伸缩的
+  - SVG 图像可在任何的分辨率下被高质量地打印
+  - SVG 可在图像质量不下降的情况下被放大
+  - SVG 可以与 JavaScript 技术一起运行
+  - SVG 文件是纯粹的 XML
+
+## 说说`HTML5`在标签、属性、存储、API 上的新特性，移除了那些元素？
+
+> HTML5 现在已经不是 SGML 的子集，主要是关于图像，位置，存储，地理定位等功能的增加。
+
+### 标签方面
+
+- 新增区块标签 `section` `article` `nav` `aside` ，语意化更好的内容元素
+  - header footer 头尾
+  - section（零碎的块） article（较为完整的块） 区域
+  - nav 主要用于导航
+  - aside 侧边栏（不很重要的内容）
+  - em strong 强调
+  - i icon 
+- 表单增强日期 时间 搜索 表单验证 自动聚焦 表单控件，calendar、date、time、email、url、search
+- 绘画 canvas 元素
+- 用于媒介回放的 video 和 audio 元素
+
+### 存储方面
+
+- 本地离线存储 localStorage 长期存储数据，浏览器关闭后数据不丢失；
+- sessionStorage 的数据在浏览器关闭后自动删除
+
+**关于存储的这部分建议参考** [……/storage.html](https://fett.netlify.app/guides/javascript/storage.html)  
+
+>或者直接掘金 站内查看 [「前端厚说」Js中的客户端存储方案](https://juejin.cn/post/6889059860818870285)
+
+### 新的api
+
+ - 离线
+ - 音视频
+ - 图形 svg canvans
+ - 实时通信
+ - 设备的能力 获取陀螺仪的状态等等
+
+### 移除的元素
+
+- 纯表现的元素：basefont，big，center，font, s，strike，tt，u；
+- 对可用性产生负面影响的元素：frame，frameset，noframes；
