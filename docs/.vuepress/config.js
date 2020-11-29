@@ -97,6 +97,11 @@ module.exports = {
         ],
       },
       {
+        title: "计算机网络",
+        collapsable: false,
+        children: ["/guides/network/http/input_url"],
+      },
+      {
         title: "框架VUE",
         collapsable: false,
         children: ["/guides/vue/communication"],
