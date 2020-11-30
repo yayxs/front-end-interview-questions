@@ -1,5 +1,5 @@
 ---
-title: 手写实现 call 与apply
+title: 手写实现call与apply
 ---
 
 # 手写实现 call 与 apply
@@ -108,6 +108,6 @@ Function.prototype.myApply = function(ctx,arr){
 
 | 方法名 |      作用      | 是否自动执行 | 参数列表 |
 | :----: | :------------: | :----------: | :------: |
-|  call  | 改变 this 指向 |   自动执行函数   | 一般列表 |
-| apply  | 改变 this 指向 |   自动执行函数   | 数组形式 |
+|  call  | 改变 this 指向 | 自动执行函数 | 一般列表 |
+| apply  | 改变 this 指向 | 自动执行函数 | 数组形式 |
 

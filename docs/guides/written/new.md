@@ -1,5 +1,5 @@
 ---
-title: 手写实现 JavaScript中的New操作符
+title: 手写实现New操作符
 ---
 
 # 手写实现 JavaScript 中的 New 操作符

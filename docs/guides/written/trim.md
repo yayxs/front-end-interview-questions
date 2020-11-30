@@ -1,5 +1,5 @@
 ---
-title: 手写实现 String.prototpye.trim() 方法
+title: 手写实现String.prototpye.trim() 方法
 ---
 
 # 手写实现 String.prototpye.trim() 方法

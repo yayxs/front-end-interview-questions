@@ -94,6 +94,9 @@ module.exports = {
           "/guides/written/event",
           "/guides/written/unique",
           "/guides/written/triangle",
+          "/guides/written/promise",
+          "/guides/written/promise_all",
+          "/guides/written/promise_finally",
         ],
       },
       {

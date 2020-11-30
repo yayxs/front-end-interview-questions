@@ -277,19 +277,14 @@
 <details>
 <summary>查看目录</summary>
 
-- setTimeout、Promise、Async/Await 的区别
 
-- 模拟实现一个 Promise.finally
 
-- Promise 构造函数是同步还是异步执行，then 中的方法呢 ?promise 如何实现 then 处理 ?
+- 
 
-- Promise 和 setTimeout 的区别 ?
 
-- 如何实现 Promise.all ?
 
-- EventLoop
+EventLoop
 
-- async await 函数
 
 </details>
 
@@ -336,61 +331,3 @@
 - 计模式中观察者模式和发布 / 订阅模式有哪些区别？
 
 </details>
-
-### 手写代码
-
-<details>
-<summary>查看目录</summary>
-
-
-
-
-* 手写`JSON.parse`
-
-- 手写继承
-
-
-- 手写`Promise`
-
-
-
-</details>
-
-### 笔试
-
-<details>
-<summary>查看目录</summary>
-
-- 请写出下面代码的运行结果
-
-  ```js
-  async function async1() {
-    console.log("async1 start");
-    await async2();
-    console.log("async1 end");
-  }
-  async function async2() {
-    console.log("async2");
-  }
-  console.log("script start");
-  setTimeout(function() {
-    console.log("setTimeout");
-  }, 0);
-  async1();
-  new Promise(function(resolve) {
-    console.log("promise1");
-    resolve();
-  }).then(function() {
-    console.log("promise2");
-  });
-  console.log("script end");
-  ```
-
-
-* 简单实现一个发布者订阅机制
-
-</details>
-
-<!-- <div align="center">
-    <img width="360px" height="160px" src="https://github.com/yayxs/top-fe-iqa/blob/master/assets/images/contact.jpg"></img>
-</div> -->
