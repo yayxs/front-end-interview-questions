@@ -78,6 +78,31 @@ function firstShallowClone(target){
 - JSON.parse() 方法用来解析 JSON 字符串，构造由字符串描述的 JavaScript 值或对象
 - JSON.stringify() 方法将一个 JavaScript 值（对象或者数组）转换为一个 JSON 字符串
 
+实现 JavaScript 中的深拷贝，有一种非常取巧的方式 —— JSON.stringify,
+```js
+let obj = {
+  name: "yayxs",
+  fav: [
+    {
+      type: "play"
+    }
+  ],
+  friend: {
+    name: "wanghuahua"
+  }
+};
+
+const objStr = JSON.stringify(obj) // deepClone.js:16 {"name":"yayxs","fav":[{"type":"play"}],"friend":{"name":"wanghuahua"}}
+const objCopy = JSON.parse(objStr)
+
+
+
+objCopy.fav.splice(0,1)
+
+console.log(obj['fav']) // [{}]
+console.log(objCopy['fav']) //[]
+```
+
 但是如果单个元素是函数的话，我们来试一下
 
 ```js
@@ -97,11 +122,14 @@ console.log(JSON.parse(JSON.stringify(fnArr))); // [null, null]
 
 ### 第二个深拷贝：递归拷贝
 
-判断一下属性值的类型，
+判断一下属性值的类型，当目前属性值的类型是个对象的时候，然后递归克隆，
 ```js
 function firstDeepClone(target){
-  if(typeof target !== 'target') return
-
+  //  如果是 值类型 或 null，则直接return
+  if(typeof target !== 'object' ||target===null ) {
+    return target
+  }
+  // 结果对象
   let res = target instanceof Array ? [] : {};
   for(let key in res){
     if(obj.hasOwnProperty(key)){

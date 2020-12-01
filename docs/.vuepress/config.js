@@ -93,10 +93,10 @@ module.exports = {
           "/guides/written/trim",
           "/guides/written/event",
           "/guides/written/unique",
-          "/guides/written/triangle",
           "/guides/written/promise",
           "/guides/written/promise_all",
           "/guides/written/promise_finally",
+          "/guides/written/triangle",
         ],
       },
       {
@@ -104,6 +104,12 @@ module.exports = {
         collapsable: false,
         children: ["/guides/network/http/input_url"],
       },
+    
+        {
+          title: "设计模式",
+          collapsable: false,
+          children: ["/guides/design_patterns/"],
+        },
       {
         title: "框架VUE",
         collapsable: false,

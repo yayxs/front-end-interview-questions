@@ -12,6 +12,15 @@ let obj = {
   }
 };
 
+const objStr = JSON.stringify(obj) // deepClone.js:16 {"name":"yayxs","fav":[{"type":"play"}],"friend":{"name":"wanghuahua"}}
+const objCopy = JSON.parse(objStr)
+
+
+
+objCopy.fav.splice(0,1)
+
+console.log(obj['fav']) // [{}]
+console.log(objCopy['fav']) //[]
 
 function firstDeepClone(target){
   if(typeof target !== 'target') return

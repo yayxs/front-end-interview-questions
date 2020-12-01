@@ -9,8 +9,6 @@
 
 - 如何实现左侧宽度固定，右侧宽度自适应的布局
 - css3 的新特性有哪些
-- CSS 有哪些样式可以给子元素继承!
-- “品”字布局如何设计
 - 使用过 css 预处理器吗
 - 如何设计一个 4 列等宽布局，各列之间的边距是 10px（考虑浏览器的兼容性）？
 - CSS 如何实现三列布局，左侧和右侧固定宽度，中间自适应宽度？
@@ -304,30 +302,23 @@ EventLoop
 
 <details>
 <summary>查看目录</summary>
-
-- http 与 https 协议
+- 谈谈你对 TCP 的理解
+- http 与 https 协议的基本概念、区别、工作原理
 - 讲讲 http 的基本结构？
 - HTTP2 和 HTTP1 有什么区别
 - http 常见的状态码
 - `GET` 与`Post` 的区别
 - TCP 三次握手四次挥手
 - 谈谈你对 TCP 的理解;
+- TCP和UDP的区别
 - HTTP 的请求报文由哪几部分组成
 - HTTP 常见请求/响应头及其含义
 - HTTPS 是如何进行加密的 谈谈 https 的原理？为什么 https 能保证安全？
 - CDN 原理
 - DNS 解析
 - websocket 和 ajax 的区别是什么，websocket 的应用场景有哪些
+- WebSocket的实现和应用
 - 讲讲 http 的缓存机制吧，强缓存，协商缓存？
-
+- web worker
 </details>
 
-### 设计模式
-
-<details>
-<summary>查看目录</summary>
-
-- 常见的设计模式有哪些？
-- 计模式中观察者模式和发布 / 订阅模式有哪些区别？
-
-</details>

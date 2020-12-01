@@ -1,5 +1,5 @@
 ---
-title: 手写实现instanceOf运算符
+title: 手写实现instanceof运算符
 ---
 # 手写实现instanceOf
 

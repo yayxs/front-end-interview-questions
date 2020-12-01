@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proxy</title>
+  </head>
+  <body>
+    <script>
+    
+      const user = {
+        name: "洋小洋同学",
+        age: 18,
+      };
+
+      /**
+       * 参数一 target目标对象  要包装的对象（可以是函数）
+       * 参数二 handler对象    代理配置 拦截操作方法
+       */
+      const  proxy = new Proxy(user, {
+          get(user,key){
+
+          },
+           /**
+         * 参数一 target目标对象
+         * 参数二 prop目标属性名称
+         * 参数三 val 目标属性的值
+         * 参数四
+         */
+          set: function(user, key, val){
+
+          }
+      });
+     
+    </script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class SingletonMode {
+            sayHi(){
+                console.log('你好，我是单例模式')
+            }
+            static isHaveInstance(){
+                if(!SingletonMode.isHaveInstance){ // 不存在采取重新创建
+                    SingletonMode.instance = new SingletonMode()
+                }
+
+                return SingletonMode.instance
+            }
+        }
+    </script>
+</body>
+</html>

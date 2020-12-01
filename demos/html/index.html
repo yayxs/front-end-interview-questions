@@ -4,13 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      .sanjiaoxing{
+        /* 首先把一个盒子宽高置为0 */
+        width: 0px;
+        height: 0px;
+        /* 全部利用边框的特性 */
+        border:20px solid pink;
+        /* 然后把其他的边框透明化，这不有了吗 */
+        border-right-color: transparent;
+        border-left-color: transparent;
+
+      }
+    </style>
   </head>
   <body>
-    <a
-      href="https://download.mozilla.org/?product=firefox-latest-ssl&os=win64&lang=zh-CN"
-      download="firefox-latest-64bit-installer.exe"
-    >
-      12
-    </a>
+   <div class="sanjiaoxing"></div>
   </body>
 </html>

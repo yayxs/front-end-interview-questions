@@ -1,33 +1,3 @@
----
-title: 手写实现EventBus/EventEmitter
----
-
-# 手写实现事件总线 EventBus
-
-```js
-// eventBus.js 文件
-import Vue from "vue";
-const EventBus = new Vue(); // 本质上也是 Vue 实例
-export default EventBus;
-```
-
-```js
-// main.js
-import EventBus from "eventBus.js";
-
-Vue.prototype.EventBus = EventBus;
-```
-
-```js
-// 派发事件
-this.$EventBus.$emit("sendVal", "派发事件的");
-// 监听事件
-this.$EventBus.$on("sendVal", (val) => {
-  console.log(val);
-});
-```
-
-```js
 class EventEmitter {
   constructor() {
     this.handles = new Map(); // 存储实践回调之间的关系
@@ -64,4 +34,3 @@ class EventEmitter {
     this.on(evtName, warp);
   }
 }
-```
