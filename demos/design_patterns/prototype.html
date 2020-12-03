@@ -33,6 +33,19 @@
 
       coderYayxs.like(); //  i like mofish
       // console.log(coderYayxs.hasOwnProperty('like'))
+
+      function Student(name, age, sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        this.sayName = sayName;
+      }
+
+      function sayName() {
+        console.log(`Iam ${this.name}`);
+      }
+
+      Student.prototype.sayName = function() {};
     </script>
   </body>
 </html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const wangerhua = {};
+
+      wangerhua.name = "weh";
+      wangerhua.age = 16;
+      wangerhua.sex = "女";
+
+      const lierdan = {};
+
+      lierdan.name = "led";
+      lierdan.age = 15;
+      lierdan.sex = "男";
+
+      function Student(name, age, sex) {
+        this.name = "wangerhua";
+        this.age = "16";
+        this.sex = "女";
+      }
+      // 然后通过`new` 关键词 活生生的`new` 出 一个王二花
+
+      function Student(name, age, sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+      }
+
+      const 王二花 = new Student("", "", "");
+      const 李二蛋 = new Student("", "", "");
+
+      class Student {
+        constructor(name, age, sex) {
+          this.name = name;
+          this.age = age;
+          this.sex = sex;
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,24 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        class SingletonMode {
-            sayHi(){
-                console.log('你好，我是单例模式')
-            }
-            static isHaveInstance(){
-                if(!SingletonMode.isHaveInstance){ // 不存在采取重新创建
-                    SingletonMode.instance = new SingletonMode()
-                }
+      class SingletonMode {
+          sayHi(){
+              console.log('你好，我是单例模式')
+          }
+          static isHaveInstance(){
+              if(!SingletonMode.isHaveInstance){ // 不存在采取重新创建
+                  SingletonMode.instance = new SingletonMode()
+              }
 
-                return SingletonMode.instance
-            }
-        }
+              return SingletonMode.instance
+          }
+      }
+
+
+      function 压岁钱(){
+          this.money = 100000
+      }
+      const 我的压岁钱 = new 压岁钱()
+      我的压岁钱.money = 10块
+
+
+      // 我的妈妈
+      const 我的妈妈的概念里的压岁钱 = new 压岁钱()
+
+      我的妈妈的概念里的压岁钱.money = 100000
     </script>
-</body>
+  </body>
 </html>

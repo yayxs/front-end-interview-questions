@@ -1,66 +1,99 @@
 ---
-title: JavaScript 设计模式
+title: JavaScript设计模式
 ---
 
 # JavaScript 设计模式
+
+>
+>
+>本文较少包含原生js的原型以及原型链的相关内容，以及手写vue的发布者-订阅模式。后续会更新在手写实现系列
+
+## 前言
+
+不知不觉这已经是前端厚说的第四大篇了，在前端的圈子里很少有人分享设计模式相关的，东西至于为什么分享这篇，我想我有几点要说的
+
+- 1 设计模式是大学里的导师才会提及的，在实际的开发中很少用到，会写代码不算的优秀，会组织代码才行
+- 2 面试的时候面试你的不仅仅是前端开发者，一些“上了年纪的”领导基本都会问你设计模式，因为这是他们基本功
+- 3 正是计算机网络和设计模式，操作系统这些核心的本才是区别能否走的长久
+
+好啦，`html` `css` `javascript` 那么本篇就来说一说`设计模式` 吧
 
 ## 什么是设计模式？
 
 >在面向对象的软件设计过程中针对特定问题的简洁优雅的解决方案
 
-## JavaScript中的“多态”？
-
-所谓多态：同一操作作用于不同的对象上面，可以产生不同的解释和不同的执行结果。
-
-```javascript
-const print = function(type){
-    if(type==='enter'){
-        console.log('确认')
-    }else if(type==='esc'){
-        console.log('取消')
-    }else if(){
-             
-    }
-}
-```
-
- 显然这是会带来一定的问题，比如当`type` 的类型非常多的情况下，`print` 函数就会一发不可收拾。而avaScript 作为一门动态类型语言，它在编译时没有类型
-检查的过程，既没有检查创建的对象类型，又没有检查传递的参数类型。   
+或者说是一种编程的套路，让代码更好的维护等
 
 
 ## 常见的设计模式有哪些？
 
-::: tip
-- 单例模式
-- 原型模式
-- 构造器模式
-- 工厂模式
-- 抽象工厂模式
-- 桥接模式
-- 外观模式
-- 组合模式
-- 装饰器模式
-- 适配器模式
-- 代理模式
-- 享元模式
-- 迭代器模式
-- 解释器模式
-- 观察者模式
-- 中介者模式
-- 访问者模式
-- 状态模式
-- 备忘录模式
-- 策略模式
-- 模板方法模式
-- 职责链模式
-- 命令方式
-:::
+一般我们所说的设计模式差不多有`23` 中。比较有`js` 特色的就是 `原型模式` 以及 vue中不识庐山真面目的`观察者模式` 
 
 ## 构造器模式
 
+首先我们来聊一聊第一个设计模式，那就是**构造器模式** 可能看文章的小伙伴对这个名字有点陌生，让我们把时光拉到小学的时候，或者中学，此时你是班级里的班长，老师班主任的二把手，接着让你出一版班级里的花名册。这时候就是你大展身手的时候了。
+
+- 学生一 班花 王二花
+- 学生二 班草 李二蛋
+- 等等……
+
+那你说好办
+
+```javascript
+ const wangerhua = {};
+
+      wangerhua.name = "weh";
+      wangerhua.age = 16;
+      wangerhua.sex = "女";
+
+      const lierdan = {};
+
+      lierdan.name = "led";
+      lierdan.age = 15;
+      lierdan.sex = "男";
+```
+
+为了在你的女神`三菜` 面前耍一手，你熬夜写了班级全部的`40` 多人，眼看花名册即将完事，你满怀期待的发给你的女神，打算先让她看看……，但是呢，作为旁观者的我们呢，发现是有点问题的，这样熬夜效率不高，虽然也能造出一个花名册，但是此举并不会得到女神的芳心。改进下吧
+
+```javascript
+ function Student() {
+        this.name = "wangerhua";
+        this.age = "16";
+        this.sex = "女";
+      }
+      // 然后通过`new` 关键词 活生生的`new` 出 一个王二花
+```
+
+但是现在是写死的肯定不行，把`三菜` 放在何处对吧，那好办
+
+```javascript
+  // 然后通过`new` 关键词 活生生的`new` 出 一个王二花
+
+      function Student(name,age,sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+      }
+
+      const 王二花 = new Student('','','')
+      const 李二蛋 = new Student('','','')
+```
+
+或者我们使用最舒服的方式`es6` 的`class` 方式
+
+```javascript
+class Student {
+        constructor(name,age,sex) {
+          this.name = name;
+          this.age = age;
+          this.sex = sex;
+        }
+      }
+```
+
 ## 工厂模式
 
-其核心目的是为了实现无脑的传参。将创建对象的过程单独封装.
+其核心目的是为了实现无脑的传参。将创建对象的过程单独封装.较快的生成几类对象
 ```js
   function Persion(name,age,profession,work){
             this.name = name
@@ -91,11 +124,50 @@ const print = function(type){
         }
 ```
 
-## 单例模式(vuex)
+- 第二个工厂
+
+  我们设想一个场景，我记得笔者在`高二` 年级的时候是文理分科的，我想大多在文章的你是理科生，好的那我们就来看一下这个工厂 
+
+  ```javascript
+    // name 你的名字
+        // choose 你的选择
+        function factory(name, choose) {
+          let stu = [];
+          if (type === "理科生") {
+            stu = ["敲代码", "摸鱼"];
+          } else {
+            stu = ["琴棋", "书画"];
+          }
+          return new Student(name, stu);
+        }
+  
+        const yayxs = factory("洋小洋同学", "理科生");
+  ```
+
+## 单例模式(vuex中应用)
 
 - 定义：保证一个类仅有一个实例，并提供一个访问它的全局访问点。
 - 应用：我们的`vuex` 就是应用了单例模式保证全局`store` 还有浏览器的`window对象` 
 - 思路：是用一个变量来标志当前是否已经为某个类创建过对象，如果是，则在下一次获取该类的实例时，直接返回之前创建的对象  
+
+比如我们设想一个场景，我们的压岁钱我们自己存着，里边存着自己的收入但是我们已经花的只剩下10块了，我的妈妈眼里我的压岁钱还是那么多（只是因为又new了一次）
+
+```javascript
+
+        function 压岁钱(){
+            this.money = 100000
+        }
+        const 我的压岁钱 = new 压岁钱()
+        我的压岁钱.money = 10块
+        
+
+        // 我的妈妈
+        const 我的妈妈的概念里的压岁钱 = new 压岁钱()
+
+        我的妈妈的概念里的压岁钱.money = 100000
+```
+
+也就是说不管我们怎么`new` 返回的都是同一个实例，
 
 ```js
  class SingletonMode {
@@ -111,6 +183,21 @@ const print = function(type){
             }
         }
 ```
+
+我们还是简单的说一下`vuex` 中，如果我们不能控制全局一个`vuex` 的话，那我们的数据就会乱了套了，不是吗
+
+```javascript
+let vue
+export function install (_vue){
+    if(Vue && _vue===vue){
+        // 首先都是先判断是否已经存在，如果已经存在的话就不重新创建了
+        return
+    }
+    Vue = _vue
+}
+```
+
+
 
 ## 原型模式(创建一个对象)
 
@@ -151,15 +238,49 @@ const print = function(type){
 
 >当我试图访问一个 JavaScript 实例的属性/方法时，它首先搜索这个实例本身；当发现实例没有定义对应的属性/方法时，它会转而去搜索实例的原型对象；如果原型对象中也搜索不到，它就去搜索原型对象的原型对象，这个搜索的轨迹，就叫做原型链。
 
-或者说，我们通过`es5` 的语法来创建一个对象
+或者说，我们通过`es5` 的语法来创建一个对象，当然比如当前的学生有个说自己名字的能力，至于这个能力是每个人都拥有的
 
 ```javascript
+  function Student(name,age,sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+      
+      function sayName(){
+          console.log(`Iam ${this.name}`)
+      }
+ 
+      }
 
+      const 王二花 = new Student('','','')
+      const 李二蛋 = new Student('','','')
 ```
 
+这时候我们可以把通用的能力放在`构造函数` 的外部，然后类似这样的代码
 
+```javascript
+  function Student(name, age, sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+      // 引用了sayName函数
+        this.sayName = sayName;
+      }
 
-## 装饰器模式(Nest.js）
+      function sayName() {
+        console.log(`Iam ${this.name}`);
+      }
+```
+
+接着我们使用原型的方式，类似上文的程序员 `coder` 然后把通用的能力（这里暂且这样称之吧） 放在原型上
+
+```javascript
+ Student.prototype.sayName = function(){
+        
+      }
+```
+
+## 装饰器模式(Nest.js中应用）
 
 它的定义是“在不改变原对象的基础上，通过对其进行包装拓展，使原有对象可以满足用户的更复杂需求”。
 
@@ -176,43 +297,11 @@ export class CatsController {
 }
 ```
 
-## 适配器模式(axios)
+## 适配器模式(axios中应用)
 
-```js
-// 若用户未手动配置适配器，则使用默认的适配器
-var adapter = config.adapter || defaults.adapter;
-  
-  // dispatchRequest方法的末尾调用的是适配器方法
-  return adapter(config).then(function onAdapterResolution(response) {
-    // 请求成功的回调
-    throwIfCancellationRequested(config);
-
-    // 转换响应体
-    response.data = transformData(
-      response.data,
-      response.headers,
-      config.transformResponse
-    );
-
-    return response;
-  }, function onAdapterRejection(reason) {
-    // 请求失败的回调
-    if (!isCancel(reason)) {
-      throwIfCancellationRequested(config);
-
-      // 转换响应体
-      if (reason && reason.response) {
-        reason.response.data = transformData(
-          reason.response.data,
-          reason.response.headers,
-          config.transformResponse
-        );
-      }
-    }
-
-    return Promise.reject(reason);
-  });
-```
+- 应用
+  - 至于为什么说在`axios` 中有应用，之所以`axios` 是如此优秀的一个库，是因为它的api 足够统一，却带来的在`浏览器` 以及`node` 环境 统一的请求能力，这是因为在库中已经做了适配，调用者使用者只需要传入统一化的参数即可
+  - 还有就是在`vue` 的组件化开发中使用计算属性对一些怪异的数据进行转换适配等
 
 ## 代理模式(Proxy)
 
@@ -250,13 +339,9 @@ var adapter = config.adapter || defaults.adapter;
       });
 ```
 
-## 策略模式
+值的一说就是我们的事件代理模式，点击`li` 的时候让父级的`ul` 去代理等等，
 
-- 定义：定义一系列的算法，把它们一个个的封装起来，并且它们可以相互替换
-
-## 状态模式
-
-## 观察者模式
+## 观察者模式(vue的响应式原理)
 
 
 观察者模式定义了一种一对多的依赖关系，让多个观察者对象同时监听某一个目标对象，当这个目标对象的状态发生变化时，会通知所有观察者对象，使它们能够自动更新，有人也称之为`发布者订阅模式`
@@ -298,7 +383,3 @@ class Observer {
 
 ```
 
-
-## 迭代器模式
-
-- 定义：
