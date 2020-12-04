@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="handleClick">按钮</button>
+        <p>{{obj.name}}</p>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el:'#app',
+            methods: {
+                handleClick(){
+                    console.log('点击事件已经触发')
+                    // this.obj.name = 'yayxs'
+                    vm.$set(this.obj,'name','yayxs')
+                }
+            },
+            data:{
+                obj:{}
+            },
+        })
+
+    </script>
+</body>
+</html>

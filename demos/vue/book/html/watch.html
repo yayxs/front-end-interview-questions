@@ -1,0 +1,27 @@
+<div id="app">
+  123 {{ $data }}
+
+  <button @click="() => (a += 1)">a+1</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const vm = new Vue({
+    el: "#app",
+    data: {
+      a: 1,
+      b: { c: 2, d: 3 },
+      e: {
+        f: {
+          g: 4,
+        },
+      },
+      h: [],
+    },
+  });
+
+  vm.$watch("a", function(newVal, oldVal) {
+    // 做点什么
+    console.log("new: %s, old: %s", newVal, oldVal);
+  });
+</script>

@@ -81,15 +81,14 @@
   (3)data 中的 key 与 props 或者 methods 中冲突 vue 是怎么做的
   (4)为什么初始化阶段才进行`data` 数据的合并？(这里指合并策略)
 - 请你谈谈 Vue 数据响应原理
-  (1) Vue 框架怎么实现对象和数组的监听？
-  (2)直接给一个数组项赋值，Vue 能检测到变化吗？在 Vue 中怎么检测数组的变化
 - Vue 内部是如何构建一个渲染函数的 `render` `template` `el` 的优先级如何
 - 谈谈 Vue 中的 Transition 动画
 - 你了解 Vue 中的`选项合并策略`嘛，请谈谈
-- 说说 Vue 中`$nextTick`的实现原理 它的执行时机是什么时候 和 DOM 的渲染有什么关系
 - vue 修饰符
-- Vue 中的 key 有什么作用？
 
+ - Vue 中 `<transition name="fade"><p v-if="seen">现在你看到我了</p></transition>` 组件是如何实现的？
+ - 如何理解Vue中的`v-model`
+ - 生命周期钩子能否使用箭头函数，` created:()=>{console.log(this)},`
 - vue 是如何实现数据的双向绑定
 - v-show 与 v-if 有什么区别？
 - v-model 的原理？
@@ -97,9 +96,6 @@
 - vue 的`单向数据流`
 
 - 虚拟 DOM 原理以及优缺点
-- computed watch methods 三者的应用场景与区别以及实现原理
-- 对比一下 `Object.defineProperty` 与`proxy`
-- 使用 JavaScript Proxy 实现简单的数据绑定
 - Vue 是如何实现数据双向绑定的？
 
 - vue-router 的路由模式有几种
@@ -108,7 +104,6 @@
 - 单页面（SPA）应用的优缺点
 - 谈谈你对 keep-alive 的了解？vue 里的 keep-alive 是怎么实现的
 - 谈谈 Vue SSR 吗？说说 SSR？
-- Vue 怎么用 vm.\$set() 解决对象新增属性不能响应的问题 ？
 - 谈谈`vue 3.0`
 - `$route`和`$router`的区别
 - scoped 属性作用
@@ -180,7 +175,6 @@
 <details>
 <summary>查看目录</summary>
 
-- 谈谈 node 中的事件循环 浏览器和 Node.js 的事件循环机制有什么区别？
 
 </details>
 

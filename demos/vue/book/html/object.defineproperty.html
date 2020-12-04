@@ -6,6 +6,11 @@
     <title>object.defineproperty</title>
   </head>
   <body>
+    <div id="app">123{{$data.obj}}
+
+      <button  @click="action">action</button>
+    </div>
+    <script src="../js/vue.js"></script>
     <script>
       // 属性标志和属性描述符
       let user = {
@@ -22,14 +27,26 @@
         }
         */
       // 除了 value 外 其他的叫标志 存在 age就进行更新
-      Object.defineProperty(user, 'age', {
-          value:'20'
-      })
-      let admin = {}
-      Object.defineProperty(admin,'name',{
-          value:'admin'
-      })
-      console.log( Object.getOwnPropertyDescriptor(admin, "name") )
+      Object.defineProperty(user, "age", {
+        value: "20",
+      });
+      let admin = {};
+      Object.defineProperty(admin, "name", {
+        value: "admin",
+      });
+
+      const vm = new Vue({
+        el: "#app",
+        data: {
+          obj: {},
+        },
+        methods: {
+          action() {
+            console.log('action触发');
+            this.obj.name = 'add-name-key'
+          },
+        },
+      });
     </script>
   </body>
 </html>

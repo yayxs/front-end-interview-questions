@@ -1,5 +1,8 @@
 const routes = [
- 
+  {
+    path:'/nextTick',
+    component:()=>import('../components/NextTick.vue')
+  },
   {
     path: "/key",
     component: () => import("../views/key.vue"),

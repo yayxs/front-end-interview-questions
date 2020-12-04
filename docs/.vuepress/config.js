@@ -104,16 +104,23 @@ module.exports = {
         collapsable: false,
         children: ["/guides/network/http/input_url"],
       },
-    
-        {
-          title: "设计模式",
-          collapsable: false,
-          children: ["/guides/design_patterns/"],
-        },
+
       {
-        title: "框架VUE",
+        title: "设计模式",
         collapsable: false,
-        children: ["/guides/vue/communication"],
+        children: ["/guides/design_patterns/"],
+      },
+      {
+        title: "Vue.js",
+        collapsable: false,
+        children: [
+          "/guides/vue/defineProperty_proxy",
+          "/guides/vue/computed_methods_watch",
+          "/guides/vue/set",
+          "/guides/vue/key",
+          "/guides/vue/newVue",
+          "/guides/vue/nextTick",
+        ],
       },
       {
         title: "WebPack",
@@ -122,15 +129,20 @@ module.exports = {
       },
 
       {
-        title: "数据结构与算法",
-        collapsable: true,
-        children: ["/guides/algorithm/outline"],
-      },
-      {
-        title: "场景题目",
+        title: "数据结构算法",
         collapsable: false,
-        children: ["/guides/scene/00", "/guides/scene/01"],
+        children: [
+          "/guides/algorithms/sort",
+          "/guides/algorithms/depth_breadth",
+          "/guides/algorithms/binary_search",
+          "/guides/data_structures/",
+        ],
       },
+      // {
+      //   title: "场景题目",
+      //   collapsable: false,
+      //   children: ["/guides/scene/00", "/guides/scene/01"],
+      // },
     ],
   },
 };

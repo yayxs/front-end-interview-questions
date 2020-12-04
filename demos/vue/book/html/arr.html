@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数组的监听</title>
+  </head>
+  <body>
+    <div id="app">
+      <li v-for="(item) in list">{{item}}</li>
+      <button @click="handlePush">
+        按钮
+      </button>
+    </div>
+    <script src="../js/vue.js"></script>
+
+    <script>
+       
+      let model = [1, 2, 3];
+      const vm = new Vue({
+        el:'#app',
+        data(){
+          return {
+            list : []
+          }
+        },
+        methods: {
+          handlePush(){
+            console.log('数组中push数据触发')
+            this.list.push(1)
+          }
+        },
+      })
+      model.forEach((val, key) => {
+        Object.defineProperty(model, key, {
+          get() {
+            return val;
+          },
+          set(newVal){
+            console.log(`${val}变至${newVal}`)
+            val = newVal
+          }
+        });
+      });
+
+
+    </script>
+  </body>
+</html>
