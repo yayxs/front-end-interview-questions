@@ -168,3 +168,6 @@ export function proxy (target: Object, sourceKey: string, key: string) {
 
 ## 关于VDOM
 
+  (2)函数为什么返回一个对象，如果返回的不是个纯对象 Vue 是怎么做的？你有没有试过直接返回一个字符串或者其他类型
+  (3)data 中的 key 与 props 或者 methods 中冲突 vue 是怎么做的
+  (4)为什么初始化阶段才进行`data` 数据的合并？(这里指合并策略)

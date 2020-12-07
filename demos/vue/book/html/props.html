@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue-prop</title>
+  </head>
+  <body>
+    <div id="app">
+      <hr />
+      <ol>
+        <todo-item v-for="(item) in todoList" :todo="item"></todo-item>
+      </ol>
+      <hr />
+      <number-show :number="parentNumber"></number-show>
+      <hr />
+      <obj-name :obj="obj"></obj-name>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+      const App = {
+        data() {
+          return {
+            app: "app",
+            todoList: [
+              {
+                id: 0,
+                do: `eat`,
+              },
+              {
+                id: 1,
+                do: "code",
+              },
+            ],
+            parentNumber: 0,
+            obj:{
+              name:'yayx'
+            },
+          };
+        },
+      };
+      // 创建vue 应用
+      const vApp = Vue.createApp(App);
+      vApp.component("todo-item", {
+        props: ["todo"],
+        template: `
+       <li>{{todo.do}}</li>
+       `,
+      });
+      vApp.component("number-show", {
+        methods: {
+          handleChangeNumber() {
+            this.number = 1;
+            // Attempting to mutate prop "number". Props are readonly.
+          },
+        },
+        props: ["number"],
+        template: `
+        <div>
+       <span>{{number}}</span>
+       <button @click="handleChangeNumber">基本类型改变</button>
+       </div>
+       `,
+      });
+      vApp.component('obj-name',{
+        props: ["obj"],
+        methods: {
+          handleChangeObj() {
+            this.obj.name = `new name`;
+            // Attempting to mutate prop "number". Props are readonly.
+          },
+        },
+        template: `
+        <div>
+       <span>{{obj.name}}</span>
+       <button @click="handleChangeObj">引用类型改变</button>
+       </div>
+       `,
+      })
+      //  挂载
+      vApp.mount("#app");
+    </script>
+  </body>
+</html>

@@ -114,6 +114,11 @@ module.exports = {
         title: "Vue.js",
         collapsable: false,
         children: [
+          "/guides/vue/vue",
+          "/guides/vue/v_model",
+          "/guides/vue/v_show_if",
+          "/guides/vue/v_if_for",
+          "/guides/vue/props",
           "/guides/vue/defineProperty_proxy",
           "/guides/vue/computed_methods_watch",
           "/guides/vue/set",

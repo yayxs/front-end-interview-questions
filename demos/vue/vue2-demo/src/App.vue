@@ -3,6 +3,7 @@
     <el-container>
       <el-container>
         <el-main>
+          <router-link to='/if'>v-if</router-link>
           <router-link to='/passByValue'>vue 通信</router-link>
           <router-link to='/key'>vue index key v-for</router-link>
           <router-link to='/watchComputed'>watch computed methods</router-link>

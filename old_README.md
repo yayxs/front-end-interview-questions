@@ -70,16 +70,7 @@
 <summary>查看目录</summary>
 
 - 什么是 MVVM？谈谈你的理解
-- 谈谈你对`vue`生命周期的理解
-  (1)什么是 Vue 的声明周期
-  (2)生命周期钩子的作用
-  (3)第一次页面加载触发哪几个生命周期钩子
-  (4)异步请求适合在哪个生命周期调用
-- 请你谈谈`Vue` 组件中的`Data`
-  (1)组件中 data 为什么是一个函数？
-  (2)函数为什么返回一个对象，如果返回的不是个纯对象 Vue 是怎么做的？你有没有试过直接返回一个字符串或者其他类型
-  (3)data 中的 key 与 props 或者 methods 中冲突 vue 是怎么做的
-  (4)为什么初始化阶段才进行`data` 数据的合并？(这里指合并策略)
+
 - 请你谈谈 Vue 数据响应原理
 - Vue 内部是如何构建一个渲染函数的 `render` `template` `el` 的优先级如何
 - 谈谈 Vue 中的 Transition 动画
@@ -87,12 +78,8 @@
 - vue 修饰符
 
  - Vue 中 `<transition name="fade"><p v-if="seen">现在你看到我了</p></transition>` 组件是如何实现的？
- - 如何理解Vue中的`v-model`
- - 生命周期钩子能否使用箭头函数，` created:()=>{console.log(this)},`
+
 - vue 是如何实现数据的双向绑定
-- v-show 与 v-if 有什么区别？
-- v-model 的原理？
-- Class 与 Style 如何动态绑定？
 - vue 的`单向数据流`
 
 - 虚拟 DOM 原理以及优缺点

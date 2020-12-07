@@ -1,5 +1,9 @@
 const routes = [
   {
+    path:'/if',
+    component:()=>import('../views/ifFor.vue')
+  },
+  {
     path:'/nextTick',
     component:()=>import('../components/NextTick.vue')
   },

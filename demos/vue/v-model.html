@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- input输入框 -->
+    <input type="text" id="username" value="">
+    <h3></h3>
+    <script>
+
+        let inputDom = document.querySelector('#username')
+        console.log(inputDom);
+        inputDom.oninput = function(){
+            document.querySelector('h3').innerHTML = inputDom.value
+        }
+    </script>
+
+</body>
+</html>
