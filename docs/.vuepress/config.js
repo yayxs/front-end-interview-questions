@@ -102,7 +102,7 @@ module.exports = {
       {
         title: "计算机网络",
         collapsable: false,
-        children: ["/guides/network/http/input_url"],
+        children: ["/guides/network/http/"],
       },
 
       {
@@ -143,11 +143,11 @@ module.exports = {
           "/guides/data_structures/",
         ],
       },
-      // {
-      //   title: "场景题目",
-      //   collapsable: false,
-      //   children: ["/guides/scene/00", "/guides/scene/01"],
-      // },
+      {
+        title: "前端安全",
+        collapsable: false,
+        children: ["/guides/safety/"],
+      },
     ],
   },
 };

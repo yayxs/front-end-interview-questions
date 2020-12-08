@@ -217,7 +217,6 @@
 - 本地存储 cookie 与 token
 - session、cookie、localStorage 的区别 了解 SameSite 属性吗
 - 如何实现浏览器内多个标签页之间的通信?
-- JSONP 的原理是什么？
 
 </details>
 
@@ -258,48 +257,11 @@
 
 
 
-- 
-
-
-
 EventLoop
 
 
 </details>
 
-### 安全问题
 
-<details>
-<summary>查看目录</summary>
 
-- CSRF 攻击
-- XSS 漏洞
-- CORS（跨域资款共享）
--
-
-</details>
-
-### 计算机网络
-
-<details>
-<summary>查看目录</summary>
-- 谈谈你对 TCP 的理解
-- http 与 https 协议的基本概念、区别、工作原理
-- 讲讲 http 的基本结构？
-- HTTP2 和 HTTP1 有什么区别
-- http 常见的状态码
-- `GET` 与`Post` 的区别
-- TCP 三次握手四次挥手
-- 谈谈你对 TCP 的理解;
-- TCP和UDP的区别
-- HTTP 的请求报文由哪几部分组成
-- HTTP 常见请求/响应头及其含义
-- HTTPS 是如何进行加密的 谈谈 https 的原理？为什么 https 能保证安全？
-- CDN 原理
-- DNS 解析
-- websocket 和 ajax 的区别是什么，websocket 的应用场景有哪些
-- WebSocket的实现和应用
-- 讲讲 http 的缓存机制吧，强缓存，协商缓存？
-- web worker
-</details>
 
