@@ -8,12 +8,12 @@
   <body>
     <script>
       const target = {
-        name: "old-name",
+        
       };
       const handler = {
-        get(target, prop) {
+        get(target, propKey,receiver) {
           // return target[prop];
-          return Reflect.get(...arguments)
+          return '10'
         },
 
         /**
@@ -29,9 +29,14 @@
        * 参数一 target目标对象  要包装的对象（可以是函数）
        * 参数二 handler对象    代理配置 拦截操作方法
        */
+
+    
       const proxy = new Proxy(target,handler);
 
-      console.log(proxy.name)
+      console.log(proxy.a) // '10'
+      console.log(proxy.b) // '10'
+      console.log(target.a) // undefined
+      console.log(target.b) // undefined
     </script>
   </body>
 </html>

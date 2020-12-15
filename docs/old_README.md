@@ -215,7 +215,7 @@
 - 常见的兼容性问题
 - 重绘与回流
 - 本地存储 cookie 与 token
-- session、cookie、localStorage 的区别 了解 SameSite 属性吗
+- 了解 SameSite 属性吗
 - 如何实现浏览器内多个标签页之间的通信?
 
 </details>
