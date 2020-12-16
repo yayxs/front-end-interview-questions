@@ -2,11 +2,9 @@
 title: 数组常考面试题汇总
 ---
 
-## 什么是 JavaScript 中的数组
+## 什么是`JavaScript`中的数组
 
-::: tip
-
-### 什么 是数组
+### 什么是数组
 
 > 数组（英语：Array），是由相同类型的元素（element）的集合所组成的数据结构，分配一块连续的内存来存储.它能存储有序的集合
 
@@ -39,7 +37,7 @@ class JSArray: public JSObject {
 };
 ```
 
-意思是说，我们可以看到 `JSArray` 是继承自 `JSObject` 的，所以在 JavaScript 中，数组可以是一个特殊的对象，内部也是以 key-value 形式存储数据，所以 JavaScript 中的数组可以存放不同类型的值
+意思是说，我们可以看到 `JSArray` 是继承自 `JSObject` 的，所以在 JavaScript 中，数组可以是一个特殊的对象，内部也是以 key-value 形式存储数据，所以 JavaScript 中的数组可以存放不同类型的值。
 
 ### 数组的优点
 
@@ -96,11 +94,7 @@ arr[100000 - 1];
 console.timeEnd("timer");
 ```
 
-:::
-
-## JavaScript 中的数组是如何存储的
-
-::: tip
+## `JavaScript`中的`数组`是如何存储的
 
 跟其他语言中的数组一样，ECMAScript 数组也是一组有序的数据，但跟其他语言不同的是，数组中每个槽位可以存储任意类型的数据。这意味着可以创建一个数组，它的第一个元素是字符串，第二个元素是数值，第三个是对象。ECMAScript 数组也是动态大小的，会随着数据添加而自动增长。
 
@@ -110,116 +104,167 @@ const arr = [];
 
 - 其中常量`arr` 是存放在栈空间，存放的实际是 地址（一个指向 [] 的指针）
 
-:::
+- 当存放一种类型的时候比如
+
+  ```
+  const arr = [1,2,3]
+  ```
+
+这时候是**连续的内存**
+
+- 但如果我们定义了不同类型的元素
+
+  ```
+  const arr = ['str', 1, {a:1}]
+  ```
+
+  它对应的就是一段非连续的内存。此时，JS 数组不再具有数组的特征，其底层使用哈希映射分配内存空间，是由对象链表来实现的。
 
 ## 数组的哪些 API 会改变原数组？
 
 ::: tip
+
 > push pop unshift shift splice
 
-### 基本api
+### 基本 api
 
 ```js
-let arr = ['第一个元素','第二个元素','第三个元素']
-let result
-```
- - push
-```js
-result = arr.push('3') // 4
-arr // ["第一个元素", "第二个元素", "第三个元素", "第四个元素"]
+let arr = ["第一个元素", "第二个元素", "第三个元素"];
+let result;
 ```
 
- - pop
+- push
 
 ```js
-result = arr.pop() // 第三个元素
-
-arr ["第一个元素", "第二个元素"]
-
-```
- - unshift
-
-```js
-["第零个元素", "第一个元素", "第二个元素", "第三个元素"]
-4
-```
- - shift
-```js
-["第二个元素", "第三个元素"]
-"第一个元素"
+result = arr.push("3"); // 4
+arr; // ["第一个元素", "第二个元素", "第三个元素", "第四个元素"]
 ```
 
- - toString
+- pop
 
 ```js
-["第一个元素", "第二个元素", "第三个元素"]
+result = arr.pop(); // 第三个元素
+
+arr[("第一个元素", "第二个元素")];
+```
+
+- unshift
+
+```js
+["第零个元素", "第一个元素", "第二个元素", "第三个元素"];
+4;
+```
+
+- shift
+
+```js
+["第二个元素", "第三个元素"];
+("第一个元素");
+```
+
+- toString
+
+```js
+["第一个元素", "第二个元素", "第三个元素"];
 //   第一个元素,第二个元素,第三个元素
 ```
 
-### 其他api
+### 其他 api
 
- - splice
+- splice
 
 ```js
-let arr = ['第一个元素','第二个元素','第三个元素']
-let result
-result = arr.splice(arr.length-1,1,'替换掉第三个元素')
+let arr = ["第一个元素", "第二个元素", "第三个元素"];
+let result;
+result = arr.splice(arr.length - 1, 1, "替换掉第三个元素");
 // ["第一个元素", "第二个元素", "替换掉第三个元素"]
 // 原始的数组的length 3
 // api过后 ["第三个元素"]
 ```
 
-
 - slice 返回新数组副本
 
 ```js
-let arr = ['第一个元素','第二个元素','第三个元素']
-let result
-result = arr.slice(0,3) //['第一个元素','第二个元素','第三个元素']
-result = arr.slice() // ['第一个元素','第二个元素','第三个元素']
-console.log('原始的数组',arr) // ['第一个元素','第二个元素','第三个元素']
-console.log('api过后',result); // ['第一个元素','第二个元素','第三个元素']
+let arr = ["第一个元素", "第二个元素", "第三个元素"];
+let result;
+result = arr.slice(0, 3); //['第一个元素','第二个元素','第三个元素']
+result = arr.slice(); // ['第一个元素','第二个元素','第三个元素']
+console.log("原始的数组", arr); // ['第一个元素','第二个元素','第三个元素']
+console.log("api过后", result); // ['第一个元素','第二个元素','第三个元素']
 ```
 
 - concat()
 
 ```js
-let arr = ['第一个元素','第二个元素','第三个元素']
-let result
-result = arr.concat(['第四个'],['第五个']) 
-console.log('原始的数组',arr) // ["第一个元素", "第二个元素", "第三个元素"]
-console.log('api过后',result); // ["第一个元素", "第二个元素", "第三个元素", "第四个", "第五个"]
+let arr = ["第一个元素", "第二个元素", "第三个元素"];
+let result;
+result = arr.concat(["第四个"], ["第五个"]);
+console.log("原始的数组", arr); // ["第一个元素", "第二个元素", "第三个元素"]
+console.log("api过后", result); // ["第一个元素", "第二个元素", "第三个元素", "第四个", "第五个"]
 ```
 
- - indexof
-
+- indexof
 
 ```js
-let arr = ['第一个元素','第二个元素','第三个元素']
-let result
+let arr = ["第一个元素", "第二个元素", "第三个元素"];
+let result;
 
-result = arr.indexOf("第三个元素")
+result = arr.indexOf("第三个元素");
 
-console.log('原始的数组',arr)  // ["第一个元素", "第二个元素", "第三个元素"]
+console.log("原始的数组", arr); // ["第一个元素", "第二个元素", "第三个元素"]
 
-console.log('api过后',result); // 索引 2
+console.log("api过后", result); // 索引 2
 ```
 
- - includes
+- includes
 
- ```js
+```js
+let arr = ["第一个元素", "第二个元素", "第三个元素"];
+let result;
 
-let arr = ['第一个元素','第二个元素','第三个元素']
-let result
+result = arr.includes("第三个元素");
 
-result = arr.includes("第三个元素")
+console.log("原始的数组", arr); // ["第一个元素", "第二个元素", "第三个元素"]
 
-console.log('原始的数组',arr)  // ["第一个元素", "第二个元素", "第三个元素"]
-
-console.log('api过后',result); // true
- ```
+console.log("api过后", result); // true
+```
 
 :::
+
+## 数组中增加元素方式
+
+- unshift
+
+```js
+const oldArr = [1, 2];
+
+const res = oldArr.unshift(0);
+console.log(oldArr); // [0,1,2]
+
+console.log(res); // 3
+```
+
+- push
+
+```js
+const oldArr = [1, 2];
+
+const res = oldArr.push(3);
+console.log(oldArr); // [1,2,3]
+
+console.log(res); // 3
+```
+
+- splice
+
+```js
+const oldArr = [1, 2];
+
+const res = oldArr.splice(0, 0, 3);
+
+console.log(oldArr); // [3,1,2]
+console.log(res); // []
+```
 
 ## 计算两个数组的交集
 
@@ -227,6 +272,7 @@ console.log('api过后',result); // true
 
 ::: tip
 在浏览器和其它环境中有一种称为“类数组”的对象，它们 看似是数组。也就是说，它们有 length 和索引属性，但是也可能有其它的非数字的属性和方法，这通常是我们不需要的。for..in 循环会把它们都列出来。所以如果我们需要处理类数组对象，这些“额外”的属性就会存在问题。
+
 ### 类（伪）数组（arraylike）
 
 - 就是像数组的对象（某些对象看起来像但不是）
@@ -279,9 +325,6 @@ Array.from(arrayLike);
 ```
 
 :::
-
-
-
 
 ## 判断一个 JS 元素是否是数组？
 
@@ -371,7 +414,8 @@ let res3 = [] instanceof Array;
 console.log(res3); // true
 ```
 
-## 使用sort对数组进行排序[3,15,8,29,102,22]
+## 使用 sort 对数组进行排序[3,15,8,29,102,22]
+
 ::: tip
 
 > [mdn 上的 sort](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
@@ -389,16 +433,14 @@ console.log(res3); // true
 ```js
 let target = ["你好世界", "HELLO", "hello", 666];
 
-result = target.sort()
+result = target.sort();
 
-console.log('原始的数组',target)  // [666, "HELLO", "hello", "你好世界"]
+console.log("原始的数组", target); // [666, "HELLO", "hello", "你好世界"]
 
-console.log('api过后',result); // [666, "HELLO", "hello", "你好世界"]
+console.log("api过后", result); // [666, "HELLO", "hello", "你好世界"]
 ```
 
 **总结**
-
-
 
 ````js
 	/**
@@ -487,6 +529,7 @@ console.log(arr);
 > [ 102, 15, 22, 29, 3, 8 ]
 
 :::
+
 ## 数组里面有 10 万个数据，取第一个元素和第 10 万个元素的时间相差多少
 
 ::: tip
@@ -497,15 +540,14 @@ console.log(arr);
 
 ::: tip
 
-
-### 数组中的length
+### 数组中的 length
 
 准确来说，它实际上不是数组里元素的个数，而是最大的数字索引值加一。
 
 ```js
-let voidArr =[]
+let voidArr = [];
 
-voidArr[200] = "200"
+voidArr[200] = "200";
 
 console.log(voidArr.length); // 201
 ```
