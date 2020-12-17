@@ -35,7 +35,7 @@ class App extends React.Component {
 
 export default App;
 ```
->bind() 方法创建一个新的函数，在 bind() 被调用时，这个新函数的 this 被指定为 bind() 的第一个参数，而其余参数将作为新函
+> bind(..) 会返回一个硬编码的新函数，它会把参数设置为 this 的上下文并调用原始函数。，在 bind() 被调用时，这个新函数的 this 被指定为 bind() 的第一个参数，而其余参数将作为新函
 >数的参数，供调用时使用。但是我们需要事先说一下`bind` 是需要`Polyfill`的。因为大部分的浏览器都实现了内置的`Function.prototype.bind` 的实现，也有些是不支持的
 
 ```js

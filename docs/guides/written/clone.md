@@ -70,6 +70,8 @@ function firstShallowClone(target){
 }
 ```
 
+`Object.assign` ES6 定义了 Object.assign(..) 方法来实现浅复制
+
 ## 深拷贝
 
 深拷贝的核心思路便是 拷贝加递归 也就是说当对象的某一个属性还是个对象的时候，我们需要对之进一步拷贝,从内存完整拷贝，在堆中重新开启区间，对象地址改变不会影响

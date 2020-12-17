@@ -1,6 +1,4 @@
-
 ## :blue_book: 目录
-
 
 ### CSS
 
@@ -12,7 +10,7 @@
 - 使用过 css 预处理器吗
 - 如何设计一个 4 列等宽布局，各列之间的边距是 10px（考虑浏览器的兼容性）？
 - CSS 如何实现三列布局，左侧和右侧固定宽度，中间自适应宽度？
-</details>
+  </details>
 
 ### DOM
 
@@ -37,13 +35,9 @@
 - prototype 和 `__proto__` 区别是什么？
 - 谈谈你对原型的理解？
 - 什么是原型链？【原型链解决的是什么问题？】
-- 立即执行函数
-
-- 闭包及作用闭包有哪些使用场景？优缺点是很什么
 - 箭头函数
 - ES5/ES6 的继承 分别有哪些优缺点？
 - 类型的转化
-- this 如何正确的判断 this 的指向? 箭头函数的 this 是什么？
 - `sort` 函数
 - 函数科里化
 - ['1', '2', '3'].map(parseInt)
@@ -77,7 +71,7 @@
 - 你了解 Vue 中的`选项合并策略`嘛，请谈谈
 - vue 修饰符
 
- - Vue 中 `<transition name="fade"><p v-if="seen">现在你看到我了</p></transition>` 组件是如何实现的？
+- Vue 中 `<transition name="fade"><p v-if="seen">现在你看到我了</p></transition>` 组件是如何实现的？
 
 - vue 是如何实现数据的双向绑定
 - vue 的`单向数据流`
@@ -162,7 +156,6 @@
 <details>
 <summary>查看目录</summary>
 
-
 </details>
 
 ### Babel
@@ -202,7 +195,6 @@
 - 介绍下 webpack 热更新原理，是如何做到在不刷新浏览器的前提下更新页面的
 - 介绍`webpack` 的实现原理
 - Webpack 的 loader 和 plugins 的区别
-
 
 </details>
 
@@ -255,13 +247,6 @@
 <details>
 <summary>查看目录</summary>
 
-
-
 EventLoop
 
-
 </details>
-
-
-
-

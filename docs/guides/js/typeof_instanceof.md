@@ -1,5 +1,5 @@
 ---
-title: typeof 和 instance of 检测数据类型有什么区别？
+title: typeof和instanceof检测数据类型有什么区别？
 ---
 
 ::: tip
@@ -58,7 +58,8 @@ for (let i = 0, len = targetArr.length; i < len; i++) {
 | null               |  object   |     失败 |
 
 
-**调用typeof null返回的是"object"。这是因为特殊值null被认为是一个对空对象的引用。**
+调用typeof null返回的是"object"。这是因为特殊值null被认为是一个对空对象的引用。原理是这样的，不同的对象在底层都表示为二进制，在 JavaScript 中二进制前三位都为 0 的话会被判
+断为 object 类型，null 的二进制表示是全 0，自然前三位也是 0，所以执行 typeof 时会返回“object”。
 
 ### 总结
 对象和数组或者null 返回的都是object 检测不成功

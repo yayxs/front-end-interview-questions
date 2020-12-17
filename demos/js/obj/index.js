@@ -1,4 +1,4 @@
-```js
+
 let obj = {
   name: "yayxs",
   fav: ["chi", "he"],
@@ -6,4 +6,4 @@ let obj = {
 };
 let res = Object.assign(obj);
 console.log(res === obj);
-```
+

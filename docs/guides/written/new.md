@@ -146,7 +146,7 @@ function myNew(){
 
 
 ## 箭头函数使用`new`
-
+但是 ES6 中介绍了一种无法使用这些规则的特殊函数类型：箭头函数
 ```js
 var Foo = () => {};
 var foo = new Foo(); // TypeError: Foo is not a constructor
