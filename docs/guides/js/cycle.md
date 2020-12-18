@@ -26,6 +26,19 @@ for (const key in window) {
   document.write(`${key}-------`);
 }
 ```
+```js
+var anotherObject = {
+  a: 2,
+};
+
+// 创建一个关联到 anotherObject 的对象
+var myObject = Object.create(anotherObject);
+for (var k in myObject) {
+  console.log('found: ' + k);
+}
+// found: a
+'a' in myObject; // true
+```
 
 ## for-of
 
@@ -39,7 +52,7 @@ for (let val of arr) {
 
 ## forEach
 
-通过取 forEach 方法中传入函数的第一个入参和第二个入参，我们也可以取到数组每个元素的值及其对应索引：
+通过取`forEach`方法中传入函数的第一个入参和第二个入参，我们也可以取到数组每个元素的值及其对应索引,会遍历数组中的所有值并忽略回调函数的返回值
 
 ```js
 arr.forEach((item, index) => {
