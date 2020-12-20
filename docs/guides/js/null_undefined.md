@@ -15,3 +15,6 @@ typeof null 时会返回字符串 "object"。
 
 在定义将来要保存对象值的变量时，建议使用null来初始化，不要使用其他值。
 虽然null == undefined是true（因为这两个值类似），但null === undefined是false，因为它们不是相同的数据类型。
+
+值 null 和 undefined 没有对象包装器
+特殊值 null 和 undefined 比较特殊。它们没有对象包装器，所以它们没有方法和属性。并且它们也没有相应的原型。
