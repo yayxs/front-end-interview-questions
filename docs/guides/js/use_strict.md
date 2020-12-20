@@ -16,3 +16,17 @@ console.log( this.a );
 var a = 2;
 foo(); // TypeError: this is undefined
  ```
+6. 严格模式下，函数只能声明在当前作用域的顶层
+
+```js
+// 不报错
+'use strict';
+if (true) {
+  function f() {}
+}
+
+// 报错
+'use strict';
+if (true)
+  function f() {}
+```

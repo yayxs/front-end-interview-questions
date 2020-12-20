@@ -40,7 +40,6 @@
 - 函数科里化
 - ['1', '2', '3'].map(parseInt)
 - [[3,2,1].reduce(Math.pow), [].reduce(Math.pow)]
-- Set、Map、WeakSet 和 WeakMap 的区别
 
 - 可迭代对象有哪些特点
 - 垃圾回收与内存泄漏
@@ -101,14 +100,12 @@
 <summary>查看目录</summary>
 
 - [列表组件中的 key](#列表组件中的`key`)
-- setState 到底是异步还是同步?
 - 为什么使用框架而不是原生
 - 虚拟 DOM 的优劣如何
 - 虚拟 DOM 的实现原理
 - React 最新的生命周期是怎样的?
 - React 的请求应该放在哪个生命周期中?
 - Ajax 请求放在 `componentDidMount` 里进行处理还是放在`componentWillMount` 里进行处理比较合适？
-- React 中 setState 什么时候是同步的，什么时候是异步的
 - react-router 里的 `<Link>` 标签和 `<a>` 标签有什么区别
 - react 与`vue` 的区别
 - React 高阶组件的作用有哪些
@@ -133,7 +130,6 @@
 
 - [列表组件中的](#列表组件中的`key`)
 
-- React 中 setState 什么时候是同步的，什么时候是异步的
 
 - react-router 里的 `<Link>` 标签和 `<a>` 标签有什么区别
 
