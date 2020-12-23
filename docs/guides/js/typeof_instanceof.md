@@ -2,9 +2,8 @@
 title: typeof和instanceof检测数据类型有什么区别？
 ---
 
-::: tip
-typeof 是否能正确判断类型？instanceof 能正确判断对象的原理是什么？
-:::
+>typeof 是否能正确判断类型？instanceof 能正确判断对象的原理是什么？
+
 
 ## typeof
 
