@@ -14,4 +14,9 @@
  - [css布局方式水平垂直布局的实现](https://github.com/yayxs/top-fe-iqa/issues/26)
 ## JavaScript
 
+- [do you really know JavaScript](http://javascript-puzzlers.herokuapp.com/)
 - [手写实现数组去重的12种方法](https://github.com/yayxs/top-fe-iqa/issues/3) 
+
+- [['1', '2', '3'].map(parseInt)](https://github.com/yayxs/top-fe-iqa/issues/37)
+
+- [使用 sort 对数组进行排序[3,15,8,29,102,22]](https://github.com/yayxs/top-fe-iqa/issues/38)

@@ -35,14 +35,10 @@
 - prototype 和 `__proto__` 区别是什么？
 - 箭头函数
 - ES5/ES6 的继承 分别有哪些优缺点？
-- 类型的转化
-- `sort` 函数
 - 函数科里化
-- ['1', '2', '3'].map(parseInt)
-- [[3,2,1].reduce(Math.pow), [].reduce(Math.pow)]
 
 - 可迭代对象有哪些特点
-- 垃圾回收与内存泄漏
+与内存泄漏
 
 </details>
 
