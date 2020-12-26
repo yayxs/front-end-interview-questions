@@ -2,9 +2,7 @@
 title: 数组常考面试题汇总
 ---
 
-## 什么是`JavaScript`中的数组
-
-### 什么是数组
+## `JavaScript`中的数组
 
 > 数组（英语：Array），是由相同类型的元素（element）的集合所组成的数据结构，分配一块连续的内存来存储.它能存储有序的集合
 
@@ -39,13 +37,17 @@ class JSArray: public JSObject {
 
 意思是说，我们可以看到 `JSArray` 是继承自 `JSObject` 的，所以在 JavaScript 中，数组可以是一个特殊的对象，内部也是以 key-value 形式存储数据，所以 JavaScript 中的数组可以存放不同类型的值。
 
-### 数组的优点
+>JavaScript 中， `JSArray` 继承自 `JSObject` ，或者说它就是一个特殊的对象，内部是以 key-value 形式存储数据，所以 JavaScript 中的数组可以存放不同类型的值。它有两种存储方式，快数组与慢数组，初始化空数组时，使用快数组，快数组使用连续的内存空间，当数组长度达到最大时，`JSArray` 会进行动态的扩容，以存储更多的元素，相对慢数组，性能要好得多。当数组中 `hole` 太多时，会转变成慢数组，即以哈希表的方式（ key-value 的形式）存储数据，以节省内存空间。
+>
+>
+
+## `数组`的优点
 
 - 随机访问：可以通过下标随机访问数组中的任意位置上的数据
 
 **根据下标随机访问的时间复杂度为 O(1)**
 
-### 数组特性
+## `数组`的特性
 
 - 数组插入
 
@@ -77,23 +79,6 @@ arr[i]_address = start + size * i
 
 比如我们要读取`arr[3]`的值,那么只需要把`3`代入寻址公式,计算机就可以一步查询到对应的元素,因此数组读取的时间复杂度只有 O(1).
 
-### 总结
-
-JavaScript 中， `JSArray` 继承自 `JSObject` ，或者说它就是一个特殊的对象，内部是以 key-value 形式存储数据，所以 JavaScript 中的数组可以存放不同类型的值。它有两种存储方式，快数组与慢数组，初始化空数组时，使用快数组，快数组使用连续的内存空间，当数组长度达到最大时，`JSArray` 会进行动态的扩容，以存储更多的元素，相对慢数组，性能要好得多。当数组中 `hole` 太多时，会转变成慢数组，即以哈希表的方式（ key-value 的形式）存储数据，以节省内存空间。
-
-```js
-let res = new Array(100000).fill(10);
-console.log(res);
-var arr = new Array(100000).fill(100);
-console.time("timer");
-arr[0];
-console.timeEnd("timer");
-
-console.time("timer");
-arr[100000 - 1];
-console.timeEnd("timer");
-```
-
 ## `JavaScript`中的`数组`是如何存储的
 
 跟其他语言中的数组一样，ECMAScript 数组也是一组有序的数据，但跟其他语言不同的是，数组中每个槽位可以存储任意类型的数据。这意味着可以创建一个数组，它的第一个元素是字符串，第二个元素是数值，第三个是对象。ECMAScript 数组也是动态大小的，会随着数据添加而自动增长。
@@ -122,11 +107,7 @@ const arr = [];
 
 ## 数组的哪些 API 会改变原数组？
 
-::: tip
-
 > push pop unshift shift splice
-
-### 基本 api
 
 ```js
 let arr = ["第一个元素", "第二个元素", "第三个元素"];
@@ -168,8 +149,6 @@ arr[("第一个元素", "第二个元素")];
 ["第一个元素", "第二个元素", "第三个元素"];
 //   第一个元素,第二个元素,第三个元素
 ```
-
-### 其他 api
 
 - splice
 
@@ -229,9 +208,7 @@ console.log("原始的数组", arr); // ["第一个元素", "第二个元素", "
 console.log("api过后", result); // true
 ```
 
-:::
-
-## 数组中增加元素方式
+## 数组中增加元素的方式
 
 - unshift
 
@@ -270,7 +247,7 @@ console.log(res); // []
 
 ## 类数组（伪数组）和数组的区别是什么？
 
-::: tip
+
 在浏览器和其它环境中有一种称为“类数组”的对象，它们 看似是数组。也就是说，它们有 length 和索引属性，但是也可能有其它的非数字的属性和方法，这通常是我们不需要的。for..in 循环会把它们都列出来。所以如果我们需要处理类数组对象，这些“额外”的属性就会存在问题。
 
 ### 类（伪）数组（arraylike）
@@ -318,23 +295,13 @@ console.log(arrayLike[0]); // new name
 Array.prototype.slice.call(arrayLike, 0); // ["name", "age", "sex"]
 ```
 
-#### 转为真正的数组
+##  判断数组的方法?如何检测数组
 
-```js
-Array.from(arrayLike);
-```
+也就是说怎么判断一个`JavaScript` 元素是个数组，这也是面试常问的问题。
 
-:::
+但是数组是基于对象的，不构成单独的语言类型
 
-## 判断一个 JS 元素是否是数组？
-
-::: tip
-
----
-
-## title: 判断数组的方法?如何检测数组
-
-## instanceof 操作符
+### `instanceof操作符`
 
 ```js
 if (value instanceof Array) {
@@ -344,17 +311,46 @@ if (value instanceof Array) {
 
 > 缺点 使用 instanceof 的问题是假定只有一个全局执行上下文。如果网页里有多个框架，则可能涉及两个不同的全局执行上下文，因此就会有两个不同版本的 Array 构造函数。如果要把数组从一个框架传给另一个框架，则这个数组的构造函数将有别于在第二个框架内本地创建的数组。
 
-## Array.isArray()
+### `Array.isArray`
+
+```js
+console.log(typeof []) // object
+console.log(typeof {}) // object
+```
 
 ```js
 if (Array.isArray(value)) {
-  // 操作数组
+ 	// 说明value是一个数组
 }
 ```
 
 > ECMAScript 提供了 Array.isArray()方法。这个方法的目的就是确定一个值是否为数组，而不用管它是在哪个全局执行上下文中创建的。
 
-:::
+**缺点** ：浏览器的支持不一
+
+## `Object.prototype.toString`
+
+```js
+let obj ={}
+
+console.log(obj.__proto__.toString()==='[object Object]') //true
+```
+
+这样我们可以
+
+```js
+// 方便起见，将 toString 方法复制到一个变量中
+let objectToString = Object.prototype.toString;
+
+// 它是什么类型的？
+let arr = [];
+
+console.log(objectToString.call(arr))
+```
+
+至于为什么我们需要使用`call` 来绑定this，是因为 **`toString` 的算法会检查 `this`，并返回相应的结果**
+
+### 相关代码
 
 ```js
 // 判断是否是数组
@@ -414,19 +410,17 @@ let res3 = [] instanceof Array;
 console.log(res3); // true
 ```
 
-:::
+所以，如果我们想要获取内建对象的类型，并希望把该信息以字符串的形式返回，而不只是检查类型的话，我们可以用 `{}.toString.call` 替代 `instanceof`。
 
 ## 数组里面有 10 万个数据，取第一个元素和第 10 万个元素的时间相差多少
 
-::: tip
+ 
 
-:::
 
-## 谈谈数组中的 push 方法
 
-::: tip
+## 谈谈数组中的`push`方法
 
-### 数组中的 length
+### 数组中的`length`属性
 
 准确来说，它实际上不是数组里元素的个数，而是最大的数字索引值加一。
 
@@ -438,7 +432,7 @@ voidArr[200] = "200";
 console.log(voidArr.length); // 201
 ```
 
-### 数组的 push
+### 数组的`push`
 
 - [mdn 关于数组 push](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/push)
 
@@ -499,4 +493,4 @@ function isArrayLike(obj) {
 - 对象上的`splice` 属性是函数类型
 - 对象上有 `length` 属性且为正整数
 
-:::
+

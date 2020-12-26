@@ -20,3 +20,8 @@
 - [['1', '2', '3'].map(parseInt)](https://github.com/yayxs/top-fe-iqa/issues/37)
 
 - [使用 sort 对数组进行排序[3,15,8,29,102,22]](https://github.com/yayxs/top-fe-iqa/issues/38)
+
+- [判断数组的方法?如何检测数组](https://github.com/yayxs/top-fe-iqa/issues/40)
+## 手写实现（手写代码）
+
+- [JavaScrip头部高频手写实现面试题目汇总](https://github.com/yayxs/top-fe-iqa/issues/5)
