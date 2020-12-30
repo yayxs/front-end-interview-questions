@@ -7,5 +7,4 @@ title: 手动实现高频面试题
 4. 手写`JSON.stringify`
 5. 手写`JSON.parse`
 7. 手写继承
-9. 手写`Promise`
 :::

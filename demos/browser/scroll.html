@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        main{
+            position: relative;
+        }
+        .box{
+            width: 300px;
+            height: 200px;
+            border: 25px solid pink;
+            padding: 20px;
+            overflow: auto;
+            position: absolute; 
+            left: 180px;
+             top: 180px
+        }
+    </style>
+</head>
+<body>
+    <main id="main">
+        <article>
+            <div class="box">
+                ntroduction This Ecma Standard is based on several originating technologies, the most well known being JavaScript (Netscape) and JScript (Microsoft). The language was invented by Brendan Eich at Netscape and first appeared in that company’s Navigator 2.0 browser. It has appeared in all subsequent browsers from Netscape and in all browsers from Microsoft starting with
+            </div>
+        </article>
+    </main>
+    <script>
+        console.log(document.querySelector('.box'))
+        let now = document.querySelector('.box')
+        console.log('最接近的祖先元素是main',now.offsetParent) 
+        console.log('box元素的左偏移量',now.offsetLeft) // 180
+        console.log('box元素的上偏移量',now.offsetTop) // 180
+        console.log('box元素的完整宽,在页面中占据的大小',now.offsetWidth)
+        console.log('box元素的完整高，在页面中占据的大小',now.offsetHeight)
+        console.log('内边框加上滚动条',now.clientLeft)
+        console.log('内边框加上滚动条',now.clientTop)
+        console.log('padding+content-滚动条',now.clientWidth)
+        console.log('padding+content',now.clientHeight)
+    </script>
+    
+</body>
+</html>

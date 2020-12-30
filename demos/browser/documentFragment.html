@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="ul"></ul>
+    <script>
+        const frg = new DocumentFragment()
+
+        for(let i=1;i<=3;i++){
+            const li = document.createElement('li')
+            li.append(i)
+            frg.append(li)
+        }
+        ul.append(frg)
+    </script>
+</body>
+</html>
