@@ -12,7 +12,9 @@
  - [你知道什么是 `BFC` 吗 BFC 的布局规则是什么？如何创建 BFC？](https://github.com/yayxs/top-fe-iqa/issues/24)
  - [你是否使用过 calc() 函数](https://github.com/yayxs/top-fe-iqa/issues/25)
  - [css布局方式水平垂直布局的实现](https://github.com/yayxs/top-fe-iqa/issues/26)
-## JavaScript
+## JavaScript基础知识
+
+- 值类型与引用类型的区别
 
 - [do you really know JavaScript](http://javascript-puzzlers.herokuapp.com/)
 - [手写实现数组去重的12种方法](https://github.com/yayxs/top-fe-iqa/issues/3) 
