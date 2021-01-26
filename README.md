@@ -14,15 +14,12 @@
  - [css布局方式水平垂直布局的实现](https://github.com/yayxs/top-fe-iqa/issues/26)
 ## JavaScript基础知识
 
-- 值类型与引用类型的区别
-
+- [值类型与引用类型的区别](https://github.com/yayxs/top-fe-iqa/issues/41)
+- [JavaScript中的深拷贝实现](https://github.com/yayxs/top-fe-iqa/issues/45)
 - [do you really know JavaScript](http://javascript-puzzlers.herokuapp.com/)
 - [手写实现数组去重的12种方法](https://github.com/yayxs/top-fe-iqa/issues/3) 
-
 - [['1', '2', '3'].map(parseInt)](https://github.com/yayxs/top-fe-iqa/issues/37)
-
 - [使用 sort 对数组进行排序[3,15,8,29,102,22]](https://github.com/yayxs/top-fe-iqa/issues/38)
-
 - [判断数组的方法?如何检测数组](https://github.com/yayxs/top-fe-iqa/issues/40)
 ## 手写实现（手写代码）
 
