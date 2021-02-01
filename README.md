@@ -22,6 +22,7 @@
 - [['1', '2', '3'].map(parseInt)](https://github.com/yayxs/top-fe-iqa/issues/37)
 - [使用 sort 对数组进行排序[3,15,8,29,102,22]](https://github.com/yayxs/top-fe-iqa/issues/38)
 - [判断数组的方法?如何检测数组](https://github.com/yayxs/top-fe-iqa/issues/40)
+- [手写实现通用的类型检测方法](https://github.com/yayxs/top-fe-iqa/issues/48)
 
 ## 手写实现（手写代码）
 
@@ -35,17 +36,17 @@
 let a = {
   name: 'aname',
   age: 20,
-}
+};
 
 function change(o) {
-  o.age = 24 // a = { name:'aname',age:24}
+  o.age = 24; // a = { name:'aname',age:24}
   o = {
     name: 'oname',
     age: 30,
-  }
-  return o // 新的内存
+  };
+  return o; // 新的内存
 }
-let b = change(a) // 注意这里没有new，后面new相关会有专门文章讲解
-console.log(b.age) // 第一个console 30
-console.log(a.age) // 24
+let b = change(a); // 注意这里没有new，后面new相关会有专门文章讲解
+console.log(b.age); // 第一个console 30
+console.log(a.age); // 24
 ```

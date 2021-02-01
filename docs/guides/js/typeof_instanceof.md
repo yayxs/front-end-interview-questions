@@ -10,19 +10,19 @@ title: typeof和instanceof检测数据类型有什么区别？
 
 ```js
 // 基本的数据 类型
-const isNumber = 1
-const isStr = 'I am string'
-const isBool = true
-const isUndefined = undefined
+const isNumber = 1;
+const isStr = 'I am string';
+const isBool = true;
+const isUndefined = undefined;
 
-const isSymbol = Symbol()
+const isSymbol = Symbol();
 
-const isArr = [0, 1, 2]
+const isArr = [0, 1, 2];
 const isObj = {
   name: 'i am obj',
-}
-const isNull = null
-const isFunc = () => {}
+};
+const isNull = null;
+const isFunc = () => {};
 
 const targetArr = [
   isNumber,
@@ -34,9 +34,9 @@ const targetArr = [
   isUndefined,
   isSymbol,
   isFunc,
-]
+];
 for (let i = 0, len = targetArr.length; i < len; i++) {
-  console.log(targetArr[i], typeof targetArr[i])
+  console.log(targetArr[i], typeof targetArr[i]);
 }
 ```
 
@@ -71,23 +71,22 @@ for (let i = 0, len = targetArr.length; i < len; i++) {
 
 ```js
 class Rabbit {}
-let rabbit = new Rabbit()
+let rabbit = new Rabbit();
 
 // rabbit 是 Rabbit class 的对象吗？
-alert(rabbit instanceof Rabbit) // true
+alert(rabbit instanceof Rabbit); // true
 ```
 
 ### `instanceof`实现的原理是什么
 
 ```js
-let arr = [1, 2, 3]
-alert(arr instanceof Array) // true
-alert(arr instanceof Object) // true
+let arr = [1, 2, 3];
+alert(arr instanceof Array); // true
+alert(arr instanceof Object); // true
 ```
 
-1. 如果有静态方法 `Symbol.hasInstance` 直接调用
-2. 检查`Class.prototype` 是否是原型链中的原型之一
+## 两种判断数据类型的差异
 
-###
+- instanceof 可以准确的判断复杂的引用数据类型 但是不能正确的判断基础数据类型
 
-### 手写 instanceof
+- typeof 可以判断除 null 之外的基础数据类型 但是在引用数据类型中 除了 function 类型以外 其他无法判断
