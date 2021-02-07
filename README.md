@@ -18,15 +18,16 @@
 - [值类型与引用类型的区别](https://github.com/yayxs/top-fe-iqa/issues/41)
 - [JavaScript 中的深拷贝实现](https://github.com/yayxs/top-fe-iqa/issues/45)
 - [do you really know JavaScript](http://javascript-puzzlers.herokuapp.com/)
-- [手写实现数组去重的 12 种方法](https://github.com/yayxs/top-fe-iqa/issues/3)
 - [['1', '2', '3'].map(parseInt)](https://github.com/yayxs/top-fe-iqa/issues/37)
 - [使用 sort 对数组进行排序[3,15,8,29,102,22]](https://github.com/yayxs/top-fe-iqa/issues/38)
 - [判断数组的方法?如何检测数组](https://github.com/yayxs/top-fe-iqa/issues/40)
-- [手写实现通用的类型检测方法](https://github.com/yayxs/top-fe-iqa/issues/48)
 
 ## 手写实现（手写代码）
 
 - [JavaScrip 头部高频手写实现面试题目汇总](https://github.com/yayxs/top-fe-iqa/issues/5)
+- [手写实现数组去重的 12 种方法](https://github.com/yayxs/top-fe-iqa/issues/3)
+- [手写实现通用的类型检测方法](https://github.com/yayxs/top-fe-iqa/issues/48)
+- [手写实现 4 种数组扁平化方式](https://github.com/yayxs/top-fe-iqa/issues/51)
 
 ## 笔试题收藏
 
@@ -34,14 +35,14 @@
 
 ```js
 let a = {
-  name: 'aname',
+  name: "aname",
   age: 20,
 };
 
 function change(o) {
   o.age = 24; // a = { name:'aname',age:24}
   o = {
-    name: 'oname',
+    name: "oname",
     age: 30,
   };
   return o; // 新的内存

@@ -1,8 +1,8 @@
 ---
-title: 数组常考面试题汇总
+title: 深入理解JS数组
 ---
 
-## `JavaScript`中的数组
+## 数组的含义
 
 > 数组（英语：Array），是由相同类型的元素（element）的集合所组成的数据结构，分配一块连续的内存来存储.它能存储有序的集合
 
@@ -37,17 +37,17 @@ class JSArray: public JSObject {
 
 意思是说，我们可以看到 `JSArray` 是继承自 `JSObject` 的，所以在 JavaScript 中，数组可以是一个特殊的对象，内部也是以 key-value 形式存储数据，所以 JavaScript 中的数组可以存放不同类型的值。
 
->JavaScript 中， `JSArray` 继承自 `JSObject` ，或者说它就是一个特殊的对象，内部是以 key-value 形式存储数据，所以 JavaScript 中的数组可以存放不同类型的值。它有两种存储方式，快数组与慢数组，初始化空数组时，使用快数组，快数组使用连续的内存空间，当数组长度达到最大时，`JSArray` 会进行动态的扩容，以存储更多的元素，相对慢数组，性能要好得多。当数组中 `hole` 太多时，会转变成慢数组，即以哈希表的方式（ key-value 的形式）存储数据，以节省内存空间。
->
->
+> JavaScript 中， `JSArray` 继承自 `JSObject` ，或者说它就是一个特殊的对象，内部是以 key-value 形式存储数据，所以 JavaScript 中的数组可以存放不同类型的值。它有两种存储方式，快数组与慢数组，初始化空数组时，使用快数组，快数组使用连续的内存空间，当数组长度达到最大时，`JSArray` 会进行动态的扩容，以存储更多的元素，相对慢数组，性能要好得多。当数组中 `hole` 太多时，会转变成慢数组，即以哈希表的方式（ key-value 的形式）存储数据，以节省内存空间。
 
-## `数组`的优点
+## `数组`的优点及特性
+
+### 优点
 
 - 随机访问：可以通过下标随机访问数组中的任意位置上的数据
 
 **根据下标随机访问的时间复杂度为 O(1)**
 
-## `数组`的特性
+### 特性
 
 - 数组插入
 
@@ -79,7 +79,30 @@ arr[i]_address = start + size * i
 
 比如我们要读取`arr[3]`的值,那么只需要把`3`代入寻址公式,计算机就可以一步查询到对应的元素,因此数组读取的时间复杂度只有 O(1).
 
-## `JavaScript`中的`数组`是如何存储的
+## 数组的构造器有哪几种
+
+- new Array()
+
+```js
+let arr = [];
+```
+
+- Array.of
+
+```js
+console.log(Array.of(8.0));
+console.log(Array(8.0));
+console.log(Array.of(8.0, 5)); // [8,5]
+console.log(Array(8.0, 5)); // [8,5]
+console.log(Array("8"));
+console.log(Array.of("8"));
+```
+
+- Array.from
+
+就是从一个类似数组的可迭代对象中创建一个新的数组实例。其实就是，只要一个对象有迭代器，Array.from 就能把它变成一个数组（注意：是返回新的数组，不改变原对象）。
+
+## `数组`是如何存储的
 
 跟其他语言中的数组一样，ECMAScript 数组也是一组有序的数据，但跟其他语言不同的是，数组中每个槽位可以存储任意类型的数据。这意味着可以创建一个数组，它的第一个元素是字符串，第二个元素是数值，第三个是对象。ECMAScript 数组也是动态大小的，会随着数据添加而自动增长。
 
@@ -105,28 +128,24 @@ const arr = [];
 
   它对应的就是一段非连续的内存。此时，JS 数组不再具有数组的特征，其底层使用哈希映射分配内存空间，是由对象链表来实现的。
 
-## 数组的哪些 API 会改变原数组？
+## 改变自身的方法
 
-> push pop unshift shift splice
-
-```js
-let arr = ["第一个元素", "第二个元素", "第三个元素"];
-let result;
-```
+> pop push reverse shift sort unshift splice
 
 - push
 
 ```js
-result = arr.push("3"); // 4
-arr; // ["第一个元素", "第二个元素", "第三个元素", "第四个元素"]
 ```
 
 - pop
 
 ```js
-result = arr.pop(); // 第三个元素
+let arr = ["张三", "李四", "王二", "麻子"];
 
-arr[("第一个元素", "第二个元素")];
+let item = arr.pop();
+
+console.log(item); // '麻子'
+console.log(arr); // [ '张三', '李四', '王二' ]
 ```
 
 - unshift
@@ -247,7 +266,6 @@ console.log(res); // []
 
 ## 类数组（伪数组）和数组的区别是什么？
 
-
 在浏览器和其它环境中有一种称为“类数组”的对象，它们 看似是数组。也就是说，它们有 length 和索引属性，但是也可能有其它的非数字的属性和方法，这通常是我们不需要的。for..in 循环会把它们都列出来。所以如果我们需要处理类数组对象，这些“额外”的属性就会存在问题。
 
 ### 类（伪）数组（arraylike）
@@ -295,7 +313,7 @@ console.log(arrayLike[0]); // new name
 Array.prototype.slice.call(arrayLike, 0); // ["name", "age", "sex"]
 ```
 
-##  判断数组的方法?如何检测数组
+## 判断一个变量是否为数组
 
 也就是说怎么判断一个`JavaScript` 元素是个数组，这也是面试常问的问题。
 
@@ -314,13 +332,13 @@ if (value instanceof Array) {
 ### `Array.isArray`
 
 ```js
-console.log(typeof []) // object
-console.log(typeof {}) // object
+console.log(typeof []); // object
+console.log(typeof {}); // object
 ```
 
 ```js
 if (Array.isArray(value)) {
- 	// 说明value是一个数组
+  // 说明value是一个数组
 }
 ```
 
@@ -328,12 +346,20 @@ if (Array.isArray(value)) {
 
 **缺点** ：浏览器的支持不一
 
+```js
+if (!Array.isArray) {
+  Array.isArray = function(arg) {
+    return Object.prototype.toString.call(arg) === "[object Array]";
+  };
+}
+```
+
 ## `Object.prototype.toString`
 
 ```js
-let obj ={}
+let obj = {};
 
-console.log(obj.__proto__.toString()==='[object Object]') //true
+console.log(obj.__proto__.toString() === "[object Object]"); //true
 ```
 
 这样我们可以
@@ -345,10 +371,10 @@ let objectToString = Object.prototype.toString;
 // 它是什么类型的？
 let arr = [];
 
-console.log(objectToString.call(arr))
+console.log(objectToString.call(arr));
 ```
 
-至于为什么我们需要使用`call` 来绑定this，是因为 **`toString` 的算法会检查 `this`，并返回相应的结果**
+至于为什么我们需要使用`call` 来绑定 this，是因为 **`toString` 的算法会检查 `this`，并返回相应的结果**
 
 ### 相关代码
 
@@ -413,10 +439,6 @@ console.log(res3); // true
 所以，如果我们想要获取内建对象的类型，并希望把该信息以字符串的形式返回，而不只是检查类型的话，我们可以用 `{}.toString.call` 替代 `instanceof`。
 
 ## 数组里面有 10 万个数据，取第一个元素和第 10 万个元素的时间相差多少
-
- 
-
-
 
 ## 谈谈数组中的`push`方法
 
@@ -492,5 +514,3 @@ function isArrayLike(obj) {
 - 存在且是对象
 - 对象上的`splice` 属性是函数类型
 - 对象上有 `length` 属性且为正整数
-
-
