@@ -29,6 +29,17 @@
 - [手写实现通用的类型检测方法](https://github.com/yayxs/top-fe-iqa/issues/48)
 - [手写实现 4 种数组扁平化方式](https://github.com/yayxs/top-fe-iqa/issues/51)
 
+## 计算机网络
+
+- 当在网页浏览器的地址栏输入`url`后，发生了什么
+
+- 什么是三次握手
+- HTTPS链接的创建过程 以及为什么HTTPS就是安全的
+- 什么是长链接 为什么需要长链接
+- HTTP2的信道复用为什么能提高性能
+- 浏览器输入URL后HTTP承担的角色是什么
+- `URI` `URL ` `URN` 的区别
+
 ## 笔试题收藏
 
 ### 考点：数据类型
