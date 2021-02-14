@@ -12,9 +12,12 @@
   },
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.7.1",
+    "nodemon": "^2.0.7",
     "vuepress": "^1.5.4"
   },
   "dependencies": {
-    "@vuepress/plugin-nprogress": "^1.7.1"
+    "@vuepress/plugin-nprogress": "^1.7.1",
+    "express": "^4.17.1",
+    "serve-index": "^1.9.1"
   }
 }
