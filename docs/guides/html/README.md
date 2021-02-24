@@ -44,6 +44,7 @@ title: HTML常考面试题汇总
 
 ## 一般有几种`DOCTYPE `文档类型
 
+IE5.5发明了文档模式的概念
 - HTML 4.01 规定了三种文档类型：Strict、Transitional 以及 Frameset。
 - XHTML 1.0 规定了三种 XML 文档类型：Strict、Transitional 以及 Frameset。
 - Standards （标准）模式（也就是严格呈现模式）用于呈现遵循最新标准的网页，　　
