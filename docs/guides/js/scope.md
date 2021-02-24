@@ -3,8 +3,20 @@ title: 谈谈作用域与作用域链的理解，如何理解?
 ---
 面试的时候，面试官会问`JS中的作用域是什么` 要知道`作用域是什么` 我们需要先了解几个简单的概念
 
-- 编译原理 执行的过程一般会有三个步骤
-  ![image](https://user-gold-cdn.xitu.io/2020/6/16/172bd8191abf433b?w=802&h=486&f=png&s=27546)
+## 编译原理
+
+![编译阶段](https://cdn.jsdelivr.net/gh/yayxs/Pics/dontKownJS/%E7%BC%96%E8%AF%91%E9%98%B6%E6%AE%B5.svg)
+
+编译原理 执行的过程一般会有三个步骤
+
+- var name 编译时处理
+- name = yayxs 运行时处理 
+
+也就是JS是在一边进行编译 一边进行执行（所有的代码片段在执行之前会被编译 同时编译 的过程十分短暂）
+
+## `编译阶段` vs `执行阶段`
+
+
 
 其次的话是`引擎` 查询变量的两种方式
 
@@ -110,3 +122,7 @@ foo(456);
  - 函数作用域
  - 全局作用域
  - 块级作用域
+
+
+
+![作用域与作用域链-第 2 页](https://cdn.jsdelivr.net/gh/yayxs/Pics/dontKownJS/%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE-%E7%AC%AC%202%20%E9%A1%B5.svg)
