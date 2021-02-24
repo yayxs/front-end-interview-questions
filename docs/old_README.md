@@ -32,7 +32,7 @@
 <summary>查看目录</summary>
 
 - 如何让 (a == 1 && a == 2 && a == 3) 的值为 true？
-- prototype 和 `__proto__` 区别是什么？
+
 - ES5/ES6 的继承 分别有哪些优缺点？
 - 函数科里化
 

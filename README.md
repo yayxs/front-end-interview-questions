@@ -13,7 +13,7 @@
 - [你是否使用过 calc() 函数](https://github.com/yayxs/top-fe-iqa/issues/25)
 - [css 布局方式水平垂直布局的实现](https://github.com/yayxs/top-fe-iqa/issues/26)
 
-## JavaScript 基础知识
+## JavaScript 核心体系
 
 - [值类型与引用类型的区别](https://github.com/yayxs/top-fe-iqa/issues/41)
 - [JavaScript 中的深拷贝实现](https://github.com/yayxs/top-fe-iqa/issues/45)
@@ -21,7 +21,8 @@
 - [['1', '2', '3'].map(parseInt)](https://github.com/yayxs/top-fe-iqa/issues/37)
 - [使用 sort 对数组进行排序[3,15,8,29,102,22]](https://github.com/yayxs/top-fe-iqa/issues/38)
 - [判断数组的方法?如何检测数组](https://github.com/yayxs/top-fe-iqa/issues/40)
-
+- [请你谈谈作用域与作用域链](https://github.com/yayxs/top-fe-iqa/issues/52)
+- [循环体与闭包结合：for循环中的var声明]()
 ## 手写实现（手写代码）
 
 - [JavaScrip 头部高频手写实现面试题目汇总](https://github.com/yayxs/top-fe-iqa/issues/5)

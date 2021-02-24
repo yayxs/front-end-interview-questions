@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 问题一
+        // for(var i = 0 ;i<5;i++){
+
+
+        //     let fn = function(){
+        //         // 虽然这个函数执行5次 但是 没有i 这个变量 找到全局已经是 5的值
+        //         console.log(i);
+        //     }
+        //     setTimeout(fn,1000)
+        // }
+        // console.log(i);
+        // 问题一变体
+
+        // function test(){
+        //     var nums = []
+
+        //     var  i
+        //     for(i=0;i<10;i++){
+        //         nums[i] = function(){
+        //             console.log(i);
+        //         }
+        //     }
+        //     return nums[9]
+        // }
+        // let result =  test()()
+        // console.log('result',result);
+
+        // 问题三变体
+        var test = (function(){
+            var num = 0
+            return ()=>{
+                return num ++
+            }
+        }())
+        for(var i = 0;i<10;i++){
+            test()
+        }
+        console.log(test());
+    </script>
+</body>
+</html>
