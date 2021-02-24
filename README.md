@@ -2,6 +2,10 @@
 
 - [HTML 头部高频面试题及参考答案](https://github.com/yayxs/top-fe-iqa/issues/20)
 
+- `<script>` 标签的`async` 与`defer` 有什么区别
+- `XHTML` 与`HTML` 的区别
+- 有几种文档模式（文档类型）
+
 ## CSS
 
 - [画一条 0.5px 的线](https://github.com/yayxs/top-fe-iqa/issues/21)
@@ -34,11 +38,11 @@
 
 - 当在网页浏览器的地址栏输入`url`后，发生了什么
 - 什么是三次握手
-- HTTPS链接的创建过程 以及为什么HTTPS就是安全的
+- HTTPS 链接的创建过程 以及为什么 HTTPS 就是安全的
 - 什么是长链接 为什么需要长链接
-- HTTP2的信道复用为什么能提高性能
-- 浏览器输入URL后HTTP承担的角色是什么
-- `URI` `URL ` `URN` 的区别
+- HTTP2 的信道复用为什么能提高性能
+- 浏览器输入 URL 后 HTTP 承担的角色是什么
+- `URI` `URL` `URN` 的区别
 - 收到 IP 数据包解析以后，它怎么知道这个分组应该投递到上层的哪一个协议（UDP 或 TCP）
 
 ## 算法与数据结构
@@ -52,19 +56,33 @@
 
 ```js
 let a = {
-  name: "aname",
+  name: 'aname',
   age: 20,
-};
+}
 
 function change(o) {
-  o.age = 24; // a = { name:'aname',age:24}
+  o.age = 24 // a = { name:'aname',age:24}
   o = {
-    name: "oname",
+    name: 'oname',
     age: 30,
-  };
-  return o; // 新的内存
+  }
+  return o // 新的内存
 }
-let b = change(a); // 注意这里没有new，后面new相关会有专门文章讲解
-console.log(b.age); // 第一个console 30
-console.log(a.age); // 24
+let b = change(a) // 注意这里没有new，后面new相关会有专门文章讲解
+console.log(b.age) // 第一个console 30
+console.log(a.age) // 24
 ```
+
+# Vue
+
+- 谈谈对 vue 的认识 与其他框架的区别
+- new Vue 的时候 Vue 做了什么
+- vue 常见的指令有哪些
+- v-if v-show
+- v-for v-if 的优先级
+- v-model 的原理
+- 编译器的与否有什么影响
+- template render 函数 el 挂载的优先级
+- 什么是 MVVM 模型
+- data 为甚是一个函数
+- vue 的生命周期
