@@ -26,7 +26,8 @@
 - [使用 sort 对数组进行排序[3,15,8,29,102,22]](https://github.com/yayxs/top-fe-iqa/issues/38)
 - [判断数组的方法?如何检测数组](https://github.com/yayxs/top-fe-iqa/issues/40)
 - [请你谈谈作用域与作用域链](https://github.com/yayxs/top-fe-iqa/issues/52)
-- [循环体与闭包结合：for循环中的var声明]()
+- [循环体与闭包结合：for 循环中的 var 声明]()
+
 ## 手写实现（手写代码）
 
 - [JavaScrip 头部高频手写实现面试题目汇总](https://github.com/yayxs/top-fe-iqa/issues/5)
@@ -56,21 +57,21 @@
 
 ```js
 let a = {
-  name: 'aname',
+  name: "aname",
   age: 20,
-}
+};
 
 function change(o) {
-  o.age = 24 // a = { name:'aname',age:24}
+  o.age = 24; // a = { name:'aname',age:24}
   o = {
-    name: 'oname',
+    name: "oname",
     age: 30,
-  }
-  return o // 新的内存
+  };
+  return o; // 新的内存
 }
-let b = change(a) // 注意这里没有new，后面new相关会有专门文章讲解
-console.log(b.age) // 第一个console 30
-console.log(a.age) // 24
+let b = change(a); // 注意这里没有new，后面new相关会有专门文章讲解
+console.log(b.age); // 第一个console 30
+console.log(a.age); // 24
 ```
 
 # Vue
@@ -86,3 +87,7 @@ console.log(a.age) // 24
 - 什么是 MVVM 模型
 - data 为甚是一个函数
 - vue 的生命周期
+
+## 联系我
+
+<image src="./assets/images/info.png">

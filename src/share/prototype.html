@@ -8,19 +8,25 @@
 </head>
 <body>
     <script>
-function Dog(name,age){
-    this.name = name
-    this.age = age
-}
+     
+        // obj.__proto__
+        // F.prototype.constructor===F
 
-Dog.prototype.eat = function(){
-    console.log('dog eat');
-}
 
-const dog = new Dog('xiao dog',2)
+        // 构造函数
+        function Dog(name,age){
+            this.name = name
+            this.age = age
+        }
 
-console.log(dog.__proto__);
-console.log(Dog.prototype.constructor === Dog);
+        Dog.prototype.eat = function(){
+            console.log('dog eat');
+        }
+
+        const dog = new Dog('xiao dog',2)
+        console.log(dog.__proto__); // 从对象的角度出发
+        console.log(Dog.prototype.constructor===Dog); // 从构造函数的角度出发的
+        
         
     </script>
 </body>

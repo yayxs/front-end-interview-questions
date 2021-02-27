@@ -38,3 +38,21 @@ Ajax 请求、跨窗口通信、Web Workers 或者任何其他的异步（或者
 
 模块，当函数可以记住并访问所在的词法作用域，即使函数是在当前词法作用域之外执行，这时
 就产生了闭包。
+
+```js
+
+function foo(){
+  var a = 1,b = 2;
+  
+  function add(){
+    return a+b+c;
+  }
+  return add;
+}
+
+var c = 3
+
+var globalFoo = foo()
+
+console.log(globalFoo ())
+```
