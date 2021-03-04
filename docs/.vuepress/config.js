@@ -108,7 +108,7 @@ module.exports = {
       {
         title: "计算机网络",
         collapsable: false,
-        children: ["/guides/network/http/"],
+        children: [],
       },
 
       {
