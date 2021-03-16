@@ -60,7 +60,6 @@
 - Vue 内部是如何构建一个渲染函数的 `render` `template` `el` 的优先级如何
 - 谈谈 Vue 中的 Transition 动画
 - 你了解 Vue 中的`选项合并策略`嘛，请谈谈
-- vue 修饰符
 
 - Vue 中 `<transition name="fade"><p v-if="seen">现在你看到我了</p></transition>` 组件是如何实现的？
 
@@ -123,7 +122,6 @@
 <summary>查看目录</summary>
 
 - [列表组件中的](#列表组件中的`key`)
-
 
 - react-router 里的 `<Link>` 标签和 `<a>` 标签有什么区别
 
@@ -220,9 +218,6 @@
 ###
 
 ### 服务端
-
-
-
 
 <details>
 <summary>查看目录</summary>
