@@ -1,45 +1,46 @@
 ## 前言
 
-经历了几版本的迭代 **目前仍在更新中 并且会一直更新**  2021 基于大前端的面试题目切入 ！！ 深挖核心原理！！
+经历了几版本的迭代 **目前仍在更新中 并且会一直更新** 2021 基于大前端的面试题目切入 ！！ 深挖核心原理！！
 
 - 在录制视频的时候，为了更好的演示讲解的代码，我想到的方式是起一个前端的静态服务然后读取`SRC` 下的代码案例
 
   ```js
-  const express = require("express");
-  const path = require("path");
-  const app = express();
-  const serveIndex = require("serve-index");
-  app.use(serveIndex("./src")); // 进行浏览目录
+  const express = require('express')
+  const path = require('path')
+  const app = express()
+  const serveIndex = require('serve-index')
+  app.use(serveIndex('./src')) // 进行浏览目录
   // 利用express.static中间件来托管静态资源。
-  app.use(express.static(path.join(__dirname, "src")));
-  app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "public/index.html"));
-  });
+  app.use(express.static(path.join(__dirname, 'src')))
+  app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/index.html'))
+  })
   app.listen(2021, () => {
-    console.log(`http://localhost:2021`);
-  });
-  
+    console.log(`http://localhost:2021`)
+  })
   ```
 
-- 提供线上的文档  [TOP-FE-IQA](https://top-fe-iqa.netlify.app/)
+- 提供线上的文档 [TOP-FE-IQA](https://top-fe-iqa.netlify.app/)
   - 需要注意的是这份线上的文档目前是基于`VuePress` 可能更新不及时（酌情参考）
   - 线上文档后续会重构一版本
 
 ## 视频录制进度
 
-如果你希望看视频版本的话，请点击下方的视频连接会跳转到对应的**B站的技能点讲解分享**
+如果你希望看视频版本的话，请点击下方的视频连接会跳转到对应的**B 站的技能点讲解分享**
 
->前端不要玩那么花里胡哨的东西，白天不见夜里见的**浏览器** 你不掌握一切瞎扯淡！！
+> 前端不要玩那么花里胡哨的东西，白天不见夜里见的**浏览器** 你不掌握一切瞎扯淡！！
 
 - [前端厚说-浏览器专题]()
 
->如果说你让我推荐个当下最该学  最应该学的方向  我会毫无疑问提交你`JavaScript` 但是JS语言层面的细节你真的都清晰 执行上下文？ 闭包？ 作用域？ 
+> 如果说你让我推荐个当下最该学 最应该学的方向 我会毫无疑问提交你`JavaScript` 但是 JS 语言层面的细节你真的都清晰 执行上下文？ 闭包？ 作用域？
 
-- [前端厚说-JavaScript语言本身的细节]()
+- [前端厚说-JavaScript 语言本身的细节]()
 
----------
+---
 
-为了能更好的索引 我会定时不定时的把我整理的文档放到下边，包括 `HTML` `CSS` `JavaScript` 等等 还有一些框架 工程化 等等吧 
+为了能更好的索引 我会定时不定时的把我整理的文档放到下边，包括 `HTML` `CSS` `JavaScript` 等等 还有一些框架 工程化 等等吧
+
+## HTML
 
 - [HTML 头部高频面试题及参考答案](https://github.com/yayxs/top-fe-iqa/issues/20)
 
@@ -94,11 +95,9 @@
 
 ## Vue
 
->其实`Vue` 的官方文档写的真的非常好！！ 我是在看了`Vue生态的`  （包括Vue VueCLI VueRouter Vuex VueLoader等） 然后基于`vue2的源码` 给大家整理了如下的面试题目
->
->绝对不是口水话 目前的状态是视频还没开始录制 文字版已经在写了 如下的链接还不能点
->
->不过你可以看看都是有哪些 耳熟能详的问题
+> 讲道理，其实`Vue` 的官方文档写的真的非常好！！ 如果你什么都没开始，就一定把Vue的文档教程、以及API 都好好**研读研读**   我是在看了`Vue生态的` 的文档（`VueCLI` `VUE2` `Vuex`  `VueRouter` `VueLoader` ）然后基于`vue2的源码` 给大家整理了如下的面试题目
+> 绝对不是口水话 目前的状态是视频还没开始录制 文字版已经在写了 如下的链接还不能点 
+> 不过你可以看看都是有哪些 耳熟能详的问题  当然了这只是一小部分
 
 - 谈谈对 vue 的认识 与其他框架的区别
 - new Vue 的时候 Vue 做了什么
