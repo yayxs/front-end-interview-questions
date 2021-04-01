@@ -2,9 +2,8 @@
   "name": "top-fe-iqa",
   "version": "1.0.0",
   "description": "Top X Front-end Interview Questions and Better Answers",
-  "main": "index.js",
   "repository": "https://github.com/yayxs/top-fe-iqa.git",
-  "author": "yangwl",
+  "author": "<youngwanlia@gmail.com> or <leaderywl@163.com> ",
   "license": "MIT",
   "scripts": {
     "docs:dev": "vuepress dev docs ",
