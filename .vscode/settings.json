@@ -43,5 +43,10 @@
   "editor.suggest.snippetsPreventQuickSuggestions": false,
   "prettier.htmlWhitespaceSensitivity": "ignore",
   "prettier.vueIndentScriptAndStyle": true,
-  "vetur.format.defaultFormatter.html": "prettier"
+  "vetur.format.defaultFormatter.html": "prettier",
+  "files.autoSave": "onFocusChange",
+  "path-intellisense.mappings": {
+    "@": "${workspaceRoot}/src"
+  },
+  "files.eol": "\n"
 }

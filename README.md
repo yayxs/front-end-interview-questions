@@ -1,4 +1,57 @@
+## 前言
+
+经历了几版本的迭代 **目前仍在更新中 并且会一直更新** 2021 基于大前端的面试题目切入 ！！ 深挖核心原理！！
+
+- 在录制视频的时候，为了更好的演示讲解的代码，我想到的方式是起一个前端的静态服务然后读取`SRC` 下的代码案例
+
+  ```js
+  const express = require('express')
+  const path = require('path')
+  const app = express()
+  const serveIndex = require('serve-index')
+  app.use(serveIndex('./src')) // 进行浏览目录
+  // 利用express.static中间件来托管静态资源。
+  app.use(express.static(path.join(__dirname, 'src')))
+  app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/index.html'))
+  })
+  app.listen(2021, () => {
+    console.log(`http://localhost:2021`)
+  })
+  ```
+
+- 提供线上的文档 [TOP-FE-IQA](https://top-fe-iqa.netlify.app/)
+  - 需要注意的是这份线上的文档目前是基于`VuePress` 可能更新不及时（酌情参考）
+  - 线上文档后续会重构一版本
+
+## 视频录制进度
+
+如果你希望看视频版本的话，请点击下方的视频连接会跳转到对应的**B 站的技能点讲解分享**
+
+> 前端不要玩那么花里胡哨的东西，白天不见夜里见的**浏览器** 你不掌握一切瞎扯淡！！
+
+- [前端厚说-浏览器工作渲染原理视频合集](https://www.bilibili.com/video/BV1cf4y1t76Y)
+  - [为什么需要了解甚至熟悉浏览器的渲染原理](https://www.bilibili.com/video/BV1Cf4y1z7o5)
+  - [浏览器内核与浏览器渲染引擎工作原理](https://www.bilibili.com/video/BV1Zz4y127av)
+  - [浏览器架构发展史](https://www.bilibili.com/video/BV1yv411h77G)
+  - [浏览器新打开的每个Tab页是一个进程吗](https://www.bilibili.com/video/BV1cB4y1P7j1)
+  - [浏览器细节性的渲染流程（上）](https://www.bilibili.com/video/BV1Q54y187zx)
+  - [浏览器渲染流程，简单说说重绘回流（下）](https://www.bilibili.com/video/BV1QZ4y1F7FQ)
+
+> 如果说你让我推荐个当下最该学 最应该学的方向 我会毫无疑问提交你`JavaScript` 但是 `JS`语言层面的细节你真的都清晰 执行上下文？ 闭包？ 作用域？
+
+- [前端厚说-JavaScript 语言本身的细节](https://www.bilibili.com/video/BV1Db4y1S7Qw)
+  - [前端面试大纲简览 2021从面试点出发击破热门考点](https://www.bilibili.com/video/BV1mv4y1f7XJ)
+  - [JavaScript变量会有哪些面试考点？](https://www.bilibili.com/video/BV135411H7SH)
+  - [JavaScript中的执行上下文与代码的执行过程如何](https://www.bilibili.com/video/BV1hf4y1W7MK)
+
+---
+
+为了能更好的索引 我会定时不定时的把我整理的文档放到下边，包括 `HTML` `CSS` `JavaScript` 等等 还有一些框架 工程化 ……
+
 ## HTML
+
+>关于HTML很纯粹的话也没什么好考察的，多半是结合`JS` 这部分我会参考权威书籍以及MDN文档
 
 - [HTML 头部高频面试题及参考答案](https://github.com/yayxs/top-fe-iqa/issues/20)
 
@@ -57,30 +110,11 @@
 - 数据结构中稳定的排序算法 不稳定的排序算法
 - 时间复杂度 与空间复杂度代表什么
 
-## 笔试题收藏
+## Vue
 
-### 考点：数据类型
-
-```js
-let a = {
-  name: "aname",
-  age: 20,
-};
-
-function change(o) {
-  o.age = 24; // a = { name:'aname',age:24}
-  o = {
-    name: "oname",
-    age: 30,
-  };
-  return o; // 新的内存
-}
-let b = change(a); // 注意这里没有new，后面new相关会有专门文章讲解
-console.log(b.age); // 第一个console 30
-console.log(a.age); // 24
-```
-
-# Vue
+> 讲道理，其实`Vue` 的官方文档写的真的非常好！！ 如果你什么都没开始，就一定把Vue的文档教程、以及API 都好好**研读研读**   我是在看了`Vue生态的` 的文档（`VueCLI` `VUE2` `Vuex`  `VueRouter` `VueLoader` ）然后基于`vue2的源码` 给大家整理了如下的面试题目
+> 绝对不是口水话 目前的状态是视频还没开始录制 文字版已经在写了 如下的链接还不能点 
+> 不过你可以看看都是有哪些 耳熟能详的问题  当然了这只是一小部分
 
 - 谈谈对 vue 的认识 与其他框架的区别
 - new Vue 的时候 Vue 做了什么
@@ -96,4 +130,17 @@ console.log(a.age); // 24
 
 ## 联系我
 
+> 关于我，前端厚说，不仅仅前端！！虽然长的丑，但是想的美！！
+
+```html
 <image src="./assets/images/info.png">
+```
+
+## 大纲
+
+> 这份大纲是很久之前整理的，正在一步步的丰盈，任何社群，都能找到我
+
+```html
+<image src="./assets/images/outline.png">
+```
+
