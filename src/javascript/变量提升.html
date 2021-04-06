@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>变量提升</title>
+  </head>
+  <body>
+    <script>
+      showName() // 执行报错 x
+      console.log(myName) // 报错 x
+      var myName = `vast-yayxs`
+      function showName() {
+        console.log(`函数 showName 被执行`)
+      }
+    </script>
+    <!-- <script>
+      showName() // 执行报错
+      console.log(yourName)
+      // var name = `vast`
+      function showName() {
+        console.log(`函数 showName 被执行`)
+      } -->
+    </script>
+  </body>
+</html>

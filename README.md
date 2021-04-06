@@ -35,6 +35,11 @@
 - [手写实现通用的类型检测方法](https://github.com/yayxs/top-fe-iqa/issues/48)
 - [手写实现 4 种数组扁平化方式](https://github.com/yayxs/top-fe-iqa/issues/51)
 
+## 浏览器
+
+- 为什么很多站点第二次打开速度会很快？
+- 什么是 DNS 缓存
+
 ## 计算机网络
 
 - 当在网页浏览器的地址栏输入`url`后，发生了什么
@@ -45,6 +50,7 @@
 - 浏览器输入 URL 后 HTTP 承担的角色是什么
 - `URI` `URL` `URN` 的区别
 - 收到 IP 数据包解析以后，它怎么知道这个分组应该投递到上层的哪一个协议（UDP 或 TCP）
+- 你怎么理解`HTTP`和`TCP`的关系
 
 ## 算法与数据结构
 
