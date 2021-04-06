@@ -34,16 +34,16 @@
   - [为什么需要了解甚至熟悉浏览器的渲染原理](https://www.bilibili.com/video/BV1Cf4y1z7o5)
   - [浏览器内核与浏览器渲染引擎工作原理](https://www.bilibili.com/video/BV1Zz4y127av)
   - [浏览器架构发展史](https://www.bilibili.com/video/BV1yv411h77G)
-  - [浏览器新打开的每个Tab页是一个进程吗](https://www.bilibili.com/video/BV1cB4y1P7j1)
+  - [浏览器新打开的每个 Tab 页是一个进程吗](https://www.bilibili.com/video/BV1cB4y1P7j1)
   - [浏览器细节性的渲染流程（上）](https://www.bilibili.com/video/BV1Q54y187zx)
   - [浏览器渲染流程，简单说说重绘回流（下）](https://www.bilibili.com/video/BV1QZ4y1F7FQ)
 
 > 如果说你让我推荐个当下最该学 最应该学的方向 我会毫无疑问提交你`JavaScript` 但是 `JS`语言层面的细节你真的都清晰 执行上下文？ 闭包？ 作用域？
 
 - [前端厚说-JavaScript 语言本身的细节](https://www.bilibili.com/video/BV1Db4y1S7Qw)
-  - [前端面试大纲简览 2021从面试点出发击破热门考点](https://www.bilibili.com/video/BV1mv4y1f7XJ)
-  - [JavaScript变量会有哪些面试考点？](https://www.bilibili.com/video/BV135411H7SH)
-  - [JavaScript中的执行上下文与代码的执行过程如何](https://www.bilibili.com/video/BV1hf4y1W7MK)
+  - [前端面试大纲简览 2021 从面试点出发击破热门考点](https://www.bilibili.com/video/BV1mv4y1f7XJ)
+  - [JavaScript 变量会有哪些面试考点？](https://www.bilibili.com/video/BV135411H7SH)
+  - [JavaScript 中的执行上下文与代码的执行过程如何](https://www.bilibili.com/video/BV1hf4y1W7MK)
 
 ---
 
@@ -51,7 +51,7 @@
 
 ## HTML
 
->关于HTML很纯粹的话也没什么好考察的，多半是结合`JS` 这部分我会参考权威书籍以及MDN文档
+> 关于 HTML 很纯粹的话也没什么好考察的，多半是结合`JS` 这部分我会参考权威书籍以及 MDN 文档
 
 - [HTML 头部高频面试题及参考答案](https://github.com/yayxs/top-fe-iqa/issues/20)
 
@@ -112,9 +112,9 @@
 
 ## Vue
 
-> 讲道理，其实`Vue` 的官方文档写的真的非常好！！ 如果你什么都没开始，就一定把Vue的文档教程、以及API 都好好**研读研读**   我是在看了`Vue生态的` 的文档（`VueCLI` `VUE2` `Vuex`  `VueRouter` `VueLoader` ）然后基于`vue2的源码` 给大家整理了如下的面试题目
-> 绝对不是口水话 目前的状态是视频还没开始录制 文字版已经在写了 如下的链接还不能点 
-> 不过你可以看看都是有哪些 耳熟能详的问题  当然了这只是一小部分
+> 讲道理，其实`Vue` 的官方文档写的真的非常好！！ 如果你什么都没开始，就一定把 Vue 的文档教程、以及 API 都好好**研读研读** 我是在看了`Vue生态的` 的文档（`VueCLI` `VUE2` `Vuex` `VueRouter` `VueLoader` ）然后基于`vue2的源码` 给大家整理了如下的面试题目
+> 绝对不是口水话 目前的状态是视频还没开始录制 文字版已经在写了 如下的链接还不能点
+> 不过你可以看看都是有哪些 耳熟能详的问题 当然了这只是一小部分
 
 - 谈谈对 vue 的认识 与其他框架的区别
 - new Vue 的时候 Vue 做了什么
@@ -132,15 +132,11 @@
 
 > 关于我，前端厚说，不仅仅前端！！虽然长的丑，但是想的美！！
 
-```html
-<image src="./assets/images/info.png">
-```
+<image src="./assets/images/info.png"></image>
 
 ## 大纲
 
 > 这份大纲是很久之前整理的，正在一步步的丰盈，任何社群，都能找到我
 
-```html
-<image src="./assets/images/outline.png">
-```
-
+`
+<image src="./assets/images/outline.png" />
