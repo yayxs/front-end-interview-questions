@@ -6,42 +6,42 @@
 
 ```js
 // 策略函数 要求data是一个函数 否则会给出一个警告
-strats.data = function (
+strats.data = function(
   parentVal: any,
   childVal: any,
   vm?: Component
 ): ?Function {
   if (!vm) {
     // 传递 vm 参数 必须要求是一个函数
-    if (childVal && typeof childVal !== "function") {
-      process.env.NODE_ENV !== "production" &&
+    if (childVal && typeof childVal !== 'function') {
+      process.env.NODE_ENV !== 'production' &&
         warn(
           'The "data" option should be a function ' +
-            "that returns a per-instance value in component " +
-            "definitions.",
+            'that returns a per-instance value in component ' +
+            'definitions.',
           vm
-        );
+        )
 
-      return parentVal;
+      return parentVal
     }
-    return mergeDataOrFn(parentVal, childVal);
+    return mergeDataOrFn(parentVal, childVal)
   }
 
-  return mergeDataOrFn(parentVal, childVal, vm);
-};
+  return mergeDataOrFn(parentVal, childVal, vm)
+}
 ```
 
 #### 返回的不是纯对象 Vue 是怎么做的
 
 ```js
 if (!isPlainObject(data)) {
-  data = {};
-  process.env.NODE_ENV !== "production" &&
+  data = {}
+  process.env.NODE_ENV !== 'production' &&
     warn(
-      "data functions should return an object:\n" +
-        "https://vuejs.org/v2/guide/components.html#data-Must-Be-a-Function",
+      'data functions should return an object:\n' +
+        'https://vuejs.org/v2/guide/components.html#data-Must-Be-a-Function',
       vm
-    );
+    )
 }
 ```
 
@@ -49,14 +49,14 @@ if (!isPlainObject(data)) {
 
 ```js
 if (props && hasOwn(props, key)) {
-  process.env.NODE_ENV !== "production" &&
+  process.env.NODE_ENV !== 'production' &&
     warn(
       `The data property "${key}" is already declared as a prop. ` +
         `Use prop default value instead.`,
       vm
-    );
+    )
 } else if (!isReserved(key)) {
-  proxy(vm, `_data`, key);
+  proxy(vm, `_data`, key)
 }
 ```
 
@@ -67,12 +67,12 @@ proxy 函数的原理是通过 Object.defineProperty 函数在实例对象 vm �
 ```js
 export function proxy(target: Object, sourceKey: string, key: string) {
   sharedPropertyDefinition.get = function proxyGetter() {
-    return this[sourceKey][key];
-  };
+    return this[sourceKey][key]
+  }
   sharedPropertyDefinition.set = function proxySetter(val) {
-    this[sourceKey][key] = val;
-  };
-  Object.defineProperty(target, key, sharedPropertyDefinition);
+    this[sourceKey][key] = val
+  }
+  Object.defineProperty(target, key, sharedPropertyDefinition)
 }
 ```
 
@@ -82,29 +82,16 @@ export function proxy(target: Object, sourceKey: string, key: string) {
 
 这样就保证了我们在 data 中使用`props` 中的值
 
-
-<!--
-
- * @Author: your name
- * @Date: 2020-07-27 21:40:05
- * @LastEditTime: 2020-07-27 21:40:09
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \vue-source-code\docs\衍生出的面试题.md
--->
-
-
-
 ## 关于`Data`
 
-### 为什么可以通过`this` 直接访问 data中的属性
+### 为什么可以通过`this` 直接访问 data 中的属性
 
 #### 示例
 
 ```js
  mounted() {
     console.log(this.msg);
-	console.log(this._data.msg) // 
+	console.log(this._data.msg) //
   },
   data() {
     return {
@@ -116,21 +103,21 @@ export function proxy(target: Object, sourceKey: string, key: string) {
 #### 源码实现
 
 ```javascript
-export function proxy (target: Object, sourceKey: string, key: string) {
-  sharedPropertyDefinition.get = function proxyGetter () {
+export function proxy(target: Object, sourceKey: string, key: string) {
+  sharedPropertyDefinition.get = function proxyGetter() {
     return this[sourceKey][key]
   }
-  sharedPropertyDefinition.set = function proxySetter (val) {
+  sharedPropertyDefinition.set = function proxySetter(val) {
     this[sourceKey][key] = val
   }
-// 当访问的时候Vue 代理了一层
+  // 当访问的时候Vue 代理了一层
   Object.defineProperty(target, key, sharedPropertyDefinition)
 }
 ```
 
 ## 关于挂载
 
-### 为什么我们开发习惯用一个ID `app`的div做外层元素
+### 为什么我们开发习惯用一个 ID `app`的 div 做外层元素
 
 #### 示例
 
@@ -153,7 +140,7 @@ export function proxy (target: Object, sourceKey: string, key: string) {
   }
 ```
 
-### 为什么写template只能是一个根节点
+### 为什么写 template 只能是一个根节点
 
 #### 示例
 
@@ -166,8 +153,8 @@ export function proxy (target: Object, sourceKey: string, key: string) {
 </template>
 ```
 
-## 关于VDOM
+## 关于 VDOM
 
-  (2)函数为什么返回一个对象，如果返回的不是个纯对象 Vue 是怎么做的？你有没有试过直接返回一个字符串或者其他类型
-  (3)data 中的 key 与 props 或者 methods 中冲突 vue 是怎么做的
-  (4)为什么初始化阶段才进行`data` 数据的合并？(这里指合并策略)
+(2)函数为什么返回一个对象，如果返回的不是个纯对象 Vue 是怎么做的？你有没有试过直接返回一个字符串或者其他类型
+(3)data 中的 key 与 props 或者 methods 中冲突 vue 是怎么做的
+(4)为什么初始化阶段才进行`data` 数据的合并？(这里指合并策略)

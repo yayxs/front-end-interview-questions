@@ -116,6 +116,15 @@
 > 绝对不是口水话 目前的状态是视频还没开始录制 文字版已经在写了 如下的链接还不能点
 > 不过你可以看看都是有哪些 耳熟能详的问题 当然了这只是一小部分
 
+- [属性 data 的值为什么必须是函数](https://github.com/yayxs/top-fe-iqa/issues/55)
+- [返回不是纯对象 vue 是怎么做的](https://github.com/yayxs/top-fe-iqa/issues/56)
+- [为什么在初始化阶段才去进行合并处理](https://github.com/yayxs/top-fe-iqa/issues/57)
+- [生命周期的合并策略是怎么进行的](https://github.com/yayxs/top-fe-iqa/issues/58)
+- [`beforeCreate Hook`被调用的时候有哪些特点]()
+- [谈谈 vue 的样式绑定](https://github.com/yayxs/top-fe-iqa/issues/59)
+- [我们为什么可以在任何组件的模板中我们都可以直接使用 `<transition/>` 组件或者 `<keep-alive/>`等内置组件]()
+- [vue 的数据双向绑定和 vuex 是否冲突](https://github.com/yayxs/top-fe-iqa/issues/60)
+- [谈谈 Vue 的生命周期钩子的理解](https://github.com/yayxs/top-fe-iqa/issues/61)
 - 谈谈对 vue 的认识 与其他框架的区别
 - new Vue 的时候 Vue 做了什么
 - vue 常见的指令有哪些
@@ -125,18 +134,9 @@
 - 编译器的与否有什么影响
 - template render 函数 el 挂载的优先级
 - 什么是 MVVM 模型
-- data 为甚是一个函数
-- vue 的生命周期
 
 ## 联系我
 
 > 关于我，前端厚说，不仅仅前端！！虽然长的丑，但是想的美！！
 
 <image src="./assets/images/info.png"></image>
-
-## 大纲
-
-> 这份大纲是很久之前整理的，正在一步步的丰盈，任何社群，都能找到我
-
-`
-<image src="./assets/images/outline.png" />
