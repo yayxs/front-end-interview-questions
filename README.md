@@ -55,7 +55,8 @@
 
 - [HTML 头部高频面试题及参考答案](https://github.com/yayxs/top-fe-iqa/issues/20)
 
-- `<script>` 标签的`async` 与`defer` 有什么区别
+- [`<script>` 标签的`async` 与`defer` 有什么区别](https://github.com/yayxs/top-fe-iqa/issues/62)
+- [`DOMContentLoaded`与`load`有什么不同呢]()
 - `XHTML` 与`HTML` 的区别
 - 有几种文档模式（文档类型）
 
