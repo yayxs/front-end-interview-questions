@@ -5,6 +5,7 @@ title: 前端安全
 ## CORS 跨源资源共享
 
 跨源资源共享（CORS，Cross-Origin Resource Sharing）定义了浏览器与服务器如何实现跨源通信
+允许服务器决定对那些资源提供服务 扩展了 HTTP 增加了一个新的 Origin 请求头 和一个新的 `Access-Control-Allow-Origin`
 
 ```
 origin: http://127.0.0.1:5500
@@ -27,7 +28,7 @@ Access-Control-Max-Age: 1728000 // 最长时间：代表时间内不需要发送
 - 获取服务端的认可
 
 ```
-Access-Control-Allow-Methods: POST, GET // 允许的方法 
+Access-Control-Allow-Methods: POST, GET // 允许的方法
 Access-Control-Allow-Headers: NCZ  // 允许的头
 ```
 
@@ -38,6 +39,8 @@ Access-Control-Allow-Headers: NCZ  // 允许的头
 在未授权系统可以访问某个资源时，可以将其视为跨站点请求伪造（CSRF，cross-site request forgery）攻击。未授权系统会按照处理请求的服务器的要求伪装自己。Ajax 应用程序，无论大小，都会受到 CSRF 攻击的影响，包括无害的漏洞验证攻击和恶意的数据盗窃或数据破坏攻击。
 
 ## XSS 漏洞
+
+跨站点脚本 是一种攻击的方式
 
 ## JSONP 的原理是什么？
 
