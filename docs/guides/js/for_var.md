@@ -6,13 +6,11 @@ title: for循环中的var声明
 用 i，而忽略了 i 会被绑定在外部作用域（函数或全局）中的事实。
 
 ```js
-for (var i = 1; i <= 5; i++) {
-  // 延迟函数在循环结束执行，所有的回调在循环结束后执行
-  setTimeout(function timer() {
-    console.log(i);
-  }, i * 1000);
+function foo() {
+  for (var i = 0; i < 7; i++) {}
+  console.log(i)
 }
-
+foo()
 ```
 
 ## 问题
@@ -26,8 +24,8 @@ for (var i = 1; i <= 5; i++) {
 部作用域中有效。
 
 ```js
-console.log(i); // 5
-console.log(window.i); // 5
+console.log(i) // 5
+console.log(window.i) // 5
 ```
 
 ## 方案一 改为 let
@@ -39,26 +37,28 @@ console.log(window.i); // 5
 ```js
 for (let i = 0; i < 5; ++i) {
   setTimeout(() => {
-    console.log(i); // 0 1 2 3 4
-  }, i * 5);
+    console.log(i) // 0 1 2 3 4
+  }, i * 5)
 }
-console.log(window.i); // undefined
-console.log(i); // Uncaught ReferenceError: i is not defined
+console.log(window.i) // undefined
+console.log(i) // Uncaught ReferenceError: i is not defined
 ```
 
 ```js
 for (var i = 0; i < 5; ++i) {
-  let _i = i;
+  let _i = i
   setTimeout(() => {
-    console.log(_i); // 0 1 2 3 4
-  }, i * 5);
+    console.log(_i) // 0 1 2 3 4
+  }, i * 5)
 }
-console.log(window.i); // 5
-console.log(i); // 5
+console.log(window.i) // 5
+console.log(i) // 5
 ```
 
 ## 构建闭包环境
+
 IIFE 会通过声明并立即执行一个函数来创建作用域
+
 ```js
 for (var i = 1; i < =5; ++i) {
  (
@@ -82,16 +82,16 @@ console.log(i); // 5
 ```js
 for (var i = 0; i < 5; ++i) {
   try {
-    throw new Error(i);
+    throw new Error(i)
   } catch (error) {
-    let _i = Number(error.message);
+    let _i = Number(error.message)
     setTimeout(() => {
-      console.log(_i);
-    }, _i * 5);
+      console.log(_i)
+    }, _i * 5)
   }
 }
-console.log(window.i); // 5
-console.log(i); // 5
+console.log(window.i) // 5
+console.log(i) // 5
 ```
 
 ## 方案四 利用 setTimeout 函数的第三个参数
@@ -102,12 +102,12 @@ console.log(i); // 5
 for (var i = 0; i < 5; i++) {
   setTimeout(
     (j) => {
-      console.log(j);
+      console.log(j)
     },
     i * 5,
     i
-  );
+  )
 }
-console.log(window.i); // 5
-console.log(i); // 5
+console.log(window.i) // 5
+console.log(i) // 5
 ```
