@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function bar() {
+        var myName = '-var-bar-name-'
+        let test1 = 100
+        if (1) {
+          let myName = '-let-bar-if-name'
+          console.log(test)
+        }
+      }
+      function foo() {
+        var myName = '-var-foo-name-'
+        let test = 2
+        {
+          let test = 3
+          bar()
+        }
+      }
+      var myName = '-var-全局-name'
+      let myAge = 10
+      let test = 1
+      foo()
+    </script>
+  </body>
+</html>
