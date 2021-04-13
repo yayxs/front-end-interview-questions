@@ -16,8 +16,6 @@ title: 食用指南
 <hr />
 项目采用静态部署的方式，实时更新。 目前所有的资源以及源码都是免费开源的。
 
+<!-- ![](./../../assets/images/outline.jpg) -->
 
-![](./../../assets/images/outline.jpg)
-
-
-注：**完整的pdf文件你可以在** [……assets/pdfs](https://github.com/yayxs/top-fe-iqa/tree/master/assets/pdfs)  下载
+注：**完整的 pdf 文件你可以在** [……assets/pdfs](https://github.com/yayxs/top-fe-iqa/tree/master/assets/pdfs) 下载

@@ -11,5 +11,5 @@ actionLink: /guides/
 #   - title: talk
 #     details: 傻瓜
 
-footer: MIT Licensed | Copyright © 2019-2020-present yayxs
+footer: MIT Licensed | Copyright © 2019-2021-present 洋小洋同学
 ---
