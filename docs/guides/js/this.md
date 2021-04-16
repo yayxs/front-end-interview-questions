@@ -2,67 +2,61 @@
 title: 如何正确的判断this的指向? 箭头函数的 this 是什么？
 ---
 
-`this` 实际上是在函数调用时发生的绑定，指向什么完全取决于函数在哪里被调用
+`this` 实际上是在函数调用时发生的绑定，指向什么完全取决于函数在哪里被调用。而 this 和执行上下文中是绑定的 每个执行上下文都有一个 this
+
+this 的分类同样有 3 种 全局执行上下文中的 this 函数中的 this 和 eval 中的 this。重点分析 全局执行上下文中的 this 和函数执行上下文
 
 ```js
-
 function baz() {
   // 当前调用栈是：baz
   // 因此，当前调用位置是全局作用域
-  console.log('baz');
-  bar(); // <-- bar 的调用位置
+  console.log('baz')
+  bar() // <-- bar 的调用位置
 }
 
 function bar() {
   // 当前调用栈是 baz -> bar
   // 因此，当前调用位置在 baz 中
-  console.log('bar');
-  foo(); // <-- foo 的调用位置
+  console.log('bar')
+  foo() // <-- foo 的调用位置
 }
 function foo() {
   // 当前调用栈是 baz -> bar -> foo
   // 因此，当前调用位置在 bar 中
-  console.log('foo');
+  console.log('foo')
 }
 
-
-baz(); // <-- baz 的调用位置
-
+baz() // <-- baz 的调用位置
 ```
 
-## this指向全局window
+## this 指向全局 window
 
 ```js
 function foo() {
-  console.log(`this指向window`,this)
-  console.log(this.a);
+  console.log(`this指向window`, this)
+  console.log(this.a)
 }
 
-var a = 2;
+var a = 2
 
-foo(); // 2
-
+foo() // 2
 ```
 
-## 指向对象obj
-
+## 指向对象 obj
 
 ```js
-
 function foo() {
-  console.log(`指向对象obj`,this);
-  console.log(this.a);
+  console.log(`指向对象obj`, this)
+  console.log(this.a)
 }
 var obj = {
   a: 2,
   foo: foo,
-};
-obj.foo(); // 2
-
+}
+obj.foo() // 2
 ```
 
 1. 由 new 调用？绑定到新创建的对象。
 2. 由 call 或者 apply（或者 bind）调用？绑定到指定的对象。
 3. 由上下文对象调用？绑定到那个上下文对象。
 4. 默认：在严格模式下绑定到 undefined，否则绑定到全局对象。
-
