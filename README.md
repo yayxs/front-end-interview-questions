@@ -47,10 +47,7 @@
   - [前端面试大纲简览 2021 从面试点出发击破热门考点](https://www.bilibili.com/video/BV1mv4y1f7XJ)
   - [JavaScript 变量会有哪些面试考点？](https://www.bilibili.com/video/BV135411H7SH)
   - [JavaScript 中的执行上下文与代码的执行过程如何](https://www.bilibili.com/video/BV1hf4y1W7MK)
-
-> 还有就是前端开发通用领域：网络 + 安全 + 算法 + 计算机通用的知识
->
-> （这部分已经录制一点）
+  - [执行上下文与 this 的关系]()
 
 ---
 
@@ -111,17 +108,33 @@
 
 ## JavaScript 核心体系
 
+- [不精确的计算之为什么 0.1 + 0.2 != 0.3]()
+- [==和===区别]()
+- [null 和 undefined 有什么区别]()
 - [值类型与引用类型的区别](https://github.com/yayxs/top-fe-iqa/issues/41)
-- [JavaScript 中的深拷贝实现](https://github.com/yayxs/top-fe-iqa/issues/45)
-- [do you really know JavaScript](http://javascript-puzzlers.herokuapp.com/)
-- [['1', '2', '3'].map(parseInt)](https://github.com/yayxs/top-fe-iqa/issues/37)
+- [JavaScript 的数据类型有哪些,存储有什么区别]()
+- [typeof 和 instanceof 检测数据类型有什么区别？]()
+- [重中之重：JS 中的执行上下文](https://github.com/yayxs/top-fe-iqa/issues/67)
+- [JS 中的变量提升现象 Hoisting](https://github.com/yayxs/top-fe-iqa/issues/68)
+- [ES6 块级作用域?var、let 和 const 区别的实现原理](https://github.com/yayxs/top-fe-iqa/issues/69)
+- [作用域?作用域链?](https://github.com/yayxs/top-fe-iqa/issues/52)
+- [闭包及作用闭包有哪些使用场景？优缺点是什么](https://github.com/yayxs/top-fe-iqa/issues/65)
+- [循环体与闭包结合：for 循环中的 var 声明](https://github.com/yayxs/top-fe-iqa/issues/66)
+- [this 指向？设置 this 指向？箭头函数中 this? this 设计缺陷](https://github.com/yayxs/top-fe-iqa/issues/63)
+- [new 操作符原理？内部机制？手写实现？](https://github.com/yayxs/top-fe-iqa/issues/64)
 - [使用 sort 对数组进行排序[3,15,8,29,102,22]](https://github.com/yayxs/top-fe-iqa/issues/38)
 - [判断数组的方法?如何检测数组](https://github.com/yayxs/top-fe-iqa/issues/40)
-- [请你谈谈作用域与作用域链](https://github.com/yayxs/top-fe-iqa/issues/52)
-- [循环体与闭包结合：for 循环中的 var 声明]()
-- 如何让 (a == 1 && a == 2 && a == 3) 的值为 true？
-- ES5/ES6 的继承 分别有哪些优缺点？
+- [JS 创建对象的方式]()
+- [JavaScript 中的深拷贝实现](https://github.com/yayxs/top-fe-iqa/issues/45)
+- [for..of, for..in 和 forEach,map 的区别]()
+
+---
+
+- [do you really know JavaScript](http://javascript-puzzlers.herokuapp.com/)
+- [['1', '2', '3'].map(parseInt)](https://github.com/yayxs/top-fe-iqa/issues/37)
 - 函数科里化
+- ES5/ES6 的继承 分别有哪些优缺点？
+- 如何让 (a == 1 && a == 2 && a == 3) 的值为 true？
 
 ## 手写实现（手写代码）
 

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let bar = {
+        myName: '-let-obj-bar-vast',
+        test1: 1,
+      }
+
+      function foo() {
+        this.myName = '-foo-name'
+      }
+      foo.call(bar)
+      console.log(bar) // bar 中的this 已经被修改
+      console.log(myName) // 全局执行上下文中的值已经不存在
+    </script>
+  </body>
+</html>

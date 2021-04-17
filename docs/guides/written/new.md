@@ -19,25 +19,53 @@ title: 手写实现New操作符
 > 3.  将步骤 1 新创建的对象作为`this`的上下文 ；
 > 4.  如果该函数没有返回对象，则返回`this`。
 
-以上 4 条是`MDN` 上关于 new 操作符（或者说关键字）的面试，简单的来体验下利用构造函数来`new` 一个对象
+以上 4 条是`MDN` 上关于 new 操作符（或者说关键字）的描述,那么当`new` 的时候 引擎做了几件事呢
+
+```js
+  function CreateObj() {
+        this.name = `-Create-OBj`
+      }
+
+      var myObj = new CreateObj()
+```
+
+
+
+>- 首先创建了一个空的对象 tempObj
+>- 接着调用`CreateObj.call` 方法 并将 `初始化的空对象tempObj` 作为call方法的参数，当`CreateObj`的执行上下文创建的时候 this 就指向了 `tempObj``
+>
+>- 然后执行 `CreateObj` 函数 此时 函数执行上下文中的this 指向了`tempObj` 对象
+>- 最后把对象`tempObj`返回
+
+
+
+```js
+var tempObj = {}
+CreateObj.call(tempObj)
+return tempObj
+```
+
+**构造函数中的this其实就是新对象本身**
+
+简单的来体验下利用构造函数来`new` 一个对象
 
 ```js
 function Person(name, age) {
-  console.log("this", this);
-  this.name = name;
-  this.age = age;
+  console.log('this', this)
+  this.name = name
+  this.age = age
 }
 // 然后在**构造函数添加原型方法**
-Person.prototype.height = 180;
+Person.prototype.height = 180
 Person.prototype.sayName = function() {
-  console.log(this.name);
-};
-let p = new Person("yayxs", 20);
-console.log(p.name); // yayxs
-console.log(p.age);
-20;
-p.sayName(); // yayxs
-console.log(p.__proto__ === Person.prototype); // 对象p（实例）的原型属性指向构造函数的原型，
+  console.log(this.name)
+}
+let p = new Person('yayxs', 20)
+console.log(p.name) // yayxs
+console.log(p.age)
+20
+p.sayName() // yayxs
+console.log(p.__proto__ === Person.prototype) // 对象p（实例）的原型属性指向构造函数的原型，
 ```
 
 既然我们通过自定义，其使用的方式大体跟`new` 是一样的。
@@ -57,14 +85,15 @@ const p = myNew Person('yayxs',20) // 其返回的结果是一个对象
 ```js
 function myNew() {
   let obj = new Object(),
-    [constructor, ...args] = [...arguments];
-  obj.__proto__ = constructor.prototype;
+    [constructor, ...args] = [...arguments]
+  obj.__proto__ = constructor.prototype
 
-  constructor.apply(obj, args);
-  return obj;
+  constructor.apply(obj, args)
+  return obj
 }
 ```
-## 第二版的myNew
+
+## 第二版的 myNew
 
 经过上文的简单案例我们可以得知，
 
@@ -73,7 +102,7 @@ function myNew() {
 - `new` 通过构造函数 `Persion` 创建出来的实例可以访问到构造函数中的属性,就像这样
 
   ```js
-  console.log(xiaoMing.name); // 小明
+  console.log(xiaoMing.name) // 小明
   ```
 
 - 言简意赅：new 出来的实例对象通过原型链和构造函数联系起来
@@ -82,17 +111,17 @@ function myNew() {
 
 ```js
 function Person(name) {
-  this.name = name;
+  this.name = name
   //   return 1; // 返回内部新创建的对象
   //   return "1"; // 返回内部新创建的对象
   // return null; // 返回内部新创建的对象
   //   return undefined; // 返回内部新创建的对象
   //   return {}; // {} // 直接返回
-  return function() {}; // 直接返回
-  return [1]; // [1] // 直接返回
+  return function() {} // 直接返回
+  return [1] // [1] // 直接返回
 }
-let p = new Person("李四");
-console.log(p);
+let p = new Person('李四')
+console.log(p)
 ```
 
 有了给构造函数返回一个值得想法，那就通过不同的`数据类型` 进行测试得出结论
@@ -126,30 +155,31 @@ function myNew(){
 
 1. 一个构造函数会返回一个对象，那函数里就应该有对象
    ```js
-   let obj = {};
+   let obj = {}
    ```
 2. 并将其`__proto__`属性指向构造函数的`prototype`属性
 
    ```js
-   obj.__proto__ = constructor.prototype;
+   obj.__proto__ = constructor.prototype
    ```
 
 3. 调用构造函数，绑定 this
    ```js
-   constructor.apply(obj, args);
+   constructor.apply(obj, args)
    ```
 4. 返回原始值需要忽略，返回对象需要正常处理
 
    ```js
-   res instanceof Object ? res : obj;
+   res instanceof Object ? res : obj
    ```
 
-
 ## 箭头函数使用`new`
+
 但是 ES6 中介绍了一种无法使用这些规则的特殊函数类型：箭头函数
+
 ```js
-var Foo = () => {};
-var foo = new Foo(); // TypeError: Foo is not a constructor
+var Foo = () => {}
+var foo = new Foo() // TypeError: Foo is not a constructor
 ```
 
 - 不可以当作构造函数，也就是说，不可以使用`new`命令，否则会抛出一个错误
