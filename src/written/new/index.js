@@ -1,33 +1,33 @@
-function Person(name, age) {
-  console.log("this", this);
-  this.name = name;
-  this.age = age;
-}
-Person.prototype.height = 180;
-Person.prototype.sayName = function() {
-  console.log(this.name);
-};
-let p = new Person("yayxs", 20);
-console.log(p.name); // yayxs
-console.log(p.age);
-20;
-p.sayName(); // yayxs
-console.log(p.__proto__ === Person.prototype); // 对象p（实例）的原型属性指向构造函数的原型，
-// 这样也就保证了实例能够访问在构造函数原型中定义的属性和方法。
+// function Person(name, age) {
+//   console.log("this", this);
+//   this.name = name;
+//   this.age = age;
+// }
+// Person.prototype.height = 180;
+// Person.prototype.sayName = function() {
+//   console.log(this.name);
+// };
+// let p = new Person("yayxs", 20);
+// console.log(p.name); // yayxs
+// console.log(p.age);
+// 20;
+// p.sayName(); // yayxs
+// console.log(p.__proto__ === Person.prototype); // 对象p（实例）的原型属性指向构造函数的原型，
+// // 这样也就保证了实例能够访问在构造函数原型中定义的属性和方法。
 
-function myNew() {
-  let obj = new Object(),
-    [constructor, ...args] = [...arguments];
-  obj.__proto__ = constructor.prototype;
+// function myNew() {
+//   let obj = new Object(),
+//     [constructor, ...args] = [...arguments];
+//   obj.__proto__ = constructor.prototype;
 
-  constructor.apply(obj, args);
-  return obj;
-}
+//   constructor.apply(obj, args);
+//   return obj;
+// }
 
-function Person(name) {
-  this.name = name;
-  //   return {};
-}
+// function Person(name) {
+//   this.name = name;
+//   //   return {};
+// }
 
 // function Persion(name){
 //     this.name = name
