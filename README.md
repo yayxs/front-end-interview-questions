@@ -1,21 +1,14 @@
-## 前言
+## 开篇词
 
 你如果细心的话(可以 fork)，发现这是依赖`VuePress` 搭建的知识文档。此仓库包含**三个部分（视频+文档+案例代码）**。为什么会有这个项目，是因为我觉得基于每个前端面试题目去看原理。这也许是`破局`的较好的方式。
+我是`小洋同学` 目前就职于 xx 上市公司。不管是`一年` 或者`三年` 甚至`校招`。扪心自问，自己的知识体系是不是`一碰就碎 异常的脆弱` 建立自己的知识宇宙 本身就是一个相当漫长的过程。在这条路上 希望我们一起前行。这条战线是相当长的，需要我们阅读大量的优质经典`纸质书` + `优秀电子书` `源码` `真题` `面经` 然后进行`filter` 并且需要我们甄别（有的伙伴甚至都完不成这个过程）
+
+争做一个有主观见解的开发者而不是一个背面试题的机器。在`内卷如此严重` `焦虑各种贩卖`的环境下 ，希望你**保持乐观积极，不要落伍 吃老本就很可怕了**
 
 - 在录制视频的时候，为了更好的演示案例代码，我想到的方式是起一个前端的静态服务然后读取`SRC` 下的代码案例
 
   ```js
   // server.js
-  const express = require('express')
-  const path = require('path')
-  const app = express()
-  const serveIndex = require('serve-index')
-  app.use(serveIndex('./src')) // 进行浏览目录
-  // 利用express.static中间件来托管静态资源。
-  app.use(express.static(path.join(__dirname, 'src')))
-  app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/index.html'))
-  })
   app.listen(2021, () => {
     console.log(`http://localhost:2021`)
   })
@@ -116,7 +109,7 @@
 - [JS 中的变量提升现象 Hoisting](https://github.com/yayxs/top-fe-iqa/issues/68)
 - [ES6 块级作用域?var、let 和 const 区别的实现原理](https://github.com/yayxs/top-fe-iqa/issues/69)
 - [作用域?作用域链?](https://github.com/yayxs/top-fe-iqa/issues/52)
-- [闭包及作用闭包有哪些使用场景？优缺点是什么](https://github.com/yayxs/top-fe-iqa/issues/65)
+- [闭包及作用闭包有哪些使用场景？你如何理解 JavaScript 中的闭包？优缺点是什么](https://github.com/yayxs/top-fe-iqa/issues/65)
 - [循环体与闭包结合：for 循环中的 var 声明](https://github.com/yayxs/top-fe-iqa/issues/66)
 - [this 指向？设置 this 指向？箭头函数中 this? this 设计缺陷](https://github.com/yayxs/top-fe-iqa/issues/63)
 - [new 操作符原理？内部机制？手写实现？](https://github.com/yayxs/top-fe-iqa/issues/64)
