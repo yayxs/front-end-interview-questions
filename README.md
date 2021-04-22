@@ -118,15 +118,15 @@
 - [使用 sort 对数组进行排序[3,15,8,29,102,22]](https://github.com/yayxs/top-fe-iqa/issues/38)
 - [判断数组的方法?如何检测数组](https://github.com/yayxs/top-fe-iqa/issues/40)
 - [JS 创建对象的方式]()
-- [JavaScript 中的深拷贝实现](https://github.com/yayxs/top-fe-iqa/issues/45)
+- [如何实现一个深浅拷贝？拷贝一个很多嵌套的对象怎么实现 写成什么样的深拷贝代码才能算合格？](https://github.com/yayxs/top-fe-iqa/issues/45)
 - [for..of, for..in 和 forEach,map 的区别]()
+- [ES5/ES6 的继承 分别有哪些优缺点？ JS 的继承到底有多少种实现方式呢 ES6 的 extends 关键字是用哪种继承方式实现的呢]()
 
 ---
 
 - [do you really know JavaScript](http://javascript-puzzlers.herokuapp.com/)
 - [['1', '2', '3'].map(parseInt)](https://github.com/yayxs/top-fe-iqa/issues/37)
 - 函数科里化
-- ES5/ES6 的继承 分别有哪些优缺点？
 - 如何让 (a == 1 && a == 2 && a == 3) 的值为 true？
 
 ## 手写实现（手写代码）

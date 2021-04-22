@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <script>
+      const obj = {}
+
+      console.log(obj)
+
+
+    </script> -->
+
+    <!-- <script>
+      let animal = {
+        eats: true,
+      }
+
+      let rabbit = {
+        jump: true,
+      }
+
+      rabbit.__proto__ = animal // rabbit.[[Prototype]] = animal
+
+      console.log(rabbit.eats)
+
+     
+    </script> -->
+    <!-- <script>
+      let animal = {
+        eats: true,
+        sayHi() {
+          console.log(`--i am animal`)
+        },
+      }
+
+      let rabbit = {
+        jump: true,
+        __proto__: animal,
+      }
+      rabbit.sayHi()
+    </script> -->
+    <script>
+      let user = {
+        name: `yayxs`,
+        nickName: `vast`,
+
+        set fullName(){
+          [this.name, this.nickName] = value.split(" ");
+        },
+
+        get fullName(){
+            return `${this.name} ${this.nickName}`
+        }
+      }
+
+      let admin = {
+        __proto__:user,
+        isAdmin:true
+      }
+    </script>
+  </body>
+</html>
