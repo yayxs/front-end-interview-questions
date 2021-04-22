@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Parent() {
+        this.name = `parent-name`
+        this.hobby = [1, 2, 3]
+      }
+      function Child() {
+        this.type = `child`
+      }
+      // console.log(new Parent())
+      Child.prototype = new Parent()
+
+      // console.log(new Child())
+
+      var s1 = new Child()
+      var s2 = new Child()
+      console.log(s1)
+      console.log(s2)
+      s1.hobby.push(5)
+      console.log(s1)
+      console.log(s2)
+    </script>
+  </body>
+</html>

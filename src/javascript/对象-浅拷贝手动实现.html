@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const shallowClone = (target) => {
+        if (typeof target === 'object' && target !== null) {
+          const cloneTarget = Array.isArray(target) ? [] : {}
+
+          for (let prop in target) {
+            if (target.hasOwnProperty(prop)) {
+              cloneTarget[prop] = target[prop]
+            }
+          }
+        } else {
+          return target
+        }
+      }
+    </script>
+
+    <script>
+      function firstShallowClone(target) {
+        if (typeof target !== 'object') return
+        let result = Array.isArray(target) ? [] : {}
+        for (let k in target) {
+          if (target.hasOwnProperty(k)) {
+            result[k] = target[k]
+          }
+        }
+        return result
+      }
+    </script>
+  </body>
+</html>

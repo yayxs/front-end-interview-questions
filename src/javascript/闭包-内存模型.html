@@ -9,23 +9,29 @@
   <body>
     <script>
       function foo() {
-        var myName = ' var-foo-name '
+        var myName = '-var-foo-name '
+
         let test1 = 1
         const test2 = 2
+
         var innerBar = {
           getName: function() {
             console.log(test1)
             return myName
           },
+
           setName: function(newName) {
             myName = newName
           },
         }
+
         return innerBar
       }
       var bar = foo()
+
       bar.setName('--bar--set')
       bar.getName()
+
       console.log(bar.getName())
     </script>
   </body>
