@@ -8,15 +8,17 @@
   </head>
   <body>
     <script>
-      function varTest() {
-        var x = 1
-        if (true) {
-          var x = 2 // 同样的变量!
-          console.log(x) // 2
-        }
-        console.log(x) // 2
+      var a = 1
+      // b和c的和
+      function add(b, c) {
+        return b + c
       }
-      varTest()
+      function addAll(b, c) {
+        var d = 2
+        result = add(b, c)
+        return a + result + d // a + b + c +d
+      }
+      addAll(22, 11)
     </script>
   </body>
 </html>

@@ -57,6 +57,8 @@
 
 - [`<script>` 标签的`async` 与`defer` 有什么区别](https://github.com/yayxs/top-fe-iqa/issues/62)
 - [`DOMContentLoaded`与`load`有什么不同呢]()
+- 谈谈你对同源策略的理解以及什么是`CORS`
+- `JSONP`的原理是什么
 - `XHTML` 与`HTML` 的区别
 - 有几种文档模式（文档类型）
 - `DOM` 操作能否带来性能问题

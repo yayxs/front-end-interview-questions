@@ -8,15 +8,12 @@
   </head>
   <body>
     <script>
-      function varTest() {
-        var x = 1
-        if (true) {
-          var x = 2 // 同样的变量!
-          console.log(x) // 2
-        }
-        console.log(x) // 2
+      var a = 'a'
+      function add() {
+        var b = 'b'
+        return a + b
       }
-      varTest()
+      add()
     </script>
   </body>
 </html>
