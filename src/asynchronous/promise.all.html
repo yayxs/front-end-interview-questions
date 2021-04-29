@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function getBannerList() {
+        return new Promise((resolve, reject) => {
+          setTimeout(function() {
+            resolve(['getBannerList'])
+          }, 300)
+        })
+      }
+
+      function getStoreList() {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve(['getStoreList'])
+          }, 500)
+        })
+      }
+
+      function getCateList() {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            reject(['getCateList']) // 有一个失败的话 直接进入失败了
+          }, 700)
+        })
+      }
+
+      function init() {
+        const iterableObj = [getBannerList(), getStoreList(), getCateList()]
+
+        Promise.all(iterableObj)
+          .then((res) => {
+            console.log(res)
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+      }
+      init()
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script>
+      let url1 = 'https://jsonplaceholder.typicode.com/todos/1'
+      let url2 = 'https://jsonplaceholder.typicode.com/todos/2'
+      function myAjax(targetUrl) {
+        return new Promise((resolve, reject) => {
+          $.ajax({
+            url: targetUrl,
+            error: function(error) {
+              reject(error)
+            },
+            success: function(resData) {
+              resolve(resData)
+            },
+          })
+        })
+      }
+
+      myAjax(url1)
+        .then((data) => {
+          return myAjax(url2)
+        })
+        .catch((reason) => {
+          console.log(reason)
+        })
+    </script>
+  </body>
+</html>

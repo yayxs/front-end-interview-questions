@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script>
+      let url1 = 'https://jsonplaceholder.typicode.com/todos/1'
+      let url2 = 'https://jsonplaceholder.typicode.com/todos/2'
+      $.ajax({
+        url: url1,
+        error: function(error) {},
+        success: function(data1) {
+          console.log(data1)
+          $.ajax({
+            url: url2,
+            data: data1,
+            error: function(error) {},
+            success: function(data2) {
+              console.log(data2)
+            },
+          })
+        },
+      })
+    </script>
+  </body>
+</html>
