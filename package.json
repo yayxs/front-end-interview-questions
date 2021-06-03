@@ -1,23 +1,24 @@
 {
   "name": "top-fe-iqa",
-  "version": "1.0.0",
-  "description": "Top X Front-end Interview Questions and Better Answers",
+  "version": "2.0.0",
   "repository": "https://github.com/yayxs/top-fe-iqa.git",
-  "author": "<youngwanlia@gmail.com> or <leaderywl@163.com> ",
+  "author": "yayxs <leaderywl@163.com>",
   "license": "MIT",
-  "scripts": {
-    "docs:dev": "vuepress dev docs ",
-    "docs:build": "vuepress build docs",
-    "start": " nodemon server.js"
-  },
   "devDependencies": {
-    "@vuepress/plugin-back-to-top": "^1.7.1",
-    "nodemon": "^2.0.7",
-    "vuepress": "^1.5.4"
+    "cz-conventional-changelog": "^3.3.0",
+    "vitepress": "^0.14.0"
+  },
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs"
   },
   "dependencies": {
-    "@vuepress/plugin-nprogress": "^1.7.1",
-    "express": "^4.17.1",
     "serve-index": "^1.9.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

@@ -1,0 +1,1 @@
+import{o as t,c as e}from"./app.0c83b2b0.js";const r='{"title":"深度优先遍历与广度优先遍历","description":"","frontmatter":{"title":"深度优先遍历与广度优先遍历"},"relativePath":"guide/algorithms/depth_breadth.md","lastUpdated":1615877423017}',a={};a.render=function(r,a,d,i,o,p){return t(),e("div")};export default a;export{r as __pageData};

@@ -1,0 +1,1 @@
+import{o as n,c as s,a}from"./app.0c83b2b0.js";const t='{"title":"手写实现instanceof运算符","description":"","frontmatter":{"title":"手写实现instanceof运算符"},"relativePath":"guide/written/instanceof.md","lastUpdated":1615877423031}',p={},o=a('',5);p.render=function(a,t,p,e,c,l){return n(),s("div",null,[o])};export default p;export{t as __pageData};

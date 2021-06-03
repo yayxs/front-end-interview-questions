@@ -1,0 +1,1 @@
+import{o as t,c as e,b as r}from"./app.0c83b2b0.js";const a='{"title":"说说你对执行上下文的理解?","description":"","frontmatter":{"title":"说说你对执行上下文的理解?"},"relativePath":"guide/javascript/compiler_interpreter.md","lastUpdated":1619167188407}',i={},p=r("p",null,"一段 JS 代码是如何被执行的 更好的理解",-1);i.render=function(r,a,i,l,n,o){return t(),e("div",null,[p])};export default i;export{a as __pageData};
