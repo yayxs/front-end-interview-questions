@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bom-window</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <script>
+      // const keyMap = new Map([
+      //   [{info:'top',state:1 },function A()]
+      // ])
+      for (const key in window) {
+        if (key === "top") {
+          document.write(`${key}-------指向最上层（最外层）窗口<br /><hr />`);
+        } else if (key === "parent") {
+          document.write(`${key}-------当前窗口的上层窗口<br /><hr />`);
+        } else if (key === "self") {
+          document.write(`${key}-------它是终极window属性<br /><hr />`);
+        } else if (key === "screenLeft") {
+          document.write(`${key}-------窗口相对于屏幕左侧<br /><hr />`);
+        } else if (key === "screenTop") {
+          document.write(
+            `${key}-------窗口相对于屏幕顶部  ${window[key]}<br /><hr />`
+          );
+        } else if (key === "innerWidth") {
+          document.write(
+            `${key}-------浏览器窗口中页面视口的大小(包含浏览器边框和工具栏)${window[key]}<br /><hr />`
+          );
+        } else if (key === "innerHeight") {
+          document.write(
+            `${key}-------浏览器窗口中页面视口的大小(包含浏览器边框和工具栏)${window[key]}<br /><hr />`
+          );
+        }
+      }
+    </script>
+  </body>
+</html>

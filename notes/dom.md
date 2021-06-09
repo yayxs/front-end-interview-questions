@@ -1,0 +1,5 @@
+- 窗口之间的关系
+- 窗口位置
+- 像素比
+- 窗口的大小 innerWidth outerWidth
+- 视口位置 pageXoffset scrollX
