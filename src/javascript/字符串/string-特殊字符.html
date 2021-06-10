@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let str = `hello
+      test
+      `;
+      console.log(str.length);
+      // console.log("\u{1F60D}");
+      console.log("\\");
+      console.log(`啊Aa\n…`.length);
+      let str1 = `0123`;
+      console.log(str1[0]);
+      console.log(str1[4]); // undefined
+      console.log(str1.charAt(4) === "");
+      const str2 = `Aa123cD`;
+      console.log(str2.toUpperCase());
+      console.log(str2.toLowerCase());
+
+      let str3 = `(测试内容)名字`;
+      console.log(str3.indexOf("测试内容"));
+      console.log(str3.lastIndexOf(")"));
+
+      let str4 = ` 123`;
+      console.log(str4.includes(" 12"));
+      console.log(str4.startsWith("12"));
+
+      let str5 = `01234`;
+      console.log(str5.slice(0, 1));
+    </script>
+  </body>
+</html>

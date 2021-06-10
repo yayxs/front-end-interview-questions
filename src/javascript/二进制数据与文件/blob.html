@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="#" download="hello.txt" id="link">Dl</a>
+    <button @click="handleClick">download</button>
+    <script>
+      let blob = new Blob(["hello"], { type: "text/plain" });
+      link.href = URL.createObjectURL(blob);
+      function handleClick() {
+        let link = document.createElement("a");
+        let blob = new Blob(["hello"], { type: "text/plain" });
+        let r = new FileReader();
+        r.onload = function () {};
+      }
+    </script>
+  </body>
+</html>
