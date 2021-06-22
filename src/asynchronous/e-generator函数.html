@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function* gen() {
+        let a = yield 111;
+
+        console.log("--a--", a);
+
+        let b = yield 222;
+
+        console.log("--b--", b);
+      }
+
+      let t = gen();
+
+      t.next(1); // 没有什么打印结果
+    </script>
+    <script>
+      function* gen() {
+        yield "hello"; // 把 hello
+        yield "world";
+        return "end";
+      }
+
+      const g = gen();
+      // console.log(typeof g); // 指针对象
+      const val1 = g.next();
+      const val2 = g.next();
+      const val3 = g.next();
+
+      const val4 = g.next();
+      console.log(val1, val2, val3, val4);
+    </script>
+  </body>
+</html>
