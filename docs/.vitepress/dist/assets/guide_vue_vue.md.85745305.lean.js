@@ -1,0 +1,1 @@
+import{o as e,c as t,b as l}from"./app.78bcef79.js";const r='{"title":"你理解的Vue是什么样的？","description":"","frontmatter":{"title":"你理解的Vue是什么样的？"},"relativePath":"guide/vue/vue.md","lastUpdated":1625578115408}',u={},a=l("ul",null,[l("li",null,"组件化")],-1);u.render=function(l,r,u,i,n,o){return e(),t("div",null,[a])};export default u;export{r as __pageData};

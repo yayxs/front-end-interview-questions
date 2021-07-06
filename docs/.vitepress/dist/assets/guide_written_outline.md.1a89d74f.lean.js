@@ -1,0 +1,1 @@
+import{o as t,c as e}from"./app.78bcef79.js";const r='{"title":"手动实现高频面试题","description":"","frontmatter":{"title":"手动实现高频面试题"},"relativePath":"guide/written/outline.md","lastUpdated":1625578115412}',i={};i.render=function(r,i,o,a,n,d){return t(),e("div")};export default i;export{r as __pageData};

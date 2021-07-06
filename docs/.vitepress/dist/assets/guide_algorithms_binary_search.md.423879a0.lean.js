@@ -1,0 +1,1 @@
+import{o as t,c as e}from"./app.78bcef79.js";const r='{"title":"二分查找实现","description":"","frontmatter":{"title":"二分查找实现"},"relativePath":"guide/algorithms/binary_search.md","lastUpdated":1625578106726}',a={};a.render=function(r,a,i,o,d,n){return t(),e("div")};export default a;export{r as __pageData};

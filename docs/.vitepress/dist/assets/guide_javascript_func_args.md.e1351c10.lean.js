@@ -1,0 +1,1 @@
+import{o as n,c as s,a}from"./app.78bcef79.js";const t='{"title":"函数的参数以什么方式传递的","description":"","frontmatter":{"title":"函数的参数以什么方式传递的"},"relativePath":"guide/javascript/func_args.md","lastUpdated":1625578114885}',p={},o=a('',4);p.render=function(a,t,p,e,c,u){return n(),s("div",null,[o])};export default p;export{t as __pageData};

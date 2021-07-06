@@ -1,0 +1,1 @@
+import{o as i,c as l,a as e}from"./app.78bcef79.js";const t='{"title":"CSS有哪些样式属性是可以继承的","description":"","frontmatter":{"title":"CSS有哪些样式属性是可以继承的"},"relativePath":"guide/css/inherit.md","lastUpdated":1625583753072}',o={},p=e('',4);o.render=function(e,t,o,r,s,c){return i(),l("div",null,[p])};export default o;export{t as __pageData};

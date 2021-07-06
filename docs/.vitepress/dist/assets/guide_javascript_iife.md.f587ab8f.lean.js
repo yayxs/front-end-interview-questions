@@ -1,0 +1,1 @@
+import{o as n,c as s,a}from"./app.78bcef79.js";const t='{"title":"立即执行函数表达式","description":"","frontmatter":{"title":"立即执行函数表达式"},"relativePath":"guide/javascript/iife.md","lastUpdated":1625578115226}',p={},o=a('',2);p.render=function(a,t,p,c,e,u){return n(),s("div",null,[o])};export default p;export{t as __pageData};

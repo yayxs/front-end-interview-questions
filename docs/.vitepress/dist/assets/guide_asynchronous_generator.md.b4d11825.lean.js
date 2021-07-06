@@ -1,0 +1,1 @@
+import{o as t,c as e,b as l}from"./app.78bcef79.js";const r='{"title":"","description":"","frontmatter":{},"relativePath":"guide/asynchronous/generator.md","lastUpdated":1625578108272}',n={},a=l("ul",null,[l("li",null,"状态机"),l("li",null,"封装多个内部状态")],-1);n.render=function(l,r,n,o,i,u){return t(),e("div",null,[a])};export default n;export{r as __pageData};

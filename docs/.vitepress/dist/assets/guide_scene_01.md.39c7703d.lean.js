@@ -1,0 +1,1 @@
+import{o as n,c as s,a}from"./app.78bcef79.js";const p='{"title":"判断字符串是否为合法的IP地址","description":"","frontmatter":{"title":"判断字符串是否为合法的IP地址"},"relativePath":"guide/scene/01.md","lastUpdated":1625578115399}',t={},o=a('',3);t.render=function(a,p,t,e,c,u){return n(),s("div",null,[o])};export default t;export{p as __pageData};

@@ -1,0 +1,1 @@
+import{o as n,c as s,a}from"./app.78bcef79.js";const t='{"title":"手写实现输出由*号组成的三角形","description":"","frontmatter":{"title":"手写实现输出由*号组成的三角形"},"relativePath":"guide/written/triangle.md","lastUpdated":1625578115413}',p={},o=a('',2);p.render=function(a,t,p,e,c,u){return n(),s("div",null,[o])};export default p;export{t as __pageData};
