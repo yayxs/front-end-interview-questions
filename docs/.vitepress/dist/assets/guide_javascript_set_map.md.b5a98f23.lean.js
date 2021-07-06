@@ -1,1 +1,0 @@
-import{o as n,c as s,a}from"./app.0c83b2b0.js";const p='{"title":"Set、Map、WeakSet 和 WeakMap 的区别","description":"","frontmatter":{"title":"Set、Map、WeakSet 和 WeakMap 的区别"},"relativePath":"guide/javascript/set_map.md","lastUpdated":1615877423025}',t={},o=a('',15);t.render=function(a,p,t,c,e,u){return n(),s("div",null,[o])};export default t;export{p as __pageData};

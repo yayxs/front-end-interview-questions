@@ -1,1 +1,0 @@
-import{o as n,c as s,a}from"./app.0c83b2b0.js";const t='{"title":"new Vue的时候发生了什么","description":"","frontmatter":{"title":"new Vue的时候发生了什么"},"relativePath":"guide/vue/new-vue.md","lastUpdated":1617270167752}',p={},o=a('',16);p.render=function(a,t,p,e,c,u){return n(),s("div",null,[o])};export default p;export{t as __pageData};

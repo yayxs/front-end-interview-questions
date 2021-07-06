@@ -74,7 +74,7 @@ console.log(window.i); // 5
 console.log(i); // 5
 ```
 
-## `try catch`作用域机制
+## `try/catch`作用域机制
 
 非常少有人会注意到 JavaScript 的 ES3 规范中规定 try/catch 的 catch 分句会创建一个块作
 用域，其中声明的变量仅在 catch 内部有效。

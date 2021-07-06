@@ -1,1 +1,0 @@
-import{o as t,c as e}from"./app.0c83b2b0.js";const r='{"title":"手写实现json.parse","description":"","frontmatter":{"title":"手写实现json.parse"},"relativePath":"guide/written/json.parse.md","lastUpdated":1615877423031}',a={};a.render=function(r,a,o,s,n,i){return t(),e("div")};export default a;export{r as __pageData};

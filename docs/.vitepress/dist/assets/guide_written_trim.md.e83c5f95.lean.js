@@ -1,1 +1,0 @@
-import{o as n,c as s,a}from"./app.0c83b2b0.js";const t='{"title":"手写实现trim方法","description":"","frontmatter":{"title":"手写实现trim方法"},"relativePath":"guide/written/trim.md","lastUpdated":1615877423032}',p={},e=a('',5);p.render=function(a,t,p,o,c,l){return n(),s("div",null,[e])};export default p;export{t as __pageData};

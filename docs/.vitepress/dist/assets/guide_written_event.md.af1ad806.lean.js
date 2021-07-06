@@ -1,1 +1,0 @@
-import{o as n,c as s,a}from"./app.0c83b2b0.js";const t='{"title":"手写实现EventBus/EventEmitter","description":"","frontmatter":{"title":"手写实现EventBus/EventEmitter"},"relativePath":"guide/written/event.md","lastUpdated":1615877423030}',p={},o=a('',5);p.render=function(a,t,p,c,e,u){return n(),s("div",null,[o])};export default p;export{t as __pageData};
