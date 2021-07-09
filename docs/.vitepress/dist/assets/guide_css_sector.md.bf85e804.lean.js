@@ -1,1 +1,0 @@
-import{o as t,c as e}from"./app.78bcef79.js";const r='{"title":"","description":"","frontmatter":{"tittle":"CSS画一个扇形"},"relativePath":"guide/css/sector.md","lastUpdated":1625578109838}',o={};o.render=function(r,o,a,i,s,d){return t(),e("div")};export default o;export{r as __pageData};

@@ -1,1 +1,0 @@
-import{o as n,c as s,a}from"./app.78bcef79.js";const t='{"title":"ES6中的类","description":"","frontmatter":{"title":"ES6中的类"},"relativePath":"guide/javascript/class.md","lastUpdated":1625578111861}',p={},o=a('',4);p.render=function(a,t,p,c,e,u){return n(),s("div",null,[o])};export default p;export{t as __pageData};

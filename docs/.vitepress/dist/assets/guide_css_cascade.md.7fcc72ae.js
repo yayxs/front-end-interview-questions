@@ -1,1 +1,0 @@
-import{o as t,c as e}from"./app.78bcef79.js";const r='{"title":"谈谈你对CSS层叠的理解","description":"","frontmatter":{"title":"谈谈你对`CSS层叠`的理解"},"relativePath":"guide/css/cascade.md","lastUpdated":1625583305938}',a={};a.render=function(r,a,d,i,o,s){return t(),e("div")};export default a;export{r as __pageData};

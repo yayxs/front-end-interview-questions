@@ -1,1 +1,0 @@
-import{o as n,c as s,a}from"./app.78bcef79.js";const t='{"title":"什么时候清除浮动？如何清除浮动？原理是什么","description":"","frontmatter":{"title":"什么时候清除浮动？如何清除浮动？原理是什么"},"relativePath":"guide/css/clearfix.md","lastUpdated":1625578109835}',p={},e=a('',5);p.render=function(a,t,p,o,c,l){return n(),s("div",null,[e])};export default p;export{t as __pageData};

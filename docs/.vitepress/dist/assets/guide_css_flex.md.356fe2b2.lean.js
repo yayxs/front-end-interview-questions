@@ -1,1 +1,0 @@
-import{o as l,c as i,a as e}from"./app.78bcef79.js";const t='{"title":"请你谈谈Flexbox布局","description":"","frontmatter":{"title":"请你谈谈Flexbox布局"},"relativePath":"guide/css/flex.md","lastUpdated":1625578109836}',a={},r=e('',6);a.render=function(e,t,a,o,x,f){return l(),i("div",null,[r])};export default a;export{t as __pageData};

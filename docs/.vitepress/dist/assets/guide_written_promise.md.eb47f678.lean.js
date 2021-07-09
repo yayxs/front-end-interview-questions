@@ -1,1 +1,0 @@
-import{o as n,c as s,a}from"./app.78bcef79.js";const p='{"title":"手写实现promise","description":"","frontmatter":{"title":"手写实现promise"},"headers":[{"level":2,"title":"回调的问题","slug":"回调的问题"}],"relativePath":"guide/written/promise.md","lastUpdated":1625578115412}',t={},o=a('',20);t.render=function(a,p,t,e,c,u){return n(),s("div",null,[o])};export default t;export{p as __pageData};

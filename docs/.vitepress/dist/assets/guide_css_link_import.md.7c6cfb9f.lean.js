@@ -1,1 +1,0 @@
-import{o as i,c as s,a as t}from"./app.78bcef79.js";const l='{"title":"Link 与 @import导入css的区别","description":"","frontmatter":{"title":"Link 与 @import导入css的区别"},"relativePath":"guide/css/link_import.md","lastUpdated":1625578109836}',r={},e=t('',2);r.render=function(t,l,r,o,c,n){return i(),s("div",null,[e])};export default r;export{l as __pageData};
