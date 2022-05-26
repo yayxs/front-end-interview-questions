@@ -26,6 +26,7 @@ for (const key in window) {
   document.write(`${key}-------`);
 }
 ```
+
 ```js
 var anotherObject = {
   a: 2,
@@ -34,15 +35,17 @@ var anotherObject = {
 // 创建一个关联到 anotherObject 的对象
 var myObject = Object.create(anotherObject);
 for (var k in myObject) {
-  console.log('found: ' + k);
+  console.log("found: " + k);
 }
 // found: a
-'a' in myObject; // true
+"a" in myObject; // true
 ```
 
 ## for-of
 
 for-of 语句是一种严格的迭代语句，用于遍历可迭代对象的元素，不能获取当前元素的索引，只是获取元素值，但大多数情况是够用的。而且这样写更短,通常情况下用于处理数组,也可以迭代集合（提供了所需要的 Symbol.iterator 属性）
+
+专门用于可迭代对象：数组、字符串、集合、映射
 
 ```js
 for (let val of arr) {

@@ -1,23 +1,12 @@
 {
   "name": "top-fe-iqa",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "repository": "https://github.com/yayxs/top-fe-iqa.git",
   "author": "name:yayxs or vast email:<leaderywl@163.com>  <youngwanlia@gmail.com> B站@洋小洋同学",
   "license": "MIT",
   "devDependencies": {
     "cz-conventional-changelog": "^3.3.0",
-    "nodemon": "^2.0.7",
-    "vitepress": "^0.14.0"
-  },
-  "scripts": {
-    "dev": "nodemon server.js",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
-  },
-  "dependencies": {
-    "express": "^4.17.1",
-    "serve-index": "^1.9.1"
+    "nodemon": "^2.0.7"
   },
   "config": {
     "commitizen": {

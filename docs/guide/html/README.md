@@ -42,15 +42,6 @@ title: HTML常考面试题汇总
 - 让浏览器以标准模式渲染，所谓标准模式，使用的是`W3C`的标准；还有另外一种模式是：怪异模式
 - 让浏览器知道元素的合法性
 
-## 一般有几种`DOCTYPE `文档类型
-
-IE5.5 发明了文档模式的概念
-
-- HTML 4.01 规定了三种文档类型：Strict、Transitional 以及 Frameset。
-- XHTML 1.0 规定了三种 XML 文档类型：Strict、Transitional 以及 Frameset。
-- Standards （标准）模式（也就是严格呈现模式）用于呈现遵循最新标准的网页，
-- Quirks（包容）模式（也就是松散呈现模式或者兼容模式）用于呈现为传统浏览器而设计的网页。
-
 ## `<img />` 中 `alt` 和 `title` 的区别及作用
 
 - alt 替换资源 当图片没有显示 显示 alt 的替换文本
@@ -78,7 +69,7 @@ IE5.5 发明了文档模式的概念
 ## `html`中的`空元素`有哪些
 
 - 不包含任何内容的元素称为空元素。比如 `<img />`元素
-- `<br /> ` `<hr />` `<link/>` 等
+- `<br />` `<hr />` `<link/>` 等
 
 ## 相对路径的几种常见写法
 
@@ -102,7 +93,7 @@ IE5.5 发明了文档模式的概念
 ## `元数据meta`有哪些属性，作用是什么
 
 - `charset` 字符集 通常情况下使用 utf-8 保证编码的问题
-- `name ` 指定 meta 元素的类型，说明钙元素包含什么类型的信息
+- `name` 指定 meta 元素的类型，说明钙元素包含什么类型的信息
 - `content` 实际元数据内容
 
 ```html
@@ -167,15 +158,6 @@ IE5.5 发明了文档模式的概念
 
 - muted 布尔属性，指明了视频里的音频的默认设置。设置后，音频会初始化为静音。
 
-## `XHTML(XML)`和 `HTML5` 有什么区别
-
-| HTML                  | HTML4            | XHTML                            | HTML5                    |
-| --------------------- | ---------------- | -------------------------------- | ------------------------ |
-| HTML 指超文本标签语言 | 标签可以不结束   | XHTML 是更严谨更纯净的 HTML 版本 | HTML 5 是下一代的 HTML。 |
-| 混乱松散              | 属性不用带引号   | 标签必须结束                     | 不属于之前的规范         |
-| 属于 SGML             | 标签属性可以大写 | 属性带引号 标签属性小写          |                          |
-|                       | 脚本标签有`type` |                                  |                          |
-
 ## `form`表单的属性有哪些？作用是什么
 
 ```html
@@ -198,9 +180,9 @@ IE5.5 发明了文档模式的概念
 
 ## `table` 表格相关的属性有哪些
 
-- `width="值" ` 设置表格宽度或单元格宽度
+- `width="值"` 设置表格宽度或单元格宽度
 
-- `height="值" ` 设置表格高度或单元格高度
+- `height="值"` 设置表格高度或单元格高度
 
 - `border="值"` 设置表格边框（一般给 table 加）
 
@@ -212,7 +194,7 @@ IE5.5 发明了文档模式的概念
 
 - `valign="top|middle|bottom"` 设置单元格内容垂直对齐方式
 
-- `bgcolor="颜色值" ` 设置表格背景色（一般通过 css 样式去设置）
+- `bgcolor="颜色值"` 设置表格背景色（一般通过 css 样式去设置）
 
 - `colspan="数值"` 合并列（给 td 加）
 
@@ -265,34 +247,33 @@ IE5.5 发明了文档模式的概念
 - 渐进增强:先针对低版本浏览器写兼容，最后写标准写法
 
 ```css
-.box{ /*渐进增强写法*/
+.box {
+  /*渐进增强写法*/
 
--webkit-transition: all .5s;
+  -webkit-transition: all 0.5s;
 
-  -moz-transition: all .5s;
+  -moz-transition: all 0.5s;
 
-​    -o-transition: all .5s;
+  ​-o-transition: all 0.5s;
 
-​     transition: all .5s;
-
+  ​transition: all 0.5s;
 }
 ```
 
 - 优雅降级 先写标准写法，然后再针对各浏览器写兼容
 
 ```css
-.box{ /*优雅降级写法*/
+.box {
+  /*优雅降级写法*/
 
-​     transition: all .5s;
+  ​transition: all 0.5s;
 
-​    -o-transition: all .5s;
+  ​-o-transition: all 0.5s;
 
-  -moz-transition: all .5s;
+  -moz-transition: all 0.5s;
 
--webkit-transition: all .5s;
-
+  -webkit-transition: all 0.5s;
 }
-
 ```
 
 ## 知道的网页制作会用到的图片格式有哪些？没有了解过 webp？
